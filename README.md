@@ -1,13 +1,8 @@
-Welcome! 
+# FAIB_NSYT
+This is the repository for the provincial natural stand yield table (NSYT) production process
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+The production process and assessments document is in the [link to the documentation]
 
-This template provides a skeleton file structure that you can edit to create your book. 
+## Final product
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
-
-Additional resources:
-
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
+[link to the final product]
