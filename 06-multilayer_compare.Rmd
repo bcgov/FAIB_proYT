@@ -1,8 +1,8 @@
 # comparison with combined mulitple layers' projection
 
-Some of the VRI polygons contain multiple layers, for example, a polygon might have a primary layer (also labeled as R1 layer) and a residual layer. VDYP7 can projected these polygons by each of the layer and return yield projection for each layer within each polygon. The final yield of each polygon is the summarized projection of each layer to the polygon level. For the process of provincial NSYT, only R1 layer was input into VDYP and being projected. This chapter is to compare the summarized projection of each layer with the R1 layer only projection.
+Some of the VRI polygons contain multiple layers, for example, a polygon might have a primary layer (also labeled as R1 layer) and a residual layer. VDYP7 can projected these polygons by each of the layer and return yield projection for each layer within each polygon. The final yield of each polygon is the summarized projection of each layer to the polygon level. For the process of provincial NSYT, only R1 layer was input into VDYP and being projected. The projected yield from "R1-only" input would be different from the aggregated yield from each layer. This chapter is to compare the summarized yields of each layer with the R1 layer only projection.
 
-**numbers multi-layer polygons across the province (from vdyp_input_layer_and_polygon_2024)** 
+**Table 1. numbers multi-layer polygons across the province (from vdyp_input_layer_and_polygon_2024)** 
 ```{r tab-summary_prov,eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(kableExtra)
@@ -20,46 +20,61 @@ knitr::kable(
 
 Number of multi-layer polygons that were included in this comparison: **239198**
 
-1. mean proj_vol_dwb by projected age
+Mean projected volume net dead, waste and breakage (PRJ_VOL_DWB) across projected stand age were calculated and compared between multiple-layer projection and R1-only projection. The mean PRJ_VOL_DWB was very similar between the two projections, with the multiple-layer projection generally producing slightly higher mean values at younger ages and converging with the R1-only projection at older ages (Figure 1 and Figure 2). Even though mean PRJ_VOL_DWB was close, the individual differences can vary widely in both positive and negative directions and the variation increases over projected age (Figure 3).
+
+Figure 1. Mean PRJ_VOL_DWB by projected age
 
 ```{r fig-set1_meanvol,eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 knitr::include_graphics("data/figures/fig-set1_meanvol.png")
 ```
 
-2. mean differences and variation of proj_vol_dwb by projected age
+Figure 2. Mean differences of PRJ_VOL_DWB by projected age
 
-```{r fig-set1_diff,eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,out.width="70%"}
+```{r fig-set1_diff1,eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,out.width="70%"}
 knitr::include_graphics("data/figures/fig-set1_meandiff.png")
-knitr::include_graphics("data/figures/fig-set1_diffvar.png")
 ```
 
+Figure 3. Variation of PRJ_VOL_DWB by projected age
+
+```{r fig-set1_diff2,eval=TRUE,echo=FALSE, warning=FALSE, message=FALSE,out.width="70%"}
+knitr::include_graphics("data/figures/fig-set1_diffvar.png")
+```
 
 ## set2. r1 only vs multilayer set2 (only containing P layer and D layer)
 
 Number of multi-layer polygons that were included in this comparison: **811118**
 
-1. mean proj_vol_dwb by projected age
+The projection of P layer from multiple-layer set 2, of which each polygon contains one P layer and one D layer, was compared with R1-only projection. "R1-only" projection produces consistently higher mean PRJ_VOL_DWB than multiple-layer projection after approximately age 25, and the mean differences increased with the increase of projected age (Figure 4 and Figure 5). Individual differences varied widely mainly in the positive direction and the variation increases over projected age (Figure 6).
+
+Figure 4. Mean PRJ_VOL_DWB by projected age
 
 ```{r fig-set2_meanvol,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 knitr::include_graphics("data/figures/fig-set2_meanvol.png")
 ```
 
-2. mean differences and variation of proj_vol_dwb by projected age
+Figure 5. Mean differences of PRJ_VOL_DWB by projected age
 
-```{r fig-set2_diff,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
+```{r fig-set2_diff1,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 knitr::include_graphics("data/figures/fig-set2_meandiff.png")
+```
+
+Figure 6. Variation of PRJ_VOL_DWB by projected age
+
+```{r fig-set2_diff2,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 knitr::include_graphics("data/figures/fig-set2_diffvar.png")
 ```
 
 ## Overall - one-layer polygons + multiple-layer polygons (set1+set2)
 
-mean proj_vol_dwb after combining all polygons
+Mean PRJ_VOL_DWB were calculated by averaging the PRJ_VOL_DWB from all polygons provincially. At the provincial scale, "R1-only" projection produced higher mean PRJ_VOL_DWB (Figure 7), which is mainly driven by the 13% "P_and_D" polygons (from Table 1). Differences increase with projected age and the largest differences from this test is around 3m3/ha at age 200 (Table 2).
+
+Figure 7. Mean PRJ_VOL_DWB after combining all polygons
 
 ```{r fig-prov_diff,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE, out.width="70%"}
 knitr::include_graphics("data/figures/fig-set2_meanvol.png")
 ```
 
-statistic summary table of all polygons
+Table 2. statistic summary table of all polygons
 
 ```{r tab-comp_prov,eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
 tab <- readRDS("data/tables/tab-comp_prov.rds") 
