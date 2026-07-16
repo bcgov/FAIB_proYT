@@ -85,19 +85,24 @@ rm(file)
 
 ## Process input data
 ### VRI Project count for feature in list but not in polygon
-Are those all Private Land?
-check if those are non-treed from rank1
+Most of them are private land/ non-treed
 ```{r check_missing_polygon, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
-query <- "select distinct project, bclcs_level_2, count(*) from public.rank1_2024
-where feature_id not in (select feature_id from vdyp7_input_poly_2024) 
-group by 1,2"
-
+query <- "SELECT 
+    project, 
+    species_cd_1, 
+  count(feature_id)
+FROM 
+    public.rank1_2024 
+where  feature_id not in
+   (select distinct feature_id from  public.vdyp7_input_poly_2024)
+   group by 1,2
+   order by 3 desc"
 missing_poly <- dbGetQuery(con, query)
 kable(missing_poly,format='markdown')
 ```
 
 ### Polygons without R1 layer assigned
-- 4419 features missing rank1 
+- 4394 features missing from rank1 
 ```{r update_rank1, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 
 query <- "select count(distinct feature_id) from vdyp7_input_layer_2024 
@@ -112,14 +117,12 @@ assign rank code to polygon according to VRI standard:
 
 step1: for stands only has 1 non-dead layer, assign as rank1, needs to make sure rank's only assigned to non-dead layer
 
-step2: the first layer of a polygon (ordered by ascending layer_id) that has a crown closure greater than 10 percent and is not a D layer is assigned rank 1
+step2: next the non-D layer of a polygon that has the largest crown closure is assigned rank 1
 
-step3: For polygons without layers with a crown closure above 10, the layer with the largest crown closure that is not a D layer is assigned as rank 1
+step3: next the non-D layer of a polygon that has the largest stemps per hectare is assigned rank 1
 
-step4: check the remaining features, all of them have dead/null layer_level_code only
+step4: check the remaining features, all of them have dead/null layer_level_code only, null layer_level_code updated to 1 
 
-check the remaining features, all of them have dead/null layer_level_code only
-why are layer_level_code null - what are they?
 ```{r eval=FALSE,error=TRUE,eval = FALSE}
 
 run_sql('01_fill_rank1.sql')
@@ -129,7 +132,6 @@ where feature_id not in (select distinct feature_id from vdyp7_input_layer_2024 
 group by 1')
 
 kablep(r1)
-
 ```
 ### check & fix species comp for rank1
 
@@ -502,16 +504,18 @@ add_change <- function(log, tag) {
 # 1. Copy age1 → age2 if age2 missing & species_pct_2 > 0
 idx <- !is.na(layer_attri$species_pct_2) &
        layer_attri$species_pct_2 > 0 &
-       is.na(layer_attri$est_age_spp2) &
-       !is.na(layer_attri$est_age_spp1)
+       (is.na(layer_attri$est_age_spp2) | layer_attri$est_age_spp2 == 0) &
+       !is.na(layer_attri$est_age_spp1) &
+       layer_attri$est_age_spp1 > 0
 
 layer_attri$est_age_spp2[idx] <- layer_attri$est_age_spp1[idx]
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "AGE2_missing_assign_AGE1")
 
 idx <- !is.na(layer_attri$species_pct_2) &
        layer_attri$species_pct_2 > 0 &
-       is.na(layer_attri$est_height_spp2) &
-       !is.na(layer_attri$est_height_spp1)
+       (is.na(layer_attri$est_height_spp2) | layer_attri$est_height_spp2 == 0) &
+       !is.na(layer_attri$est_height_spp1) &
+       layer_attri$est_height_spp1 > 0
 
 layer_attri$est_height_spp2[idx] <- layer_attri$est_height_spp1[idx]
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "HT2_missing_assign_HT1")
@@ -524,12 +528,12 @@ idx <- !is.na(layer_attri$est_age_spp2) &
 layer_attri$est_age_spp2[idx] <- layer_attri$est_age_spp1[idx]
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "AGE2_gt_AGE1_fixed")
 
-idx <- !is.na(layer_attri$est_height_spp2) &
-       !is.na(layer_attri$est_height_spp1) &
-       layer_attri$est_height_spp2 > layer_attri$est_height_spp1
-
-layer_attri$est_height_spp2[idx] <- layer_attri$est_height_spp1[idx]
-layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "HT2_gt_HT1_fixed")
+# idx <- !is.na(layer_attri$est_height_spp2) &
+#        !is.na(layer_attri$est_height_spp1) &
+#        layer_attri$est_height_spp2 > layer_attri$est_height_spp1
+# 
+# layer_attri$est_height_spp2[idx] <- layer_attri$est_height_spp1[idx]
+# layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "HT2_gt_HT1_fixed")
 
 # 4. Replace height2 = -1 → 0
 idx <- !is.na(layer_attri$est_height_spp2) &
@@ -557,7 +561,7 @@ dbWriteTable(con, "prov_updated_ba_age_ht_2024", layer_attri, overwrite = TRUE, 
 
 3. Age & Height issues:
    - est_age_spp1 or est_height_spp1 is NULL
-   - est_age_spp1 > 350 (old stands, may not have yields generated)
+   - est_age_spp1 > 250 (old stands, may not have yields generated)
    - species_pct_2 > 0 but age/height missing
 
 4. density issues:
@@ -604,12 +608,16 @@ layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing 
 # 1. Copy age1 → age2 if age2 missing & species_pct_2 > 0
 idx <- !is.na(layer_attri$species_pct_2) &
        layer_attri$species_pct_2 > 0 &
-       is.na(layer_attri$est_age_spp2) 
+       (is.na(layer_attri$est_age_spp2) | layer_attri$est_age_spp2 == 0) &
+       !is.na(layer_attri$est_age_spp1) &
+       layer_attri$est_age_spp1 > 0
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing est_age_spp2")
 
 idx <- !is.na(layer_attri$species_pct_2) &
        layer_attri$species_pct_2 > 0 &
-       is.na(layer_attri$est_height_spp2)
+       (is.na(layer_attri$est_height_spp2) | layer_attri$est_height_spp2 == 0) &
+       !is.na(layer_attri$est_height_spp1) &
+       layer_attri$est_height_spp1 > 0
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing est_height_spp2")
 
 # 2. Fix age2 > age1 → copy age1
@@ -645,16 +653,16 @@ idx <- !is.na(layer_attri$species_cd_1) &
        is.na(layer_attri$est_age_spp1)
 layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing est_age_spp1")
 
-# # # having spp2 but age2 or height 2 is null
-# idx <- layer_attri$species_pct_2 > 0 &
-#        (is.na(layer_attri$est_height_spp2) |
-#         is.na(layer_attri$est_age_spp2))
-# layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing age2 or ht2")
+# # having spp2 but age2 or height 2 is null
+idx <- !is.na(layer_attri$species_pct_2) &layer_attri$species_pct_2 > 0 &
+       (is.na(layer_attri$est_height_spp2)| layer_attri$est_height_spp2 == 0 |
+        is.na(layer_attri$est_age_spp2)| layer_attri$est_age_spp2 == 0)
+layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "missing age2 or ht2")
 
 # old age
 idx <- !is.na(layer_attri$est_age_spp1) &
-       layer_attri$est_age_spp1 > 350
-layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "old age > 350")
+       layer_attri$est_age_spp1 >= 250
+layer_attri$change_log[idx] <- add_change(layer_attri$change_log[idx], "old age > 250")
 
 # SPH null
 idx <- is.na(layer_attri$stems_per_ha_75) |
@@ -720,6 +728,10 @@ FROM vdyp7_input_poly_2024;
 
 df <- dbGetQuery(con, query)
 
+query <- "SELECT distinct feature_id
+FROM vdyp7_input_poly_2024 where feature_id not in (select feature_id from vdyp7_input_layer_2024 where forest_cover_rank_code = 1);"
+
+no_layer <- dbGetQuery(con, query)
 # -----------------------------------------------
 # Initialize change tracking field
 # -----------------------------------------------
@@ -733,6 +745,15 @@ add_change <- function(log, tag) {
   )
 }
 
+# -----------------------------------------------
+# No Layer
+# -----------------------------------------------
+no_layer_idx <- df$feature_id %in% no_layer$feature_id
+
+if (any(no_layer_idx)) {
+  df$change_log[no_layer_idx] <-
+    add_change(df$change_log[no_layer_idx], "NO_LAYER")
+}
 # -----------------------------------------------
 # Check missing BEC zone
 # -----------------------------------------------
