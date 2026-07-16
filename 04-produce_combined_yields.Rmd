@@ -35,9 +35,9 @@ Species in this list are treated as deciduous.
 ```{r deciduous-species}
 decid <- c(
   "AC","ACB","ACT","AT","AD","AX",
-  "DR","E","EA","EB","EE","EP","ES","EW",
+  "DR","E","EA","EB","EE","EP","ES","EW",'LS',
   "EXP","XH","G","GP","KC","M","MB","MN","MV","Q","QG","XH",
-  "WT","WS","WP","WD","WB","WA","W",
+  "WT","WS","WP","WD","WB","WA","W", 
   "VP","VB","V","U","RA"
 )
 ```
