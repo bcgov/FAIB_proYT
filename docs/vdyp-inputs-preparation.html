@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 VDYP inputs preparation | provincial NSYT production process and assessment</title>
-  <meta name="description" content="Chapter 3 VDYP inputs preparation | provincial NSYT production process and assessment" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <title>Chapter 3 VDYP Inputs Preparation | The Consolidated Provincial Yield Table</title>
+  <meta name="description" content="Chapter 3 VDYP Inputs Preparation | The Consolidated Provincial Yield Table" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 VDYP inputs preparation | provincial NSYT production process and assessment" />
+  <meta property="og:title" content="Chapter 3 VDYP Inputs Preparation | The Consolidated Provincial Yield Table" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 VDYP inputs preparation | provincial NSYT production process and assessment" />
+  <meta name="twitter:title" content="Chapter 3 VDYP Inputs Preparation | The Consolidated Provincial Yield Table" />
   
   
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Shuyan Jiang, Kelly Izzard, Yingbing Chen" />
 
 
-<meta name="date" content="2026-06-15" />
+<meta name="date" content="2026-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
-<link rel="next" href="vdyp-projection-parameters-and-final-yield-table-development.html"/>
+<link rel="prev" href="introduction-to-the-provincial-nsyt-production-process.html"/>
+<link rel="next" href="run-vdyp7-projection.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -142,16 +142,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">provincial NSYT production process and assessment</a></li>
+<li><a href="./">The Consolidated Provincial Yield Table</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP inputs preparation</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-provincial-nsyt-production-process.html"><a href="introduction-to-the-provincial-nsyt-production-process.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Provincial NSYT Production Process</a></li>
+<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP Inputs Preparation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> load input data</a>
+<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> Load input data</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> postgres database connection</a></li>
+<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> Postgres database connection</a></li>
 <li class="chapter" data-level="3.1.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-layer-table-to-postgres"><i class="fa fa-check"></i><b>3.1.2</b> Load 2024 VDYP input layer table to postgres</a></li>
 <li class="chapter" data-level="3.1.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-polygon-table-to-postgres"><i class="fa fa-check"></i><b>3.1.3</b> Load 2024 VDYP input polygon table to postgres</a></li>
 <li class="chapter" data-level="3.1.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-rank1-2024"><i class="fa fa-check"></i><b>3.1.4</b> Load rank1 2024</a></li>
@@ -161,33 +161,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#vri-project-count-for-feature-in-list-but-not-in-polygon"><i class="fa fa-check"></i><b>3.2.1</b> VRI Project count for feature in list but not in polygon</a></li>
 <li class="chapter" data-level="3.2.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#polygons-without-r1-layer-assigned"><i class="fa fa-check"></i><b>3.2.2</b> Polygons without R1 layer assigned</a></li>
-<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> check &amp; fix species comp for rank1</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> Check &amp; fix species comp for rank1</a></li>
 <li class="chapter" data-level="3.2.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-age-height"><i class="fa fa-check"></i><b>3.2.4</b> Update Age &amp; Height</a></li>
-<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> review Basal Area, Age &amp; Height</a></li>
+<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> Review Basal Area, Age &amp; Height</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-other-veg-comp"><i class="fa fa-check"></i><b>3.2.6</b> Update Other-Veg comp</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="vdyp-projection-parameters-and-final-yield-table-development.html"><a href="vdyp-projection-parameters-and-final-yield-table-development.html"><i class="fa fa-check"></i><b>4</b> VDYP projection parameters and final yield table development</a></li>
-<li class="chapter" data-level="5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Provincial Yield table - NSYT and MSYT combined table</a>
+<li class="chapter" data-level="4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html"><i class="fa fa-check"></i><b>4</b> Run VDYP7 Projection</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#define-deciduous-species"><i class="fa fa-check"></i><b>5.2</b> Define Deciduous Species</a></li>
-<li class="chapter" data-level="5.3" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3</b> Load VDYP Yield Table</a></li>
-<li class="chapter" data-level="5.4" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-species-codes"><i class="fa fa-check"></i><b>5.4</b> Extract Species Codes</a></li>
-<li class="chapter" data-level="5.5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-projected-volumes"><i class="fa fa-check"></i><b>5.5</b> Extract Projected Volumes</a></li>
-<li class="chapter" data-level="5.6" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-conifer-and-deciduous-volume"><i class="fa fa-check"></i><b>5.6</b> Calculate Conifer and Deciduous Volume</a></li>
-<li class="chapter" data-level="5.7" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#convert-volume-table-to-wide-format"><i class="fa fa-check"></i><b>5.7</b> Convert Volume Table to Wide Format</a></li>
-<li class="chapter" data-level="5.8" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.8</b> Load MSYT Tables</a></li>
-<li class="chapter" data-level="5.9" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.9</b> Extend MSYT Curves to Age 250</a></li>
-<li class="chapter" data-level="5.10" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.10</b> Reorder MSYT Columns</a></li>
-<li class="chapter" data-level="5.11" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-output"><i class="fa fa-check"></i><b>5.11</b> Build MSYT Output</a></li>
-<li class="chapter" data-level="5.12" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-height-ratios"><i class="fa fa-check"></i><b>5.12</b> Load Height Ratios</a></li>
-<li class="chapter" data-level="5.13" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-vdyp-heights"><i class="fa fa-check"></i><b>5.13</b> Calculate VDYP Heights</a></li>
-<li class="chapter" data-level="5.14" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-vdyp-output"><i class="fa fa-check"></i><b>5.14</b> Build VDYP Output</a></li>
-<li class="chapter" data-level="5.15" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#export-final-yield-table"><i class="fa fa-check"></i><b>5.15</b> Export Final Yield Table</a></li>
-<li class="chapter" data-level="5.16" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.16</b> QA/QC Checks</a></li>
-<li class="chapter" data-level="5.17" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.17</b> Review NSYT Zero-Volume Records</a></li>
-<li class="chapter" data-level="5.18" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.18</b> Review MSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="4.1" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#vdypinr"><i class="fa fa-check"></i><b>4.1</b> VDYPinR</a></li>
+<li class="chapter" data-level="4.2" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-layer-data"><i class="fa fa-check"></i><b>4.2</b> Load and finalize VDYP input layer data</a></li>
+<li class="chapter" data-level="4.3" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-polygon-data"><i class="fa fa-check"></i><b>4.3</b> Load and finalize VDYP input polygon data</a></li>
+<li class="chapter" data-level="4.4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#set-utilization"><i class="fa fa-check"></i><b>4.4</b> Set utilization</a></li>
+<li class="chapter" data-level="4.5" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#run-vdyp7-in-parallel"><i class="fa fa-check"></i><b>4.5</b> Run VDYP7 in parallel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Consolidated Provincial Yield Table - NSYT and MSYT Combined Table</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-component"><i class="fa fa-check"></i><b>5.2</b> Build MSYT component</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.2.1</b> Load MSYT tables</a></li>
+<li class="chapter" data-level="5.2.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.2.2</b> Extend MSYT curves to age 250</a></li>
+<li class="chapter" data-level="5.2.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.2.3</b> Reorder MSYT columns</a></li>
+<li class="chapter" data-level="5.2.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-msyt-output"><i class="fa fa-check"></i><b>5.2.4</b> Finalize MSYT output</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-nsyt-component"><i class="fa fa-check"></i><b>5.3</b> Build NSYT component</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3.1</b> Load VDYP yield table</a></li>
+<li class="chapter" data-level="5.3.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-volume-and-deciduous-volume"><i class="fa fa-check"></i><b>5.3.2</b> Separate conifer volume and deciduous volume</a></li>
+<li class="chapter" data-level="5.3.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-height-and-deciduous-height"><i class="fa fa-check"></i><b>5.3.3</b> Separate conifer height and deciduous height</a></li>
+<li class="chapter" data-level="5.3.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-nsyt-tables"><i class="fa fa-check"></i><b>5.3.4</b> Finalize NSYT tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#combine-nsyt-tables-and-msyt-tables-and-export"><i class="fa fa-check"></i><b>5.4</b> Combine NSYT tables and MSYT tables and export</a></li>
+<li class="chapter" data-level="5.5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.5</b> QA/QC checks</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.1</b> Review NSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="5.5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.2</b> Review MSYT Zero-Volume Records</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html"><i class="fa fa-check"></i><b>6</b> Comparison with VRI R1</a>
 <ul>
@@ -212,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">provincial NSYT production process and assessment</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Consolidated Provincial Yield Table</a>
           </h1>
         </div>
 
@@ -221,11 +231,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="vdyp-inputs-preparation" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> VDYP inputs preparation<a href="vdyp-inputs-preparation.html#vdyp-inputs-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapter 3</span> VDYP Inputs Preparation<a href="vdyp-inputs-preparation.html#vdyp-inputs-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The following code prepares, validates, and standardizes the provincial 2024 VDYP (Variable Density Yield Prediction) input database prior to yield generation. The workflow begins by establishing a PostgreSQL database connection and loading the core provincial datasets, including the VDYP input layer table, VDYP input polygon table, rank 1 species layer assignments, and the TSA-feature lookup table. These datasets are imported into PostgreSQL where all subsequent processing and quality assurance activities are performed. The overall objective is to create a complete, standardized, and defensible provincial input dataset suitable for generating yield curves for every forested feature in the corporate inventory.</p>
+<p>The first stage of processing focuses on identifying and resolving structural data issues. The script evaluates features that exist in the VRI-derived rank 1 dataset but are missing from the VDYP polygon table and reviews polygons that do not have a rank 1 forest layer assigned. A standardized hierarchy is then applied to assign rank 1 layers where they are missing. The process prioritizes non-dead layers, crown closure, and layer order to ensure every eligible forested polygon has a representative primary layer for yield modelling. This step establishes consistent layer selection across the province and resolves thousands of missing rank assignments that would otherwise prevent yield generation.</p>
+<p>The second major component performs a comprehensive cleanup of species composition information for all rank 1 layers. Species records are converted into a standardized format, outdated species and site index codes are corrected, duplicate species entries are aggregated, dominance rankings are rebuilt, and species percentages are normalized to sum to 100 percent. Features containing invalid or missing species information are identified and flagged. All modifications are recorded in a change log to provide full transparency and quality assurance. The resulting output table, prov_updated_spp_2024, provides a province-wide, quality-controlled species composition dataset suitable for VDYP processing.</p>
+<p>The script then validates and updates basal area, age, and height information used in yield estimation. Missing secondary species ages and heights are populated from the leading species where appropriate, biologically unrealistic values are corrected, and anomalous records such as negative heights or secondary species older than leading species are adjusted. Additional quality assurance checks identify missing layer identifiers, low or missing basal area, missing age or height values, low stem densities, low crown closure values, and excessively old stand ages that may create yield generation problems. All identified issues are recorded and summarized in review tables to support subsequent data correction and verification efforts.</p>
+<p>Finally, the workflow standardizes other vegetation and land cover attributes contained in the polygon dataset. Missing numeric values are replaced with zeros, missing BEC zone codes are flagged, and vegetation, non-vegetation, and land cover percentages are checked to ensure totals do not exceed 100 percent. Where totals exceed valid limits, proportional scaling factors are applied and documented. The resulting table, prov_updated_other_veg_2024, contains corrected cover attributes, scaling ratios, and a complete audit trail of all adjustments. Collectively, these processing steps create a robust provincial VDYP input database that supports consistent yield generation and forms the foundation for developing a single provincial yield curve dataset for every feature_id in the corporate forest inventory.</p>
 <div id="load-input-data" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> load input data<a href="vdyp-inputs-preparation.html#load-input-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">3.1</span> Load input data<a href="vdyp-inputs-preparation.html#load-input-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="postgres-database-connection" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> postgres database connection<a href="vdyp-inputs-preparation.html#postgres-database-connection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">3.1.1</span> Postgres database connection<a href="vdyp-inputs-preparation.html#postgres-database-connection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="vdyp-inputs-preparation.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
 <span id="cb1-2"><a href="vdyp-inputs-preparation.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb1-3"><a href="vdyp-inputs-preparation.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -261,6 +276,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="load-2024-vdyp-input-layer-table-to-postgres" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Load 2024 VDYP input layer table to postgres<a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-layer-table-to-postgres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Provincial VDYP Input Layer is the foundational stand-level dataset used by the Variable Density Yield Projection system version 7 (VDYP7) to generate natural stand yield projections for the Provincial Natural Stand Yield Table (NSYT). Each record represents an individual forest layer within a VRI polygon and contains the inventory attributes required to construct a VDYP7 stand description, including species composition, species percentages, age, height, basal area, stems per hectare, crown closure, site index, layer classification, and biogeoclimatic information. The dataset is derived from the Provincial Vegetation Resources Inventory (VRI) and is structured to support the VDYP7 startup processes, particularly VRISTART, which transforms photo-interpreted inventory attributes into the stand descriptions used for growth and yield projection. The input layer therefore provides the critical biological and structural information needed to estimate current stand conditions and future yield development.</p>
+<p>For the Provincial NSYT initiative, the input layer was used to identify and prepare the Rank 1 (R1) forest layer for each feature, representing the leading canopy layer within a polygon. Extensive quality assurance procedures were applied to ensure that species composition, age, height, density, basal area, crown closure, and site index information were internally consistent and suitable for modelling. Because VDYP7 relies heavily on attributes such as basal area, stems per hectare, species mixtures, site productivity, and stand age to construct and project stand descriptions, input data quality directly influences projected yields. The resulting Provincial VDYP Input Layer provides a standardized, province-wide inventory foundation that enables consistent yield generation across millions of forested features and supports the development of a comprehensive provincial natural stand yield framework.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="vdyp-inputs-preparation.html#cb2-1" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">&quot;D:/data/projects/VDYP/VDYP/2024/vdyp_input_layer_2024.csv&quot;</span></span>
 <span id="cb2-2"><a href="vdyp-inputs-preparation.html#cb2-2" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="vdyp-inputs-preparation.html#cb2-3" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(file_path)</span>
@@ -271,6 +288,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="load-2024-vdyp-input-polygon-table-to-postgres" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Load 2024 VDYP input polygon table to postgres<a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-polygon-table-to-postgres" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The VDYP Polygon Table is the polygon-level companion dataset to the VDYP Input Layer table and provides the non-tree and site-level attributes required by VDYP7 to characterize each VRI feature. While the VDYP Input Layer table contains detailed forest layer information such as species composition, age, height, basal area, stems per hectare, and crown closure, the Polygon Table contains attributes that describe the overall polygon, including its area, ecological classification, vegetation cover, non-vegetated cover, land cover composition, disturbance history, and inventory metadata. Together, the layer and polygon tables provide a complete description of each forest feature required for VDYP processing.</p>
+<p>Within the Provincial NSYT workflow, the Polygon Table is used primarily to provide the ecological and land-cover context for each feature. BEC zone information is particularly important because VDYP7 applies different growth, yield, taper, decay, waste, breakage, and volume relationships depending on ecological region. Vegetation and land-cover percentages are also reviewed and standardized to ensure the combined cover values are logically consistent and do not exceed 100 percent. As part of the provincial preprocessing workflow, missing BEC codes are flagged, missing vegetation values are replaced with zeros, and vegetation, non-vegetation, and land-cover percentages are proportionally scaled when totals exceed valid limits. These quality-control procedures produce the prov_updated_other_veg_2024 table used during provincial yield generation.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vdyp-inputs-preparation.html#cb3-1" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">&quot;D:/data/projects/VDYP/VDYP/2024/vdyp_input_poly_2024.csv&quot;</span></span>
 <span id="cb3-2"><a href="vdyp-inputs-preparation.html#cb3-2" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="vdyp-inputs-preparation.html#cb3-3" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(file_path)</span>
@@ -281,6 +300,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="load-rank1-2024" class="section level3 hasAnchor" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> Load rank1 2024<a href="vdyp-inputs-preparation.html#load-rank1-2024" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Rank 1 (R1) layer represents the primary forest canopy layer within a VRI polygon and serves as the principal stand description used for most provincial forest inventory analyses. A VRI polygon may contain multiple layers, such as a primary (P) layer, residual (R) layer, veteran (V) layer, or dead (D) layer; however, the R1 layer identifies the dominant live forest layer that best characterizes the stand. The R1 record contains the key stand attributes required for growth and yield modelling, including leading and secondary species composition, species percentages, estimated age, dominant height, site index, basal area, stems per hectare, crown closure, and adjusted volume estimates. These attributes are derived through the VRI interpretation process and subsequent VDYP adjustment procedures and provide a standardized representation of the forest stand across the provincial land base.</p>
+<p>For the Provincial Natural Stand Yield Table (NSYT) project, the R1 layer was selected as the sole input layer for yield generation because it represents the dominant forest condition within each feature and provides a consistent province-wide basis for modelling. Using the R1 layer simplifies the yield generation process while retaining the stand attributes that have the greatest influence on forest productivity and timber volume.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vdyp-inputs-preparation.html#cb4-1" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">&quot;D:/data/projects/VDYP/VDYP/2024/rank1_2024.csv&quot;</span></span>
 <span id="cb4-2"><a href="vdyp-inputs-preparation.html#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="vdyp-inputs-preparation.html#cb4-3" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(file_path)</span>
@@ -304,20 +325,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Process input data<a href="vdyp-inputs-preparation.html#process-input-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="vri-project-count-for-feature-in-list-but-not-in-polygon" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> VRI Project count for feature in list but not in polygon<a href="vdyp-inputs-preparation.html#vri-project-count-for-feature-in-list-but-not-in-polygon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Are those all Private Land?
-check if those are non-treed from rank1</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vdyp-inputs-preparation.html#cb6-1" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;select distinct project, bclcs_level_2, count(*) from public.rank1_2024</span></span>
-<span id="cb6-2"><a href="vdyp-inputs-preparation.html#cb6-2" tabindex="-1"></a><span class="st">where feature_id not in (select feature_id from vdyp7_input_poly_2024) </span></span>
-<span id="cb6-3"><a href="vdyp-inputs-preparation.html#cb6-3" tabindex="-1"></a><span class="st">group by 1,2&quot;</span></span>
-<span id="cb6-4"><a href="vdyp-inputs-preparation.html#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="vdyp-inputs-preparation.html#cb6-5" tabindex="-1"></a>missing_poly <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
-<span id="cb6-6"><a href="vdyp-inputs-preparation.html#cb6-6" tabindex="-1"></a><span class="fu">kable</span>(missing_poly,<span class="at">format=</span><span class="st">&#39;markdown&#39;</span>)</span></code></pre></div>
+<p>Most of them are private land/ non-treed</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="vdyp-inputs-preparation.html#cb6-1" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;SELECT </span></span>
+<span id="cb6-2"><a href="vdyp-inputs-preparation.html#cb6-2" tabindex="-1"></a><span class="st">    project, </span></span>
+<span id="cb6-3"><a href="vdyp-inputs-preparation.html#cb6-3" tabindex="-1"></a><span class="st">    species_cd_1, </span></span>
+<span id="cb6-4"><a href="vdyp-inputs-preparation.html#cb6-4" tabindex="-1"></a><span class="st">  count(feature_id)</span></span>
+<span id="cb6-5"><a href="vdyp-inputs-preparation.html#cb6-5" tabindex="-1"></a><span class="st">FROM </span></span>
+<span id="cb6-6"><a href="vdyp-inputs-preparation.html#cb6-6" tabindex="-1"></a><span class="st">    public.rank1_2024 </span></span>
+<span id="cb6-7"><a href="vdyp-inputs-preparation.html#cb6-7" tabindex="-1"></a><span class="st">where  feature_id not in</span></span>
+<span id="cb6-8"><a href="vdyp-inputs-preparation.html#cb6-8" tabindex="-1"></a><span class="st">   (select distinct feature_id from  public.vdyp7_input_poly_2024)</span></span>
+<span id="cb6-9"><a href="vdyp-inputs-preparation.html#cb6-9" tabindex="-1"></a><span class="st">   group by 1,2</span></span>
+<span id="cb6-10"><a href="vdyp-inputs-preparation.html#cb6-10" tabindex="-1"></a><span class="st">   order by 3 desc&quot;</span></span>
+<span id="cb6-11"><a href="vdyp-inputs-preparation.html#cb6-11" tabindex="-1"></a>missing_poly <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
+<span id="cb6-12"><a href="vdyp-inputs-preparation.html#cb6-12" tabindex="-1"></a><span class="fu">kable</span>(missing_poly,<span class="at">format=</span><span class="st">&#39;markdown&#39;</span>)</span></code></pre></div>
 </div>
 <div id="polygons-without-r1-layer-assigned" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Polygons without R1 layer assigned<a href="vdyp-inputs-preparation.html#polygons-without-r1-layer-assigned" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>4419 features missing rank1</li>
-</ul>
+<p>4394 features missing from rank1</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="vdyp-inputs-preparation.html#cb7-1" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;select count(distinct feature_id) from vdyp7_input_layer_2024 </span></span>
 <span id="cb7-2"><a href="vdyp-inputs-preparation.html#cb7-2" tabindex="-1"></a><span class="st">where feature_id not in (select distinct feature_id from vdyp7_input_layer_2024 where forest_cover_rank_code = 1)</span></span>
 <span id="cb7-3"><a href="vdyp-inputs-preparation.html#cb7-3" tabindex="-1"></a><span class="st">&quot;</span></span>
@@ -326,11 +350,9 @@ check if those are non-treed from rank1</p>
 <span id="cb7-6"><a href="vdyp-inputs-preparation.html#cb7-6" tabindex="-1"></a><span class="fu">kable</span>(missing_rank,<span class="at">format=</span><span class="st">&#39;markdown&#39;</span>)</span></code></pre></div>
 <p>assign rank code to polygon according to VRI standard:</p>
 <p>step1: for stands only has 1 non-dead layer, assign as rank1, needs to make sure rank’s only assigned to non-dead layer</p>
-<p>step2: the first layer of a polygon (ordered by ascending layer_id) that has a crown closure greater than 10 percent and is not a D layer is assigned rank 1</p>
-<p>step3: For polygons without layers with a crown closure above 10, the layer with the largest crown closure that is not a D layer is assigned as rank 1</p>
-<p>step4: check the remaining features, all of them have dead/null layer_level_code only</p>
-<p>check the remaining features, all of them have dead/null layer_level_code only
-why are layer_level_code null - what are they?</p>
+<p>step2: next the non-D layer of a polygon that has the largest crown closure is assigned rank 1</p>
+<p>step3: next the non-D layer of a polygon that has the largest stemps per hectare is assigned rank 1</p>
+<p>step4: check the remaining features, all of them have dead/null layer_level_code only, null layer_level_code updated to 1</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="vdyp-inputs-preparation.html#cb8-1" tabindex="-1"></a><span class="fu">run_sql</span>(<span class="st">&#39;01_fill_rank1.sql&#39;</span>)</span>
 <span id="cb8-2"><a href="vdyp-inputs-preparation.html#cb8-2" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="vdyp-inputs-preparation.html#cb8-3" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">SQLQuery</span>(<span class="st">&#39;select distinct layer_level_code, count(feature_id) from vdyp7_input_layer_2024 </span></span>
@@ -340,7 +362,7 @@ why are layer_level_code null - what are they?</p>
 <span id="cb8-7"><a href="vdyp-inputs-preparation.html#cb8-7" tabindex="-1"></a><span class="fu">kablep</span>(r1)</span></code></pre></div>
 </div>
 <div id="check-fix-species-comp-for-rank1" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> check &amp; fix species comp for rank1<a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">3.2.3</span> Check &amp; fix species comp for rank1<a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="issues-addressed" class="section level4 hasAnchor" number="3.2.3.1">
 <h4><span class="header-section-number">3.2.3.1</span> Issues Addressed<a href="vdyp-inputs-preparation.html#issues-addressed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -727,50 +749,52 @@ why are layer_level_code null - what are they?</p>
 <span id="cb10-25"><a href="vdyp-inputs-preparation.html#cb10-25" tabindex="-1"></a><span class="co"># 1. Copy age1 → age2 if age2 missing &amp; species_pct_2 &gt; 0</span></span>
 <span id="cb10-26"><a href="vdyp-inputs-preparation.html#cb10-26" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
 <span id="cb10-27"><a href="vdyp-inputs-preparation.html#cb10-27" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
-<span id="cb10-28"><a href="vdyp-inputs-preparation.html#cb10-28" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">&amp;</span></span>
-<span id="cb10-29"><a href="vdyp-inputs-preparation.html#cb10-29" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1)</span>
-<span id="cb10-30"><a href="vdyp-inputs-preparation.html#cb10-30" tabindex="-1"></a></span>
-<span id="cb10-31"><a href="vdyp-inputs-preparation.html#cb10-31" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_age_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_age_spp1[idx]</span>
-<span id="cb10-32"><a href="vdyp-inputs-preparation.html#cb10-32" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;AGE2_missing_assign_AGE1&quot;</span>)</span>
-<span id="cb10-33"><a href="vdyp-inputs-preparation.html#cb10-33" tabindex="-1"></a></span>
-<span id="cb10-34"><a href="vdyp-inputs-preparation.html#cb10-34" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
-<span id="cb10-35"><a href="vdyp-inputs-preparation.html#cb10-35" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
-<span id="cb10-36"><a href="vdyp-inputs-preparation.html#cb10-36" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
-<span id="cb10-37"><a href="vdyp-inputs-preparation.html#cb10-37" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1)</span>
-<span id="cb10-38"><a href="vdyp-inputs-preparation.html#cb10-38" tabindex="-1"></a></span>
-<span id="cb10-39"><a href="vdyp-inputs-preparation.html#cb10-39" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_height_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_height_spp1[idx]</span>
-<span id="cb10-40"><a href="vdyp-inputs-preparation.html#cb10-40" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;HT2_missing_assign_HT1&quot;</span>)</span>
-<span id="cb10-41"><a href="vdyp-inputs-preparation.html#cb10-41" tabindex="-1"></a></span>
-<span id="cb10-42"><a href="vdyp-inputs-preparation.html#cb10-42" tabindex="-1"></a><span class="co"># 2. Fix age2 &gt; age1 → copy age1</span></span>
-<span id="cb10-43"><a href="vdyp-inputs-preparation.html#cb10-43" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">&amp;</span></span>
-<span id="cb10-44"><a href="vdyp-inputs-preparation.html#cb10-44" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
-<span id="cb10-45"><a href="vdyp-inputs-preparation.html#cb10-45" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_age_spp1</span>
-<span id="cb10-46"><a href="vdyp-inputs-preparation.html#cb10-46" tabindex="-1"></a></span>
-<span id="cb10-47"><a href="vdyp-inputs-preparation.html#cb10-47" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_age_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_age_spp1[idx]</span>
-<span id="cb10-48"><a href="vdyp-inputs-preparation.html#cb10-48" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;AGE2_gt_AGE1_fixed&quot;</span>)</span>
-<span id="cb10-49"><a href="vdyp-inputs-preparation.html#cb10-49" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="vdyp-inputs-preparation.html#cb10-50" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
-<span id="cb10-51"><a href="vdyp-inputs-preparation.html#cb10-51" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) <span class="sc">&amp;</span></span>
-<span id="cb10-52"><a href="vdyp-inputs-preparation.html#cb10-52" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_height_spp1</span>
-<span id="cb10-53"><a href="vdyp-inputs-preparation.html#cb10-53" tabindex="-1"></a></span>
-<span id="cb10-54"><a href="vdyp-inputs-preparation.html#cb10-54" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_height_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_height_spp1[idx]</span>
-<span id="cb10-55"><a href="vdyp-inputs-preparation.html#cb10-55" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;HT2_gt_HT1_fixed&quot;</span>)</span>
-<span id="cb10-56"><a href="vdyp-inputs-preparation.html#cb10-56" tabindex="-1"></a></span>
-<span id="cb10-57"><a href="vdyp-inputs-preparation.html#cb10-57" tabindex="-1"></a><span class="co"># 4. Replace height2 = -1 → 0</span></span>
-<span id="cb10-58"><a href="vdyp-inputs-preparation.html#cb10-58" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
-<span id="cb10-59"><a href="vdyp-inputs-preparation.html#cb10-59" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb10-60"><a href="vdyp-inputs-preparation.html#cb10-60" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_height_spp2[idx] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb10-61"><a href="vdyp-inputs-preparation.html#cb10-61" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;HT2_neg1_to_0&quot;</span>)</span>
-<span id="cb10-62"><a href="vdyp-inputs-preparation.html#cb10-62" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb10-63"><a href="vdyp-inputs-preparation.html#cb10-63" tabindex="-1"></a><span class="co"># If no changes occurred</span></span>
+<span id="cb10-28"><a href="vdyp-inputs-preparation.html#cb10-28" tabindex="-1"></a>       (<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">|</span> layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&amp;</span></span>
+<span id="cb10-29"><a href="vdyp-inputs-preparation.html#cb10-29" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
+<span id="cb10-30"><a href="vdyp-inputs-preparation.html#cb10-30" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp1 <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb10-31"><a href="vdyp-inputs-preparation.html#cb10-31" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="vdyp-inputs-preparation.html#cb10-32" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_age_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_age_spp1[idx]</span>
+<span id="cb10-33"><a href="vdyp-inputs-preparation.html#cb10-33" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;AGE2_missing_assign_AGE1&quot;</span>)</span>
+<span id="cb10-34"><a href="vdyp-inputs-preparation.html#cb10-34" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="vdyp-inputs-preparation.html#cb10-35" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
+<span id="cb10-36"><a href="vdyp-inputs-preparation.html#cb10-36" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
+<span id="cb10-37"><a href="vdyp-inputs-preparation.html#cb10-37" tabindex="-1"></a>       (<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">|</span> layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&amp;</span></span>
+<span id="cb10-38"><a href="vdyp-inputs-preparation.html#cb10-38" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) <span class="sc">&amp;</span></span>
+<span id="cb10-39"><a href="vdyp-inputs-preparation.html#cb10-39" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp1 <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb10-40"><a href="vdyp-inputs-preparation.html#cb10-40" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="vdyp-inputs-preparation.html#cb10-41" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_height_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_height_spp1[idx]</span>
+<span id="cb10-42"><a href="vdyp-inputs-preparation.html#cb10-42" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;HT2_missing_assign_HT1&quot;</span>)</span>
+<span id="cb10-43"><a href="vdyp-inputs-preparation.html#cb10-43" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="vdyp-inputs-preparation.html#cb10-44" tabindex="-1"></a><span class="co"># 2. Fix age2 &gt; age1 → copy age1</span></span>
+<span id="cb10-45"><a href="vdyp-inputs-preparation.html#cb10-45" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">&amp;</span></span>
+<span id="cb10-46"><a href="vdyp-inputs-preparation.html#cb10-46" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
+<span id="cb10-47"><a href="vdyp-inputs-preparation.html#cb10-47" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_age_spp1</span>
+<span id="cb10-48"><a href="vdyp-inputs-preparation.html#cb10-48" tabindex="-1"></a></span>
+<span id="cb10-49"><a href="vdyp-inputs-preparation.html#cb10-49" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_age_spp2[idx] <span class="ot">&lt;-</span> layer_attri<span class="sc">$</span>est_age_spp1[idx]</span>
+<span id="cb10-50"><a href="vdyp-inputs-preparation.html#cb10-50" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;AGE2_gt_AGE1_fixed&quot;</span>)</span>
+<span id="cb10-51"><a href="vdyp-inputs-preparation.html#cb10-51" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="vdyp-inputs-preparation.html#cb10-52" tabindex="-1"></a><span class="co"># idx &lt;- !is.na(layer_attri$est_height_spp2) &amp;</span></span>
+<span id="cb10-53"><a href="vdyp-inputs-preparation.html#cb10-53" tabindex="-1"></a><span class="co">#        !is.na(layer_attri$est_height_spp1) &amp;</span></span>
+<span id="cb10-54"><a href="vdyp-inputs-preparation.html#cb10-54" tabindex="-1"></a><span class="co">#        layer_attri$est_height_spp2 &gt; layer_attri$est_height_spp1</span></span>
+<span id="cb10-55"><a href="vdyp-inputs-preparation.html#cb10-55" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb10-56"><a href="vdyp-inputs-preparation.html#cb10-56" tabindex="-1"></a><span class="co"># layer_attri$est_height_spp2[idx] &lt;- layer_attri$est_height_spp1[idx]</span></span>
+<span id="cb10-57"><a href="vdyp-inputs-preparation.html#cb10-57" tabindex="-1"></a><span class="co"># layer_attri$change_log[idx] &lt;- add_change(layer_attri$change_log[idx], &quot;HT2_gt_HT1_fixed&quot;)</span></span>
+<span id="cb10-58"><a href="vdyp-inputs-preparation.html#cb10-58" tabindex="-1"></a></span>
+<span id="cb10-59"><a href="vdyp-inputs-preparation.html#cb10-59" tabindex="-1"></a><span class="co"># 4. Replace height2 = -1 → 0</span></span>
+<span id="cb10-60"><a href="vdyp-inputs-preparation.html#cb10-60" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
+<span id="cb10-61"><a href="vdyp-inputs-preparation.html#cb10-61" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb10-62"><a href="vdyp-inputs-preparation.html#cb10-62" tabindex="-1"></a>layer_attri<span class="sc">$</span>est_height_spp2[idx] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb10-63"><a href="vdyp-inputs-preparation.html#cb10-63" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;HT2_neg1_to_0&quot;</span>)</span>
 <span id="cb10-64"><a href="vdyp-inputs-preparation.html#cb10-64" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb10-65"><a href="vdyp-inputs-preparation.html#cb10-65" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>change_log)] <span class="ot">&lt;-</span> <span class="st">&quot;NO_ADJUSTMENT&quot;</span></span>
-<span id="cb10-66"><a href="vdyp-inputs-preparation.html#cb10-66" tabindex="-1"></a></span>
-<span id="cb10-67"><a href="vdyp-inputs-preparation.html#cb10-67" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;prov_updated_ba_age_ht_2024&quot;</span>, layer_attri, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<span id="cb10-65"><a href="vdyp-inputs-preparation.html#cb10-65" tabindex="-1"></a><span class="co"># If no changes occurred</span></span>
+<span id="cb10-66"><a href="vdyp-inputs-preparation.html#cb10-66" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb10-67"><a href="vdyp-inputs-preparation.html#cb10-67" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>change_log)] <span class="ot">&lt;-</span> <span class="st">&quot;NO_ADJUSTMENT&quot;</span></span>
+<span id="cb10-68"><a href="vdyp-inputs-preparation.html#cb10-68" tabindex="-1"></a></span>
+<span id="cb10-69"><a href="vdyp-inputs-preparation.html#cb10-69" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;prov_updated_ba_age_ht_2024&quot;</span>, layer_attri, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="review-basal-area-age-height" class="section level3 hasAnchor" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> review Basal Area, Age &amp; Height<a href="vdyp-inputs-preparation.html#review-basal-area-age-height" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">3.2.5</span> Review Basal Area, Age &amp; Height<a href="vdyp-inputs-preparation.html#review-basal-area-age-height" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="checks-performed" class="section level4 hasAnchor" number="3.2.5.1">
 <h4><span class="header-section-number">3.2.5.1</span> Checks Performed<a href="vdyp-inputs-preparation.html#checks-performed" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
@@ -786,7 +810,7 @@ why are layer_level_code null - what are they?</p>
 <li>Age &amp; Height issues:
 <ul>
 <li>est_age_spp1 or est_height_spp1 is NULL</li>
-<li>est_age_spp1 &gt; 350 (old stands, may not have yields generated)</li>
+<li>est_age_spp1 &gt; 250 (old stands, may not have yields generated)</li>
 <li>species_pct_2 &gt; 0 but age/height missing</li>
 </ul></li>
 <li>density issues:
@@ -839,69 +863,73 @@ why are layer_level_code null - what are they?</p>
 <span id="cb11-32"><a href="vdyp-inputs-preparation.html#cb11-32" tabindex="-1"></a><span class="co"># 1. Copy age1 → age2 if age2 missing &amp; species_pct_2 &gt; 0</span></span>
 <span id="cb11-33"><a href="vdyp-inputs-preparation.html#cb11-33" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
 <span id="cb11-34"><a href="vdyp-inputs-preparation.html#cb11-34" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
-<span id="cb11-35"><a href="vdyp-inputs-preparation.html#cb11-35" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) </span>
-<span id="cb11-36"><a href="vdyp-inputs-preparation.html#cb11-36" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_age_spp2&quot;</span>)</span>
-<span id="cb11-37"><a href="vdyp-inputs-preparation.html#cb11-37" tabindex="-1"></a></span>
-<span id="cb11-38"><a href="vdyp-inputs-preparation.html#cb11-38" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
-<span id="cb11-39"><a href="vdyp-inputs-preparation.html#cb11-39" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
-<span id="cb11-40"><a href="vdyp-inputs-preparation.html#cb11-40" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2)</span>
-<span id="cb11-41"><a href="vdyp-inputs-preparation.html#cb11-41" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_height_spp2&quot;</span>)</span>
-<span id="cb11-42"><a href="vdyp-inputs-preparation.html#cb11-42" tabindex="-1"></a></span>
-<span id="cb11-43"><a href="vdyp-inputs-preparation.html#cb11-43" tabindex="-1"></a><span class="co"># 2. Fix age2 &gt; age1 → copy age1</span></span>
-<span id="cb11-44"><a href="vdyp-inputs-preparation.html#cb11-44" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">&amp;</span></span>
-<span id="cb11-45"><a href="vdyp-inputs-preparation.html#cb11-45" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
-<span id="cb11-46"><a href="vdyp-inputs-preparation.html#cb11-46" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_age_spp1</span>
-<span id="cb11-47"><a href="vdyp-inputs-preparation.html#cb11-47" tabindex="-1"></a></span>
-<span id="cb11-48"><a href="vdyp-inputs-preparation.html#cb11-48" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_age_spp2 &gt; est_age_spp1&quot;</span>)</span>
-<span id="cb11-49"><a href="vdyp-inputs-preparation.html#cb11-49" tabindex="-1"></a></span>
-<span id="cb11-50"><a href="vdyp-inputs-preparation.html#cb11-50" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
-<span id="cb11-51"><a href="vdyp-inputs-preparation.html#cb11-51" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) <span class="sc">&amp;</span></span>
-<span id="cb11-52"><a href="vdyp-inputs-preparation.html#cb11-52" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_height_spp1</span>
+<span id="cb11-35"><a href="vdyp-inputs-preparation.html#cb11-35" tabindex="-1"></a>       (<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">|</span> layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&amp;</span></span>
+<span id="cb11-36"><a href="vdyp-inputs-preparation.html#cb11-36" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
+<span id="cb11-37"><a href="vdyp-inputs-preparation.html#cb11-37" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp1 <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb11-38"><a href="vdyp-inputs-preparation.html#cb11-38" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_age_spp2&quot;</span>)</span>
+<span id="cb11-39"><a href="vdyp-inputs-preparation.html#cb11-39" tabindex="-1"></a></span>
+<span id="cb11-40"><a href="vdyp-inputs-preparation.html#cb11-40" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span></span>
+<span id="cb11-41"><a href="vdyp-inputs-preparation.html#cb11-41" tabindex="-1"></a>       layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
+<span id="cb11-42"><a href="vdyp-inputs-preparation.html#cb11-42" tabindex="-1"></a>       (<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">|</span> layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">&amp;</span></span>
+<span id="cb11-43"><a href="vdyp-inputs-preparation.html#cb11-43" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) <span class="sc">&amp;</span></span>
+<span id="cb11-44"><a href="vdyp-inputs-preparation.html#cb11-44" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp1 <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb11-45"><a href="vdyp-inputs-preparation.html#cb11-45" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_height_spp2&quot;</span>)</span>
+<span id="cb11-46"><a href="vdyp-inputs-preparation.html#cb11-46" tabindex="-1"></a></span>
+<span id="cb11-47"><a href="vdyp-inputs-preparation.html#cb11-47" tabindex="-1"></a><span class="co"># 2. Fix age2 &gt; age1 → copy age1</span></span>
+<span id="cb11-48"><a href="vdyp-inputs-preparation.html#cb11-48" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2) <span class="sc">&amp;</span></span>
+<span id="cb11-49"><a href="vdyp-inputs-preparation.html#cb11-49" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
+<span id="cb11-50"><a href="vdyp-inputs-preparation.html#cb11-50" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_age_spp1</span>
+<span id="cb11-51"><a href="vdyp-inputs-preparation.html#cb11-51" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="vdyp-inputs-preparation.html#cb11-52" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_age_spp2 &gt; est_age_spp1&quot;</span>)</span>
 <span id="cb11-53"><a href="vdyp-inputs-preparation.html#cb11-53" tabindex="-1"></a></span>
-<span id="cb11-54"><a href="vdyp-inputs-preparation.html#cb11-54" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_height_spp2 &gt; est_height_spp1&quot;</span>)</span>
-<span id="cb11-55"><a href="vdyp-inputs-preparation.html#cb11-55" tabindex="-1"></a></span>
-<span id="cb11-56"><a href="vdyp-inputs-preparation.html#cb11-56" tabindex="-1"></a><span class="co"># 4. Replace height2 = -1 → 0</span></span>
-<span id="cb11-57"><a href="vdyp-inputs-preparation.html#cb11-57" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
-<span id="cb11-58"><a href="vdyp-inputs-preparation.html#cb11-58" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb11-54"><a href="vdyp-inputs-preparation.html#cb11-54" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
+<span id="cb11-55"><a href="vdyp-inputs-preparation.html#cb11-55" tabindex="-1"></a>       <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) <span class="sc">&amp;</span></span>
+<span id="cb11-56"><a href="vdyp-inputs-preparation.html#cb11-56" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">&gt;</span> layer_attri<span class="sc">$</span>est_height_spp1</span>
+<span id="cb11-57"><a href="vdyp-inputs-preparation.html#cb11-57" tabindex="-1"></a></span>
+<span id="cb11-58"><a href="vdyp-inputs-preparation.html#cb11-58" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_height_spp2 &gt; est_height_spp1&quot;</span>)</span>
 <span id="cb11-59"><a href="vdyp-inputs-preparation.html#cb11-59" tabindex="-1"></a></span>
-<span id="cb11-60"><a href="vdyp-inputs-preparation.html#cb11-60" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_height_spp2 &lt; 0&quot;</span>)</span>
-<span id="cb11-61"><a href="vdyp-inputs-preparation.html#cb11-61" tabindex="-1"></a></span>
-<span id="cb11-62"><a href="vdyp-inputs-preparation.html#cb11-62" tabindex="-1"></a><span class="co"># Basal Area &lt; 1</span></span>
-<span id="cb11-63"><a href="vdyp-inputs-preparation.html#cb11-63" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>basal_area_75) <span class="sc">|</span></span>
-<span id="cb11-64"><a href="vdyp-inputs-preparation.html#cb11-64" tabindex="-1"></a>       layer_attri<span class="sc">$</span>basal_area_75 <span class="sc">&lt;</span> <span class="dv">1</span></span>
-<span id="cb11-65"><a href="vdyp-inputs-preparation.html#cb11-65" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;BA null or lower than 1&quot;</span>)</span>
-<span id="cb11-66"><a href="vdyp-inputs-preparation.html#cb11-66" tabindex="-1"></a></span>
-<span id="cb11-67"><a href="vdyp-inputs-preparation.html#cb11-67" tabindex="-1"></a><span class="co"># age1 or height 1 is null</span></span>
-<span id="cb11-68"><a href="vdyp-inputs-preparation.html#cb11-68" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_cd_1) <span class="sc">&amp;</span></span>
-<span id="cb11-69"><a href="vdyp-inputs-preparation.html#cb11-69" tabindex="-1"></a>  <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) </span>
-<span id="cb11-70"><a href="vdyp-inputs-preparation.html#cb11-70" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_height_spp1&quot;</span>)</span>
-<span id="cb11-71"><a href="vdyp-inputs-preparation.html#cb11-71" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="vdyp-inputs-preparation.html#cb11-60" tabindex="-1"></a><span class="co"># 4. Replace height2 = -1 → 0</span></span>
+<span id="cb11-61"><a href="vdyp-inputs-preparation.html#cb11-61" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2) <span class="sc">&amp;</span></span>
+<span id="cb11-62"><a href="vdyp-inputs-preparation.html#cb11-62" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb11-63"><a href="vdyp-inputs-preparation.html#cb11-63" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="vdyp-inputs-preparation.html#cb11-64" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;est_height_spp2 &lt; 0&quot;</span>)</span>
+<span id="cb11-65"><a href="vdyp-inputs-preparation.html#cb11-65" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="vdyp-inputs-preparation.html#cb11-66" tabindex="-1"></a><span class="co"># Basal Area &lt; 1</span></span>
+<span id="cb11-67"><a href="vdyp-inputs-preparation.html#cb11-67" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>basal_area_75) <span class="sc">|</span></span>
+<span id="cb11-68"><a href="vdyp-inputs-preparation.html#cb11-68" tabindex="-1"></a>       layer_attri<span class="sc">$</span>basal_area_75 <span class="sc">&lt;</span> <span class="dv">1</span></span>
+<span id="cb11-69"><a href="vdyp-inputs-preparation.html#cb11-69" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;BA null or lower than 1&quot;</span>)</span>
+<span id="cb11-70"><a href="vdyp-inputs-preparation.html#cb11-70" tabindex="-1"></a></span>
+<span id="cb11-71"><a href="vdyp-inputs-preparation.html#cb11-71" tabindex="-1"></a><span class="co"># age1 or height 1 is null</span></span>
 <span id="cb11-72"><a href="vdyp-inputs-preparation.html#cb11-72" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_cd_1) <span class="sc">&amp;</span></span>
-<span id="cb11-73"><a href="vdyp-inputs-preparation.html#cb11-73" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1)</span>
-<span id="cb11-74"><a href="vdyp-inputs-preparation.html#cb11-74" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_age_spp1&quot;</span>)</span>
+<span id="cb11-73"><a href="vdyp-inputs-preparation.html#cb11-73" tabindex="-1"></a>  <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp1) </span>
+<span id="cb11-74"><a href="vdyp-inputs-preparation.html#cb11-74" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_height_spp1&quot;</span>)</span>
 <span id="cb11-75"><a href="vdyp-inputs-preparation.html#cb11-75" tabindex="-1"></a></span>
-<span id="cb11-76"><a href="vdyp-inputs-preparation.html#cb11-76" tabindex="-1"></a><span class="co"># # # having spp2 but age2 or height 2 is null</span></span>
-<span id="cb11-77"><a href="vdyp-inputs-preparation.html#cb11-77" tabindex="-1"></a><span class="co"># idx &lt;- layer_attri$species_pct_2 &gt; 0 &amp;</span></span>
-<span id="cb11-78"><a href="vdyp-inputs-preparation.html#cb11-78" tabindex="-1"></a><span class="co">#        (is.na(layer_attri$est_height_spp2) |</span></span>
-<span id="cb11-79"><a href="vdyp-inputs-preparation.html#cb11-79" tabindex="-1"></a><span class="co">#         is.na(layer_attri$est_age_spp2))</span></span>
-<span id="cb11-80"><a href="vdyp-inputs-preparation.html#cb11-80" tabindex="-1"></a><span class="co"># layer_attri$change_log[idx] &lt;- add_change(layer_attri$change_log[idx], &quot;missing age2 or ht2&quot;)</span></span>
-<span id="cb11-81"><a href="vdyp-inputs-preparation.html#cb11-81" tabindex="-1"></a></span>
-<span id="cb11-82"><a href="vdyp-inputs-preparation.html#cb11-82" tabindex="-1"></a><span class="co"># old age</span></span>
-<span id="cb11-83"><a href="vdyp-inputs-preparation.html#cb11-83" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
-<span id="cb11-84"><a href="vdyp-inputs-preparation.html#cb11-84" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp1 <span class="sc">&gt;</span> <span class="dv">350</span></span>
-<span id="cb11-85"><a href="vdyp-inputs-preparation.html#cb11-85" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;old age &gt; 350&quot;</span>)</span>
-<span id="cb11-86"><a href="vdyp-inputs-preparation.html#cb11-86" tabindex="-1"></a></span>
-<span id="cb11-87"><a href="vdyp-inputs-preparation.html#cb11-87" tabindex="-1"></a><span class="co"># SPH null</span></span>
-<span id="cb11-88"><a href="vdyp-inputs-preparation.html#cb11-88" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>stems_per_ha_75) <span class="sc">|</span></span>
-<span id="cb11-89"><a href="vdyp-inputs-preparation.html#cb11-89" tabindex="-1"></a>       layer_attri<span class="sc">$</span>stems_per_ha_75 <span class="sc">&lt;</span> <span class="dv">1</span></span>
-<span id="cb11-90"><a href="vdyp-inputs-preparation.html#cb11-90" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;stems_per_ha_75 null or lower than 1&quot;</span>)</span>
-<span id="cb11-91"><a href="vdyp-inputs-preparation.html#cb11-91" tabindex="-1"></a></span>
-<span id="cb11-92"><a href="vdyp-inputs-preparation.html#cb11-92" tabindex="-1"></a><span class="co"># cc null</span></span>
-<span id="cb11-93"><a href="vdyp-inputs-preparation.html#cb11-93" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>crown_closure) <span class="sc">|</span></span>
-<span id="cb11-94"><a href="vdyp-inputs-preparation.html#cb11-94" tabindex="-1"></a>       layer_attri<span class="sc">$</span>crown_closure <span class="sc">&lt;</span> <span class="dv">1</span></span>
-<span id="cb11-95"><a href="vdyp-inputs-preparation.html#cb11-95" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;crown_closure null or lower than 1&quot;</span>)</span>
-<span id="cb11-96"><a href="vdyp-inputs-preparation.html#cb11-96" tabindex="-1"></a></span>
-<span id="cb11-97"><a href="vdyp-inputs-preparation.html#cb11-97" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;prov_ba_age_ht_checks_2024&quot;</span>, layer_attri, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<span id="cb11-76"><a href="vdyp-inputs-preparation.html#cb11-76" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_cd_1) <span class="sc">&amp;</span></span>
+<span id="cb11-77"><a href="vdyp-inputs-preparation.html#cb11-77" tabindex="-1"></a>       <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1)</span>
+<span id="cb11-78"><a href="vdyp-inputs-preparation.html#cb11-78" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing est_age_spp1&quot;</span>)</span>
+<span id="cb11-79"><a href="vdyp-inputs-preparation.html#cb11-79" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="vdyp-inputs-preparation.html#cb11-80" tabindex="-1"></a><span class="co"># # having spp2 but age2 or height 2 is null</span></span>
+<span id="cb11-81"><a href="vdyp-inputs-preparation.html#cb11-81" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>species_pct_2) <span class="sc">&amp;</span>layer_attri<span class="sc">$</span>species_pct_2 <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span></span>
+<span id="cb11-82"><a href="vdyp-inputs-preparation.html#cb11-82" tabindex="-1"></a>       (<span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_height_spp2)<span class="sc">|</span> layer_attri<span class="sc">$</span>est_height_spp2 <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span></span>
+<span id="cb11-83"><a href="vdyp-inputs-preparation.html#cb11-83" tabindex="-1"></a>        <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp2)<span class="sc">|</span> layer_attri<span class="sc">$</span>est_age_spp2 <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb11-84"><a href="vdyp-inputs-preparation.html#cb11-84" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;missing age2 or ht2&quot;</span>)</span>
+<span id="cb11-85"><a href="vdyp-inputs-preparation.html#cb11-85" tabindex="-1"></a></span>
+<span id="cb11-86"><a href="vdyp-inputs-preparation.html#cb11-86" tabindex="-1"></a><span class="co"># old age</span></span>
+<span id="cb11-87"><a href="vdyp-inputs-preparation.html#cb11-87" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(layer_attri<span class="sc">$</span>est_age_spp1) <span class="sc">&amp;</span></span>
+<span id="cb11-88"><a href="vdyp-inputs-preparation.html#cb11-88" tabindex="-1"></a>       layer_attri<span class="sc">$</span>est_age_spp1 <span class="sc">&gt;=</span> <span class="dv">250</span></span>
+<span id="cb11-89"><a href="vdyp-inputs-preparation.html#cb11-89" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;old age &gt; 250&quot;</span>)</span>
+<span id="cb11-90"><a href="vdyp-inputs-preparation.html#cb11-90" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="vdyp-inputs-preparation.html#cb11-91" tabindex="-1"></a><span class="co"># SPH null</span></span>
+<span id="cb11-92"><a href="vdyp-inputs-preparation.html#cb11-92" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>stems_per_ha_75) <span class="sc">|</span></span>
+<span id="cb11-93"><a href="vdyp-inputs-preparation.html#cb11-93" tabindex="-1"></a>       layer_attri<span class="sc">$</span>stems_per_ha_75 <span class="sc">&lt;</span> <span class="dv">1</span></span>
+<span id="cb11-94"><a href="vdyp-inputs-preparation.html#cb11-94" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;stems_per_ha_75 null or lower than 1&quot;</span>)</span>
+<span id="cb11-95"><a href="vdyp-inputs-preparation.html#cb11-95" tabindex="-1"></a></span>
+<span id="cb11-96"><a href="vdyp-inputs-preparation.html#cb11-96" tabindex="-1"></a><span class="co"># cc null</span></span>
+<span id="cb11-97"><a href="vdyp-inputs-preparation.html#cb11-97" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(layer_attri<span class="sc">$</span>crown_closure) <span class="sc">|</span></span>
+<span id="cb11-98"><a href="vdyp-inputs-preparation.html#cb11-98" tabindex="-1"></a>       layer_attri<span class="sc">$</span>crown_closure <span class="sc">&lt;</span> <span class="dv">1</span></span>
+<span id="cb11-99"><a href="vdyp-inputs-preparation.html#cb11-99" tabindex="-1"></a>layer_attri<span class="sc">$</span>change_log[idx] <span class="ot">&lt;-</span> <span class="fu">add_change</span>(layer_attri<span class="sc">$</span>change_log[idx], <span class="st">&quot;crown_closure null or lower than 1&quot;</span>)</span>
+<span id="cb11-100"><a href="vdyp-inputs-preparation.html#cb11-100" tabindex="-1"></a></span>
+<span id="cb11-101"><a href="vdyp-inputs-preparation.html#cb11-101" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;prov_ba_age_ht_checks_2024&quot;</span>, layer_attri, <span class="at">overwrite =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="update-other-veg-comp" class="section level3 hasAnchor" number="3.2.6">
@@ -966,151 +994,164 @@ why are layer_level_code null - what are they?</p>
 <span id="cb12-12"><a href="vdyp-inputs-preparation.html#cb12-12" tabindex="-1"></a></span>
 <span id="cb12-13"><a href="vdyp-inputs-preparation.html#cb12-13" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
 <span id="cb12-14"><a href="vdyp-inputs-preparation.html#cb12-14" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="vdyp-inputs-preparation.html#cb12-15" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-16"><a href="vdyp-inputs-preparation.html#cb12-16" tabindex="-1"></a><span class="co"># Initialize change tracking field</span></span>
-<span id="cb12-17"><a href="vdyp-inputs-preparation.html#cb12-17" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-18"><a href="vdyp-inputs-preparation.html#cb12-18" tabindex="-1"></a>df<span class="sc">$</span>change_log <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
-<span id="cb12-19"><a href="vdyp-inputs-preparation.html#cb12-19" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="vdyp-inputs-preparation.html#cb12-20" tabindex="-1"></a>add_change <span class="ot">&lt;-</span> <span class="cf">function</span>(log, tag) {</span>
-<span id="cb12-21"><a href="vdyp-inputs-preparation.html#cb12-21" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
-<span id="cb12-22"><a href="vdyp-inputs-preparation.html#cb12-22" tabindex="-1"></a>    <span class="fu">is.na</span>(log),</span>
-<span id="cb12-23"><a href="vdyp-inputs-preparation.html#cb12-23" tabindex="-1"></a>    tag,</span>
-<span id="cb12-24"><a href="vdyp-inputs-preparation.html#cb12-24" tabindex="-1"></a>    <span class="fu">paste</span>(log, tag, <span class="at">sep =</span> <span class="st">&quot; | &quot;</span>)</span>
-<span id="cb12-25"><a href="vdyp-inputs-preparation.html#cb12-25" tabindex="-1"></a>  )</span>
-<span id="cb12-26"><a href="vdyp-inputs-preparation.html#cb12-26" tabindex="-1"></a>}</span>
-<span id="cb12-27"><a href="vdyp-inputs-preparation.html#cb12-27" tabindex="-1"></a></span>
-<span id="cb12-28"><a href="vdyp-inputs-preparation.html#cb12-28" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-29"><a href="vdyp-inputs-preparation.html#cb12-29" tabindex="-1"></a><span class="co"># Check missing BEC zone</span></span>
-<span id="cb12-30"><a href="vdyp-inputs-preparation.html#cb12-30" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-31"><a href="vdyp-inputs-preparation.html#cb12-31" tabindex="-1"></a>bec_missing_idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(df<span class="sc">$</span>bec_zone_code) <span class="sc">|</span></span>
-<span id="cb12-32"><a href="vdyp-inputs-preparation.html#cb12-32" tabindex="-1"></a>                   <span class="fu">trimws</span>(df<span class="sc">$</span>bec_zone_code) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb12-33"><a href="vdyp-inputs-preparation.html#cb12-33" tabindex="-1"></a></span>
-<span id="cb12-34"><a href="vdyp-inputs-preparation.html#cb12-34" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(bec_missing_idx)) {</span>
-<span id="cb12-35"><a href="vdyp-inputs-preparation.html#cb12-35" tabindex="-1"></a>  df<span class="sc">$</span>change_log[bec_missing_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-36"><a href="vdyp-inputs-preparation.html#cb12-36" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[bec_missing_idx], <span class="st">&quot;MISSING_BEC&quot;</span>)</span>
-<span id="cb12-37"><a href="vdyp-inputs-preparation.html#cb12-37" tabindex="-1"></a>}</span>
-<span id="cb12-38"><a href="vdyp-inputs-preparation.html#cb12-38" tabindex="-1"></a></span>
-<span id="cb12-39"><a href="vdyp-inputs-preparation.html#cb12-39" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-40"><a href="vdyp-inputs-preparation.html#cb12-40" tabindex="-1"></a><span class="co"># Replace numeric NA with 0</span></span>
+<span id="cb12-15"><a href="vdyp-inputs-preparation.html#cb12-15" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;SELECT distinct feature_id</span></span>
+<span id="cb12-16"><a href="vdyp-inputs-preparation.html#cb12-16" tabindex="-1"></a><span class="st">FROM vdyp7_input_poly_2024 where feature_id not in (select feature_id from vdyp7_input_layer_2024 where forest_cover_rank_code = 1);&quot;</span></span>
+<span id="cb12-17"><a href="vdyp-inputs-preparation.html#cb12-17" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="vdyp-inputs-preparation.html#cb12-18" tabindex="-1"></a>no_layer <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
+<span id="cb12-19"><a href="vdyp-inputs-preparation.html#cb12-19" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-20"><a href="vdyp-inputs-preparation.html#cb12-20" tabindex="-1"></a><span class="co"># Initialize change tracking field</span></span>
+<span id="cb12-21"><a href="vdyp-inputs-preparation.html#cb12-21" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-22"><a href="vdyp-inputs-preparation.html#cb12-22" tabindex="-1"></a>df<span class="sc">$</span>change_log <span class="ot">&lt;-</span> <span class="cn">NA_character_</span></span>
+<span id="cb12-23"><a href="vdyp-inputs-preparation.html#cb12-23" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="vdyp-inputs-preparation.html#cb12-24" tabindex="-1"></a>add_change <span class="ot">&lt;-</span> <span class="cf">function</span>(log, tag) {</span>
+<span id="cb12-25"><a href="vdyp-inputs-preparation.html#cb12-25" tabindex="-1"></a>  <span class="fu">ifelse</span>(</span>
+<span id="cb12-26"><a href="vdyp-inputs-preparation.html#cb12-26" tabindex="-1"></a>    <span class="fu">is.na</span>(log),</span>
+<span id="cb12-27"><a href="vdyp-inputs-preparation.html#cb12-27" tabindex="-1"></a>    tag,</span>
+<span id="cb12-28"><a href="vdyp-inputs-preparation.html#cb12-28" tabindex="-1"></a>    <span class="fu">paste</span>(log, tag, <span class="at">sep =</span> <span class="st">&quot; | &quot;</span>)</span>
+<span id="cb12-29"><a href="vdyp-inputs-preparation.html#cb12-29" tabindex="-1"></a>  )</span>
+<span id="cb12-30"><a href="vdyp-inputs-preparation.html#cb12-30" tabindex="-1"></a>}</span>
+<span id="cb12-31"><a href="vdyp-inputs-preparation.html#cb12-31" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="vdyp-inputs-preparation.html#cb12-32" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-33"><a href="vdyp-inputs-preparation.html#cb12-33" tabindex="-1"></a><span class="co"># No Layer</span></span>
+<span id="cb12-34"><a href="vdyp-inputs-preparation.html#cb12-34" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-35"><a href="vdyp-inputs-preparation.html#cb12-35" tabindex="-1"></a>no_layer_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>feature_id <span class="sc">%in%</span> no_layer<span class="sc">$</span>feature_id</span>
+<span id="cb12-36"><a href="vdyp-inputs-preparation.html#cb12-36" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="vdyp-inputs-preparation.html#cb12-37" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(no_layer_idx)) {</span>
+<span id="cb12-38"><a href="vdyp-inputs-preparation.html#cb12-38" tabindex="-1"></a>  df<span class="sc">$</span>change_log[no_layer_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-39"><a href="vdyp-inputs-preparation.html#cb12-39" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[no_layer_idx], <span class="st">&quot;NO_LAYER&quot;</span>)</span>
+<span id="cb12-40"><a href="vdyp-inputs-preparation.html#cb12-40" tabindex="-1"></a>}</span>
 <span id="cb12-41"><a href="vdyp-inputs-preparation.html#cb12-41" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-42"><a href="vdyp-inputs-preparation.html#cb12-42" tabindex="-1"></a>numeric_cols <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(df), <span class="fu">c</span>(<span class="st">&quot;feature_id&quot;</span>, <span class="st">&quot;bec_zone_code&quot;</span>, <span class="st">&quot;change_log&quot;</span>))</span>
-<span id="cb12-43"><a href="vdyp-inputs-preparation.html#cb12-43" tabindex="-1"></a>df[, numeric_cols][<span class="fu">is.na</span>(df[, numeric_cols])] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb12-44"><a href="vdyp-inputs-preparation.html#cb12-44" tabindex="-1"></a></span>
-<span id="cb12-45"><a href="vdyp-inputs-preparation.html#cb12-45" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-46"><a href="vdyp-inputs-preparation.html#cb12-46" tabindex="-1"></a><span class="co"># Vegetation Layer Scaling</span></span>
-<span id="cb12-47"><a href="vdyp-inputs-preparation.html#cb12-47" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-48"><a href="vdyp-inputs-preparation.html#cb12-48" tabindex="-1"></a>df<span class="sc">$</span>total_veg <span class="ot">&lt;-</span> df<span class="sc">$</span>shrub_crown_closure <span class="sc">+</span></span>
-<span id="cb12-49"><a href="vdyp-inputs-preparation.html#cb12-49" tabindex="-1"></a>                df<span class="sc">$</span>herb_cover_pct <span class="sc">+</span></span>
-<span id="cb12-50"><a href="vdyp-inputs-preparation.html#cb12-50" tabindex="-1"></a>                df<span class="sc">$</span>bryoid_cover_pct</span>
+<span id="cb12-42"><a href="vdyp-inputs-preparation.html#cb12-42" tabindex="-1"></a><span class="co"># Check missing BEC zone</span></span>
+<span id="cb12-43"><a href="vdyp-inputs-preparation.html#cb12-43" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-44"><a href="vdyp-inputs-preparation.html#cb12-44" tabindex="-1"></a>bec_missing_idx <span class="ot">&lt;-</span> <span class="fu">is.na</span>(df<span class="sc">$</span>bec_zone_code) <span class="sc">|</span></span>
+<span id="cb12-45"><a href="vdyp-inputs-preparation.html#cb12-45" tabindex="-1"></a>                   <span class="fu">trimws</span>(df<span class="sc">$</span>bec_zone_code) <span class="sc">==</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb12-46"><a href="vdyp-inputs-preparation.html#cb12-46" tabindex="-1"></a></span>
+<span id="cb12-47"><a href="vdyp-inputs-preparation.html#cb12-47" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(bec_missing_idx)) {</span>
+<span id="cb12-48"><a href="vdyp-inputs-preparation.html#cb12-48" tabindex="-1"></a>  df<span class="sc">$</span>change_log[bec_missing_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-49"><a href="vdyp-inputs-preparation.html#cb12-49" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[bec_missing_idx], <span class="st">&quot;MISSING_BEC&quot;</span>)</span>
+<span id="cb12-50"><a href="vdyp-inputs-preparation.html#cb12-50" tabindex="-1"></a>}</span>
 <span id="cb12-51"><a href="vdyp-inputs-preparation.html#cb12-51" tabindex="-1"></a></span>
-<span id="cb12-52"><a href="vdyp-inputs-preparation.html#cb12-52" tabindex="-1"></a>veg_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_veg <span class="sc">&gt;</span> <span class="dv">100</span></span>
-<span id="cb12-53"><a href="vdyp-inputs-preparation.html#cb12-53" tabindex="-1"></a></span>
-<span id="cb12-54"><a href="vdyp-inputs-preparation.html#cb12-54" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(veg_idx)) {</span>
-<span id="cb12-55"><a href="vdyp-inputs-preparation.html#cb12-55" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_veg[veg_idx]</span>
-<span id="cb12-56"><a href="vdyp-inputs-preparation.html#cb12-56" tabindex="-1"></a>  </span>
-<span id="cb12-57"><a href="vdyp-inputs-preparation.html#cb12-57" tabindex="-1"></a>  df<span class="sc">$</span>shrub_crown_closure[veg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-58"><a href="vdyp-inputs-preparation.html#cb12-58" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>shrub_crown_closure[veg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-59"><a href="vdyp-inputs-preparation.html#cb12-59" tabindex="-1"></a>  </span>
-<span id="cb12-60"><a href="vdyp-inputs-preparation.html#cb12-60" tabindex="-1"></a>  df<span class="sc">$</span>herb_cover_pct[veg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-61"><a href="vdyp-inputs-preparation.html#cb12-61" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>herb_cover_pct[veg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-62"><a href="vdyp-inputs-preparation.html#cb12-62" tabindex="-1"></a>  </span>
-<span id="cb12-63"><a href="vdyp-inputs-preparation.html#cb12-63" tabindex="-1"></a>  df<span class="sc">$</span>bryoid_cover_pct[veg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-64"><a href="vdyp-inputs-preparation.html#cb12-64" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>bryoid_cover_pct[veg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-65"><a href="vdyp-inputs-preparation.html#cb12-65" tabindex="-1"></a>  </span>
-<span id="cb12-66"><a href="vdyp-inputs-preparation.html#cb12-66" tabindex="-1"></a>  df<span class="sc">$</span>change_log[veg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-67"><a href="vdyp-inputs-preparation.html#cb12-67" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[veg_idx], <span class="st">&quot;VEG_SCALED_DOWN&quot;</span>)</span>
-<span id="cb12-68"><a href="vdyp-inputs-preparation.html#cb12-68" tabindex="-1"></a>}</span>
-<span id="cb12-69"><a href="vdyp-inputs-preparation.html#cb12-69" tabindex="-1"></a></span>
-<span id="cb12-70"><a href="vdyp-inputs-preparation.html#cb12-70" tabindex="-1"></a>df<span class="sc">$</span>ratio_veg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_veg <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
-<span id="cb12-71"><a href="vdyp-inputs-preparation.html#cb12-71" tabindex="-1"></a>                       <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_veg,</span>
-<span id="cb12-72"><a href="vdyp-inputs-preparation.html#cb12-72" tabindex="-1"></a>                       <span class="dv">1</span>)</span>
-<span id="cb12-73"><a href="vdyp-inputs-preparation.html#cb12-73" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="vdyp-inputs-preparation.html#cb12-74" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-75"><a href="vdyp-inputs-preparation.html#cb12-75" tabindex="-1"></a><span class="co"># Non-Vegetated Cover Scaling</span></span>
-<span id="cb12-76"><a href="vdyp-inputs-preparation.html#cb12-76" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-77"><a href="vdyp-inputs-preparation.html#cb12-77" tabindex="-1"></a>df<span class="sc">$</span>total_non_veg <span class="ot">&lt;-</span> df<span class="sc">$</span>non_veg_cover_pct_1 <span class="sc">+</span></span>
-<span id="cb12-78"><a href="vdyp-inputs-preparation.html#cb12-78" tabindex="-1"></a>                    df<span class="sc">$</span>non_veg_cover_pct_2 <span class="sc">+</span></span>
-<span id="cb12-79"><a href="vdyp-inputs-preparation.html#cb12-79" tabindex="-1"></a>                    df<span class="sc">$</span>non_veg_cover_pct_3</span>
-<span id="cb12-80"><a href="vdyp-inputs-preparation.html#cb12-80" tabindex="-1"></a></span>
-<span id="cb12-81"><a href="vdyp-inputs-preparation.html#cb12-81" tabindex="-1"></a>nonveg_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_non_veg <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb12-52"><a href="vdyp-inputs-preparation.html#cb12-52" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-53"><a href="vdyp-inputs-preparation.html#cb12-53" tabindex="-1"></a><span class="co"># Replace numeric NA with 0</span></span>
+<span id="cb12-54"><a href="vdyp-inputs-preparation.html#cb12-54" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-55"><a href="vdyp-inputs-preparation.html#cb12-55" tabindex="-1"></a>numeric_cols <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(df), <span class="fu">c</span>(<span class="st">&quot;feature_id&quot;</span>, <span class="st">&quot;bec_zone_code&quot;</span>, <span class="st">&quot;change_log&quot;</span>))</span>
+<span id="cb12-56"><a href="vdyp-inputs-preparation.html#cb12-56" tabindex="-1"></a>df[, numeric_cols][<span class="fu">is.na</span>(df[, numeric_cols])] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-57"><a href="vdyp-inputs-preparation.html#cb12-57" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="vdyp-inputs-preparation.html#cb12-58" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-59"><a href="vdyp-inputs-preparation.html#cb12-59" tabindex="-1"></a><span class="co"># Vegetation Layer Scaling</span></span>
+<span id="cb12-60"><a href="vdyp-inputs-preparation.html#cb12-60" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-61"><a href="vdyp-inputs-preparation.html#cb12-61" tabindex="-1"></a>df<span class="sc">$</span>total_veg <span class="ot">&lt;-</span> df<span class="sc">$</span>shrub_crown_closure <span class="sc">+</span></span>
+<span id="cb12-62"><a href="vdyp-inputs-preparation.html#cb12-62" tabindex="-1"></a>                df<span class="sc">$</span>herb_cover_pct <span class="sc">+</span></span>
+<span id="cb12-63"><a href="vdyp-inputs-preparation.html#cb12-63" tabindex="-1"></a>                df<span class="sc">$</span>bryoid_cover_pct</span>
+<span id="cb12-64"><a href="vdyp-inputs-preparation.html#cb12-64" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="vdyp-inputs-preparation.html#cb12-65" tabindex="-1"></a>veg_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_veg <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb12-66"><a href="vdyp-inputs-preparation.html#cb12-66" tabindex="-1"></a></span>
+<span id="cb12-67"><a href="vdyp-inputs-preparation.html#cb12-67" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(veg_idx)) {</span>
+<span id="cb12-68"><a href="vdyp-inputs-preparation.html#cb12-68" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_veg[veg_idx]</span>
+<span id="cb12-69"><a href="vdyp-inputs-preparation.html#cb12-69" tabindex="-1"></a>  </span>
+<span id="cb12-70"><a href="vdyp-inputs-preparation.html#cb12-70" tabindex="-1"></a>  df<span class="sc">$</span>shrub_crown_closure[veg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-71"><a href="vdyp-inputs-preparation.html#cb12-71" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>shrub_crown_closure[veg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-72"><a href="vdyp-inputs-preparation.html#cb12-72" tabindex="-1"></a>  </span>
+<span id="cb12-73"><a href="vdyp-inputs-preparation.html#cb12-73" tabindex="-1"></a>  df<span class="sc">$</span>herb_cover_pct[veg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-74"><a href="vdyp-inputs-preparation.html#cb12-74" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>herb_cover_pct[veg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-75"><a href="vdyp-inputs-preparation.html#cb12-75" tabindex="-1"></a>  </span>
+<span id="cb12-76"><a href="vdyp-inputs-preparation.html#cb12-76" tabindex="-1"></a>  df<span class="sc">$</span>bryoid_cover_pct[veg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-77"><a href="vdyp-inputs-preparation.html#cb12-77" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>bryoid_cover_pct[veg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-78"><a href="vdyp-inputs-preparation.html#cb12-78" tabindex="-1"></a>  </span>
+<span id="cb12-79"><a href="vdyp-inputs-preparation.html#cb12-79" tabindex="-1"></a>  df<span class="sc">$</span>change_log[veg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-80"><a href="vdyp-inputs-preparation.html#cb12-80" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[veg_idx], <span class="st">&quot;VEG_SCALED_DOWN&quot;</span>)</span>
+<span id="cb12-81"><a href="vdyp-inputs-preparation.html#cb12-81" tabindex="-1"></a>}</span>
 <span id="cb12-82"><a href="vdyp-inputs-preparation.html#cb12-82" tabindex="-1"></a></span>
-<span id="cb12-83"><a href="vdyp-inputs-preparation.html#cb12-83" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(nonveg_idx)) {</span>
-<span id="cb12-84"><a href="vdyp-inputs-preparation.html#cb12-84" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_non_veg[nonveg_idx]</span>
-<span id="cb12-85"><a href="vdyp-inputs-preparation.html#cb12-85" tabindex="-1"></a>  </span>
-<span id="cb12-86"><a href="vdyp-inputs-preparation.html#cb12-86" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_1[nonveg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-87"><a href="vdyp-inputs-preparation.html#cb12-87" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_1[nonveg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-88"><a href="vdyp-inputs-preparation.html#cb12-88" tabindex="-1"></a>  </span>
-<span id="cb12-89"><a href="vdyp-inputs-preparation.html#cb12-89" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_2[nonveg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-90"><a href="vdyp-inputs-preparation.html#cb12-90" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_2[nonveg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-91"><a href="vdyp-inputs-preparation.html#cb12-91" tabindex="-1"></a>  </span>
-<span id="cb12-92"><a href="vdyp-inputs-preparation.html#cb12-92" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_3[nonveg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-93"><a href="vdyp-inputs-preparation.html#cb12-93" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_3[nonveg_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-94"><a href="vdyp-inputs-preparation.html#cb12-94" tabindex="-1"></a>  </span>
-<span id="cb12-95"><a href="vdyp-inputs-preparation.html#cb12-95" tabindex="-1"></a>  df<span class="sc">$</span>change_log[nonveg_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-96"><a href="vdyp-inputs-preparation.html#cb12-96" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[nonveg_idx], <span class="st">&quot;NONVEG_SCALED_DOWN&quot;</span>)</span>
-<span id="cb12-97"><a href="vdyp-inputs-preparation.html#cb12-97" tabindex="-1"></a>}</span>
-<span id="cb12-98"><a href="vdyp-inputs-preparation.html#cb12-98" tabindex="-1"></a></span>
-<span id="cb12-99"><a href="vdyp-inputs-preparation.html#cb12-99" tabindex="-1"></a>df<span class="sc">$</span>ratio_non_veg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_non_veg <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
-<span id="cb12-100"><a href="vdyp-inputs-preparation.html#cb12-100" tabindex="-1"></a>                           <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_non_veg,</span>
-<span id="cb12-101"><a href="vdyp-inputs-preparation.html#cb12-101" tabindex="-1"></a>                           <span class="dv">1</span>)</span>
-<span id="cb12-102"><a href="vdyp-inputs-preparation.html#cb12-102" tabindex="-1"></a></span>
-<span id="cb12-103"><a href="vdyp-inputs-preparation.html#cb12-103" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-104"><a href="vdyp-inputs-preparation.html#cb12-104" tabindex="-1"></a><span class="co"># Land Cover Scaling</span></span>
-<span id="cb12-105"><a href="vdyp-inputs-preparation.html#cb12-105" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-106"><a href="vdyp-inputs-preparation.html#cb12-106" tabindex="-1"></a>df<span class="sc">$</span>total_land <span class="ot">&lt;-</span> df<span class="sc">$</span>land_cover_pct_1 <span class="sc">+</span></span>
-<span id="cb12-107"><a href="vdyp-inputs-preparation.html#cb12-107" tabindex="-1"></a>                 df<span class="sc">$</span>land_cover_pct_2 <span class="sc">+</span></span>
-<span id="cb12-108"><a href="vdyp-inputs-preparation.html#cb12-108" tabindex="-1"></a>                 df<span class="sc">$</span>land_cover_pct_3</span>
-<span id="cb12-109"><a href="vdyp-inputs-preparation.html#cb12-109" tabindex="-1"></a></span>
-<span id="cb12-110"><a href="vdyp-inputs-preparation.html#cb12-110" tabindex="-1"></a>land_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_land <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb12-83"><a href="vdyp-inputs-preparation.html#cb12-83" tabindex="-1"></a>df<span class="sc">$</span>ratio_veg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_veg <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
+<span id="cb12-84"><a href="vdyp-inputs-preparation.html#cb12-84" tabindex="-1"></a>                       <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_veg,</span>
+<span id="cb12-85"><a href="vdyp-inputs-preparation.html#cb12-85" tabindex="-1"></a>                       <span class="dv">1</span>)</span>
+<span id="cb12-86"><a href="vdyp-inputs-preparation.html#cb12-86" tabindex="-1"></a></span>
+<span id="cb12-87"><a href="vdyp-inputs-preparation.html#cb12-87" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-88"><a href="vdyp-inputs-preparation.html#cb12-88" tabindex="-1"></a><span class="co"># Non-Vegetated Cover Scaling</span></span>
+<span id="cb12-89"><a href="vdyp-inputs-preparation.html#cb12-89" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-90"><a href="vdyp-inputs-preparation.html#cb12-90" tabindex="-1"></a>df<span class="sc">$</span>total_non_veg <span class="ot">&lt;-</span> df<span class="sc">$</span>non_veg_cover_pct_1 <span class="sc">+</span></span>
+<span id="cb12-91"><a href="vdyp-inputs-preparation.html#cb12-91" tabindex="-1"></a>                    df<span class="sc">$</span>non_veg_cover_pct_2 <span class="sc">+</span></span>
+<span id="cb12-92"><a href="vdyp-inputs-preparation.html#cb12-92" tabindex="-1"></a>                    df<span class="sc">$</span>non_veg_cover_pct_3</span>
+<span id="cb12-93"><a href="vdyp-inputs-preparation.html#cb12-93" tabindex="-1"></a></span>
+<span id="cb12-94"><a href="vdyp-inputs-preparation.html#cb12-94" tabindex="-1"></a>nonveg_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_non_veg <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb12-95"><a href="vdyp-inputs-preparation.html#cb12-95" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="vdyp-inputs-preparation.html#cb12-96" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(nonveg_idx)) {</span>
+<span id="cb12-97"><a href="vdyp-inputs-preparation.html#cb12-97" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_non_veg[nonveg_idx]</span>
+<span id="cb12-98"><a href="vdyp-inputs-preparation.html#cb12-98" tabindex="-1"></a>  </span>
+<span id="cb12-99"><a href="vdyp-inputs-preparation.html#cb12-99" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_1[nonveg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-100"><a href="vdyp-inputs-preparation.html#cb12-100" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_1[nonveg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-101"><a href="vdyp-inputs-preparation.html#cb12-101" tabindex="-1"></a>  </span>
+<span id="cb12-102"><a href="vdyp-inputs-preparation.html#cb12-102" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_2[nonveg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-103"><a href="vdyp-inputs-preparation.html#cb12-103" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_2[nonveg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-104"><a href="vdyp-inputs-preparation.html#cb12-104" tabindex="-1"></a>  </span>
+<span id="cb12-105"><a href="vdyp-inputs-preparation.html#cb12-105" tabindex="-1"></a>  df<span class="sc">$</span>non_veg_cover_pct_3[nonveg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-106"><a href="vdyp-inputs-preparation.html#cb12-106" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>non_veg_cover_pct_3[nonveg_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-107"><a href="vdyp-inputs-preparation.html#cb12-107" tabindex="-1"></a>  </span>
+<span id="cb12-108"><a href="vdyp-inputs-preparation.html#cb12-108" tabindex="-1"></a>  df<span class="sc">$</span>change_log[nonveg_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-109"><a href="vdyp-inputs-preparation.html#cb12-109" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[nonveg_idx], <span class="st">&quot;NONVEG_SCALED_DOWN&quot;</span>)</span>
+<span id="cb12-110"><a href="vdyp-inputs-preparation.html#cb12-110" tabindex="-1"></a>}</span>
 <span id="cb12-111"><a href="vdyp-inputs-preparation.html#cb12-111" tabindex="-1"></a></span>
-<span id="cb12-112"><a href="vdyp-inputs-preparation.html#cb12-112" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(land_idx)) {</span>
-<span id="cb12-113"><a href="vdyp-inputs-preparation.html#cb12-113" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_land[land_idx]</span>
-<span id="cb12-114"><a href="vdyp-inputs-preparation.html#cb12-114" tabindex="-1"></a>  </span>
-<span id="cb12-115"><a href="vdyp-inputs-preparation.html#cb12-115" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_1[land_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-116"><a href="vdyp-inputs-preparation.html#cb12-116" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_1[land_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-117"><a href="vdyp-inputs-preparation.html#cb12-117" tabindex="-1"></a>  </span>
-<span id="cb12-118"><a href="vdyp-inputs-preparation.html#cb12-118" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_2[land_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-119"><a href="vdyp-inputs-preparation.html#cb12-119" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_2[land_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-120"><a href="vdyp-inputs-preparation.html#cb12-120" tabindex="-1"></a>  </span>
-<span id="cb12-121"><a href="vdyp-inputs-preparation.html#cb12-121" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_3[land_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-122"><a href="vdyp-inputs-preparation.html#cb12-122" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_3[land_idx] <span class="sc">*</span> ratio)</span>
-<span id="cb12-123"><a href="vdyp-inputs-preparation.html#cb12-123" tabindex="-1"></a>  </span>
-<span id="cb12-124"><a href="vdyp-inputs-preparation.html#cb12-124" tabindex="-1"></a>  df<span class="sc">$</span>change_log[land_idx] <span class="ot">&lt;-</span></span>
-<span id="cb12-125"><a href="vdyp-inputs-preparation.html#cb12-125" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[land_idx], <span class="st">&quot;LANDCOVER_SCALED_DOWN&quot;</span>)</span>
-<span id="cb12-126"><a href="vdyp-inputs-preparation.html#cb12-126" tabindex="-1"></a>}</span>
-<span id="cb12-127"><a href="vdyp-inputs-preparation.html#cb12-127" tabindex="-1"></a></span>
-<span id="cb12-128"><a href="vdyp-inputs-preparation.html#cb12-128" tabindex="-1"></a>df<span class="sc">$</span>ratio_land <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_land <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
-<span id="cb12-129"><a href="vdyp-inputs-preparation.html#cb12-129" tabindex="-1"></a>                        <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_land,</span>
-<span id="cb12-130"><a href="vdyp-inputs-preparation.html#cb12-130" tabindex="-1"></a>                        <span class="dv">1</span>)</span>
-<span id="cb12-131"><a href="vdyp-inputs-preparation.html#cb12-131" tabindex="-1"></a></span>
-<span id="cb12-132"><a href="vdyp-inputs-preparation.html#cb12-132" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-133"><a href="vdyp-inputs-preparation.html#cb12-133" tabindex="-1"></a><span class="co"># If no changes occurred</span></span>
-<span id="cb12-134"><a href="vdyp-inputs-preparation.html#cb12-134" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-135"><a href="vdyp-inputs-preparation.html#cb12-135" tabindex="-1"></a>df<span class="sc">$</span>change_log[<span class="fu">is.na</span>(df<span class="sc">$</span>change_log)] <span class="ot">&lt;-</span> <span class="st">&quot;NO_ADJUSTMENT&quot;</span></span>
-<span id="cb12-136"><a href="vdyp-inputs-preparation.html#cb12-136" tabindex="-1"></a></span>
-<span id="cb12-137"><a href="vdyp-inputs-preparation.html#cb12-137" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-138"><a href="vdyp-inputs-preparation.html#cb12-138" tabindex="-1"></a><span class="co"># Final Output</span></span>
-<span id="cb12-139"><a href="vdyp-inputs-preparation.html#cb12-139" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
-<span id="cb12-140"><a href="vdyp-inputs-preparation.html#cb12-140" tabindex="-1"></a>updated_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb12-141"><a href="vdyp-inputs-preparation.html#cb12-141" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb12-142"><a href="vdyp-inputs-preparation.html#cb12-142" tabindex="-1"></a>    feature_id,</span>
-<span id="cb12-143"><a href="vdyp-inputs-preparation.html#cb12-143" tabindex="-1"></a>    bec_zone_code,</span>
-<span id="cb12-144"><a href="vdyp-inputs-preparation.html#cb12-144" tabindex="-1"></a>    shrub_crown_closure, herb_cover_pct, bryoid_cover_pct,</span>
-<span id="cb12-145"><a href="vdyp-inputs-preparation.html#cb12-145" tabindex="-1"></a>    non_veg_cover_pct_1, non_veg_cover_pct_2, non_veg_cover_pct_3,</span>
-<span id="cb12-146"><a href="vdyp-inputs-preparation.html#cb12-146" tabindex="-1"></a>    land_cover_pct_1, land_cover_pct_2, land_cover_pct_3,</span>
-<span id="cb12-147"><a href="vdyp-inputs-preparation.html#cb12-147" tabindex="-1"></a>    total_veg, ratio_veg,</span>
-<span id="cb12-148"><a href="vdyp-inputs-preparation.html#cb12-148" tabindex="-1"></a>    total_non_veg, ratio_non_veg,</span>
-<span id="cb12-149"><a href="vdyp-inputs-preparation.html#cb12-149" tabindex="-1"></a>    total_land, ratio_land,</span>
-<span id="cb12-150"><a href="vdyp-inputs-preparation.html#cb12-150" tabindex="-1"></a>    change_log</span>
-<span id="cb12-151"><a href="vdyp-inputs-preparation.html#cb12-151" tabindex="-1"></a>  )</span>
-<span id="cb12-152"><a href="vdyp-inputs-preparation.html#cb12-152" tabindex="-1"></a></span>
-<span id="cb12-153"><a href="vdyp-inputs-preparation.html#cb12-153" tabindex="-1"></a><span class="fu">dbWriteTable</span>(</span>
-<span id="cb12-154"><a href="vdyp-inputs-preparation.html#cb12-154" tabindex="-1"></a>  con,</span>
-<span id="cb12-155"><a href="vdyp-inputs-preparation.html#cb12-155" tabindex="-1"></a>  <span class="st">&quot;prov_updated_other_veg_2024&quot;</span>,</span>
-<span id="cb12-156"><a href="vdyp-inputs-preparation.html#cb12-156" tabindex="-1"></a>  updated_df,</span>
-<span id="cb12-157"><a href="vdyp-inputs-preparation.html#cb12-157" tabindex="-1"></a>  <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-158"><a href="vdyp-inputs-preparation.html#cb12-158" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span></span>
-<span id="cb12-159"><a href="vdyp-inputs-preparation.html#cb12-159" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb12-112"><a href="vdyp-inputs-preparation.html#cb12-112" tabindex="-1"></a>df<span class="sc">$</span>ratio_non_veg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_non_veg <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
+<span id="cb12-113"><a href="vdyp-inputs-preparation.html#cb12-113" tabindex="-1"></a>                           <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_non_veg,</span>
+<span id="cb12-114"><a href="vdyp-inputs-preparation.html#cb12-114" tabindex="-1"></a>                           <span class="dv">1</span>)</span>
+<span id="cb12-115"><a href="vdyp-inputs-preparation.html#cb12-115" tabindex="-1"></a></span>
+<span id="cb12-116"><a href="vdyp-inputs-preparation.html#cb12-116" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-117"><a href="vdyp-inputs-preparation.html#cb12-117" tabindex="-1"></a><span class="co"># Land Cover Scaling</span></span>
+<span id="cb12-118"><a href="vdyp-inputs-preparation.html#cb12-118" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-119"><a href="vdyp-inputs-preparation.html#cb12-119" tabindex="-1"></a>df<span class="sc">$</span>total_land <span class="ot">&lt;-</span> df<span class="sc">$</span>land_cover_pct_1 <span class="sc">+</span></span>
+<span id="cb12-120"><a href="vdyp-inputs-preparation.html#cb12-120" tabindex="-1"></a>                 df<span class="sc">$</span>land_cover_pct_2 <span class="sc">+</span></span>
+<span id="cb12-121"><a href="vdyp-inputs-preparation.html#cb12-121" tabindex="-1"></a>                 df<span class="sc">$</span>land_cover_pct_3</span>
+<span id="cb12-122"><a href="vdyp-inputs-preparation.html#cb12-122" tabindex="-1"></a></span>
+<span id="cb12-123"><a href="vdyp-inputs-preparation.html#cb12-123" tabindex="-1"></a>land_idx <span class="ot">&lt;-</span> df<span class="sc">$</span>total_land <span class="sc">&gt;</span> <span class="dv">100</span></span>
+<span id="cb12-124"><a href="vdyp-inputs-preparation.html#cb12-124" tabindex="-1"></a></span>
+<span id="cb12-125"><a href="vdyp-inputs-preparation.html#cb12-125" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(land_idx)) {</span>
+<span id="cb12-126"><a href="vdyp-inputs-preparation.html#cb12-126" tabindex="-1"></a>  ratio <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_land[land_idx]</span>
+<span id="cb12-127"><a href="vdyp-inputs-preparation.html#cb12-127" tabindex="-1"></a>  </span>
+<span id="cb12-128"><a href="vdyp-inputs-preparation.html#cb12-128" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_1[land_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-129"><a href="vdyp-inputs-preparation.html#cb12-129" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_1[land_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-130"><a href="vdyp-inputs-preparation.html#cb12-130" tabindex="-1"></a>  </span>
+<span id="cb12-131"><a href="vdyp-inputs-preparation.html#cb12-131" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_2[land_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-132"><a href="vdyp-inputs-preparation.html#cb12-132" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_2[land_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-133"><a href="vdyp-inputs-preparation.html#cb12-133" tabindex="-1"></a>  </span>
+<span id="cb12-134"><a href="vdyp-inputs-preparation.html#cb12-134" tabindex="-1"></a>  df<span class="sc">$</span>land_cover_pct_3[land_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-135"><a href="vdyp-inputs-preparation.html#cb12-135" tabindex="-1"></a>    <span class="fu">floor</span>(df<span class="sc">$</span>land_cover_pct_3[land_idx] <span class="sc">*</span> ratio)</span>
+<span id="cb12-136"><a href="vdyp-inputs-preparation.html#cb12-136" tabindex="-1"></a>  </span>
+<span id="cb12-137"><a href="vdyp-inputs-preparation.html#cb12-137" tabindex="-1"></a>  df<span class="sc">$</span>change_log[land_idx] <span class="ot">&lt;-</span></span>
+<span id="cb12-138"><a href="vdyp-inputs-preparation.html#cb12-138" tabindex="-1"></a>    <span class="fu">add_change</span>(df<span class="sc">$</span>change_log[land_idx], <span class="st">&quot;LANDCOVER_SCALED_DOWN&quot;</span>)</span>
+<span id="cb12-139"><a href="vdyp-inputs-preparation.html#cb12-139" tabindex="-1"></a>}</span>
+<span id="cb12-140"><a href="vdyp-inputs-preparation.html#cb12-140" tabindex="-1"></a></span>
+<span id="cb12-141"><a href="vdyp-inputs-preparation.html#cb12-141" tabindex="-1"></a>df<span class="sc">$</span>ratio_land <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df<span class="sc">$</span>total_land <span class="sc">&gt;</span> <span class="dv">100</span>,</span>
+<span id="cb12-142"><a href="vdyp-inputs-preparation.html#cb12-142" tabindex="-1"></a>                        <span class="dv">100</span> <span class="sc">/</span> df<span class="sc">$</span>total_land,</span>
+<span id="cb12-143"><a href="vdyp-inputs-preparation.html#cb12-143" tabindex="-1"></a>                        <span class="dv">1</span>)</span>
+<span id="cb12-144"><a href="vdyp-inputs-preparation.html#cb12-144" tabindex="-1"></a></span>
+<span id="cb12-145"><a href="vdyp-inputs-preparation.html#cb12-145" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-146"><a href="vdyp-inputs-preparation.html#cb12-146" tabindex="-1"></a><span class="co"># If no changes occurred</span></span>
+<span id="cb12-147"><a href="vdyp-inputs-preparation.html#cb12-147" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-148"><a href="vdyp-inputs-preparation.html#cb12-148" tabindex="-1"></a>df<span class="sc">$</span>change_log[<span class="fu">is.na</span>(df<span class="sc">$</span>change_log)] <span class="ot">&lt;-</span> <span class="st">&quot;NO_ADJUSTMENT&quot;</span></span>
+<span id="cb12-149"><a href="vdyp-inputs-preparation.html#cb12-149" tabindex="-1"></a></span>
+<span id="cb12-150"><a href="vdyp-inputs-preparation.html#cb12-150" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-151"><a href="vdyp-inputs-preparation.html#cb12-151" tabindex="-1"></a><span class="co"># Final Output</span></span>
+<span id="cb12-152"><a href="vdyp-inputs-preparation.html#cb12-152" tabindex="-1"></a><span class="co"># -----------------------------------------------</span></span>
+<span id="cb12-153"><a href="vdyp-inputs-preparation.html#cb12-153" tabindex="-1"></a>updated_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb12-154"><a href="vdyp-inputs-preparation.html#cb12-154" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb12-155"><a href="vdyp-inputs-preparation.html#cb12-155" tabindex="-1"></a>    feature_id,</span>
+<span id="cb12-156"><a href="vdyp-inputs-preparation.html#cb12-156" tabindex="-1"></a>    bec_zone_code,</span>
+<span id="cb12-157"><a href="vdyp-inputs-preparation.html#cb12-157" tabindex="-1"></a>    shrub_crown_closure, herb_cover_pct, bryoid_cover_pct,</span>
+<span id="cb12-158"><a href="vdyp-inputs-preparation.html#cb12-158" tabindex="-1"></a>    non_veg_cover_pct_1, non_veg_cover_pct_2, non_veg_cover_pct_3,</span>
+<span id="cb12-159"><a href="vdyp-inputs-preparation.html#cb12-159" tabindex="-1"></a>    land_cover_pct_1, land_cover_pct_2, land_cover_pct_3,</span>
+<span id="cb12-160"><a href="vdyp-inputs-preparation.html#cb12-160" tabindex="-1"></a>    total_veg, ratio_veg,</span>
+<span id="cb12-161"><a href="vdyp-inputs-preparation.html#cb12-161" tabindex="-1"></a>    total_non_veg, ratio_non_veg,</span>
+<span id="cb12-162"><a href="vdyp-inputs-preparation.html#cb12-162" tabindex="-1"></a>    total_land, ratio_land,</span>
+<span id="cb12-163"><a href="vdyp-inputs-preparation.html#cb12-163" tabindex="-1"></a>    change_log</span>
+<span id="cb12-164"><a href="vdyp-inputs-preparation.html#cb12-164" tabindex="-1"></a>  )</span>
+<span id="cb12-165"><a href="vdyp-inputs-preparation.html#cb12-165" tabindex="-1"></a></span>
+<span id="cb12-166"><a href="vdyp-inputs-preparation.html#cb12-166" tabindex="-1"></a><span class="fu">dbWriteTable</span>(</span>
+<span id="cb12-167"><a href="vdyp-inputs-preparation.html#cb12-167" tabindex="-1"></a>  con,</span>
+<span id="cb12-168"><a href="vdyp-inputs-preparation.html#cb12-168" tabindex="-1"></a>  <span class="st">&quot;prov_updated_other_veg_2024&quot;</span>,</span>
+<span id="cb12-169"><a href="vdyp-inputs-preparation.html#cb12-169" tabindex="-1"></a>  updated_df,</span>
+<span id="cb12-170"><a href="vdyp-inputs-preparation.html#cb12-170" tabindex="-1"></a>  <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-171"><a href="vdyp-inputs-preparation.html#cb12-171" tabindex="-1"></a>  <span class="at">row.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb12-172"><a href="vdyp-inputs-preparation.html#cb12-172" tabindex="-1"></a>)</span></code></pre></div>
 
 </div>
 </div>
@@ -1121,8 +1162,8 @@ why are layer_level_code null - what are they?</p>
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vdyp-projection-parameters-and-final-yield-table-development.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introduction-to-the-provincial-nsyt-production-process.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="run-vdyp7-projection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1164,7 +1205,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["provincial NSYT production process and assessment.pdf", "provincial NSYT production process and assessment.epub"],
+  "download": ["The Consolidated Provincial Yield Table.pdf", "The Consolidated Provincial Yield Table.epub"],
   "search": {
     "engine": "fuse",
     "options": null

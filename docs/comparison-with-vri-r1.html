@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Comparison with VRI R1 | provincial NSYT production process and assessment</title>
-  <meta name="description" content="Chapter 6 Comparison with VRI R1 | provincial NSYT production process and assessment" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <title>Chapter 6 Comparison with VRI R1 | The Consolidated Provincial Yield Table</title>
+  <meta name="description" content="Chapter 6 Comparison with VRI R1 | The Consolidated Provincial Yield Table" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Comparison with VRI R1 | provincial NSYT production process and assessment" />
+  <meta property="og:title" content="Chapter 6 Comparison with VRI R1 | The Consolidated Provincial Yield Table" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Comparison with VRI R1 | provincial NSYT production process and assessment" />
+  <meta name="twitter:title" content="Chapter 6 Comparison with VRI R1 | The Consolidated Provincial Yield Table" />
   
   
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Shuyan Jiang, Kelly Izzard, Yingbing Chen" />
 
 
-<meta name="date" content="2026-06-15" />
+<meta name="date" content="2026-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="provincial-yield-table---nsyt-and-msyt-combined-table.html"/>
+<link rel="prev" href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"/>
 <link rel="next" href="comparison-with-combined-mulitple-layers-projection.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -142,16 +142,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">provincial NSYT production process and assessment</a></li>
+<li><a href="./">The Consolidated Provincial Yield Table</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP inputs preparation</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-provincial-nsyt-production-process.html"><a href="introduction-to-the-provincial-nsyt-production-process.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Provincial NSYT Production Process</a></li>
+<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP Inputs Preparation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> load input data</a>
+<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> Load input data</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> postgres database connection</a></li>
+<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> Postgres database connection</a></li>
 <li class="chapter" data-level="3.1.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-layer-table-to-postgres"><i class="fa fa-check"></i><b>3.1.2</b> Load 2024 VDYP input layer table to postgres</a></li>
 <li class="chapter" data-level="3.1.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-polygon-table-to-postgres"><i class="fa fa-check"></i><b>3.1.3</b> Load 2024 VDYP input polygon table to postgres</a></li>
 <li class="chapter" data-level="3.1.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-rank1-2024"><i class="fa fa-check"></i><b>3.1.4</b> Load rank1 2024</a></li>
@@ -161,33 +161,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#vri-project-count-for-feature-in-list-but-not-in-polygon"><i class="fa fa-check"></i><b>3.2.1</b> VRI Project count for feature in list but not in polygon</a></li>
 <li class="chapter" data-level="3.2.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#polygons-without-r1-layer-assigned"><i class="fa fa-check"></i><b>3.2.2</b> Polygons without R1 layer assigned</a></li>
-<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> check &amp; fix species comp for rank1</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> Check &amp; fix species comp for rank1</a></li>
 <li class="chapter" data-level="3.2.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-age-height"><i class="fa fa-check"></i><b>3.2.4</b> Update Age &amp; Height</a></li>
-<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> review Basal Area, Age &amp; Height</a></li>
+<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> Review Basal Area, Age &amp; Height</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-other-veg-comp"><i class="fa fa-check"></i><b>3.2.6</b> Update Other-Veg comp</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="vdyp-projection-parameters-and-final-yield-table-development.html"><a href="vdyp-projection-parameters-and-final-yield-table-development.html"><i class="fa fa-check"></i><b>4</b> VDYP projection parameters and final yield table development</a></li>
-<li class="chapter" data-level="5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Provincial Yield table - NSYT and MSYT combined table</a>
+<li class="chapter" data-level="4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html"><i class="fa fa-check"></i><b>4</b> Run VDYP7 Projection</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#define-deciduous-species"><i class="fa fa-check"></i><b>5.2</b> Define Deciduous Species</a></li>
-<li class="chapter" data-level="5.3" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3</b> Load VDYP Yield Table</a></li>
-<li class="chapter" data-level="5.4" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-species-codes"><i class="fa fa-check"></i><b>5.4</b> Extract Species Codes</a></li>
-<li class="chapter" data-level="5.5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-projected-volumes"><i class="fa fa-check"></i><b>5.5</b> Extract Projected Volumes</a></li>
-<li class="chapter" data-level="5.6" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-conifer-and-deciduous-volume"><i class="fa fa-check"></i><b>5.6</b> Calculate Conifer and Deciduous Volume</a></li>
-<li class="chapter" data-level="5.7" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#convert-volume-table-to-wide-format"><i class="fa fa-check"></i><b>5.7</b> Convert Volume Table to Wide Format</a></li>
-<li class="chapter" data-level="5.8" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.8</b> Load MSYT Tables</a></li>
-<li class="chapter" data-level="5.9" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.9</b> Extend MSYT Curves to Age 250</a></li>
-<li class="chapter" data-level="5.10" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.10</b> Reorder MSYT Columns</a></li>
-<li class="chapter" data-level="5.11" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-output"><i class="fa fa-check"></i><b>5.11</b> Build MSYT Output</a></li>
-<li class="chapter" data-level="5.12" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-height-ratios"><i class="fa fa-check"></i><b>5.12</b> Load Height Ratios</a></li>
-<li class="chapter" data-level="5.13" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-vdyp-heights"><i class="fa fa-check"></i><b>5.13</b> Calculate VDYP Heights</a></li>
-<li class="chapter" data-level="5.14" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-vdyp-output"><i class="fa fa-check"></i><b>5.14</b> Build VDYP Output</a></li>
-<li class="chapter" data-level="5.15" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#export-final-yield-table"><i class="fa fa-check"></i><b>5.15</b> Export Final Yield Table</a></li>
-<li class="chapter" data-level="5.16" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.16</b> QA/QC Checks</a></li>
-<li class="chapter" data-level="5.17" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.17</b> Review NSYT Zero-Volume Records</a></li>
-<li class="chapter" data-level="5.18" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.18</b> Review MSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="4.1" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#vdypinr"><i class="fa fa-check"></i><b>4.1</b> VDYPinR</a></li>
+<li class="chapter" data-level="4.2" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-layer-data"><i class="fa fa-check"></i><b>4.2</b> Load and finalize VDYP input layer data</a></li>
+<li class="chapter" data-level="4.3" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-polygon-data"><i class="fa fa-check"></i><b>4.3</b> Load and finalize VDYP input polygon data</a></li>
+<li class="chapter" data-level="4.4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#set-utilization"><i class="fa fa-check"></i><b>4.4</b> Set utilization</a></li>
+<li class="chapter" data-level="4.5" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#run-vdyp7-in-parallel"><i class="fa fa-check"></i><b>4.5</b> Run VDYP7 in parallel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Consolidated Provincial Yield Table - NSYT and MSYT Combined Table</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-component"><i class="fa fa-check"></i><b>5.2</b> Build MSYT component</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.2.1</b> Load MSYT tables</a></li>
+<li class="chapter" data-level="5.2.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.2.2</b> Extend MSYT curves to age 250</a></li>
+<li class="chapter" data-level="5.2.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.2.3</b> Reorder MSYT columns</a></li>
+<li class="chapter" data-level="5.2.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-msyt-output"><i class="fa fa-check"></i><b>5.2.4</b> Finalize MSYT output</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-nsyt-component"><i class="fa fa-check"></i><b>5.3</b> Build NSYT component</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3.1</b> Load VDYP yield table</a></li>
+<li class="chapter" data-level="5.3.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-volume-and-deciduous-volume"><i class="fa fa-check"></i><b>5.3.2</b> Separate conifer volume and deciduous volume</a></li>
+<li class="chapter" data-level="5.3.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-height-and-deciduous-height"><i class="fa fa-check"></i><b>5.3.3</b> Separate conifer height and deciduous height</a></li>
+<li class="chapter" data-level="5.3.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-nsyt-tables"><i class="fa fa-check"></i><b>5.3.4</b> Finalize NSYT tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#combine-nsyt-tables-and-msyt-tables-and-export"><i class="fa fa-check"></i><b>5.4</b> Combine NSYT tables and MSYT tables and export</a></li>
+<li class="chapter" data-level="5.5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.5</b> QA/QC checks</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.1</b> Review NSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="5.5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.2</b> Review MSYT Zero-Volume Records</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html"><i class="fa fa-check"></i><b>6</b> Comparison with VRI R1</a>
 <ul>
@@ -212,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">provincial NSYT production process and assessment</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Consolidated Provincial Yield Table</a>
           </h1>
         </div>
 
@@ -222,133 +232,122 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="comparison-with-vri-r1" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Comparison with VRI R1<a href="comparison-with-vri-r1.html#comparison-with-vri-r1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The following contrasts the Beta version of the 2026 Provincial Natural Stand Yield Table (NSYT) dataset with the currently published production year 2025 (projection year Dec 2024) veg_comp_lyr_r1_poly_2024 (R1). The R1 contains <strong>6872386</strong> features, 90% of which (<strong>6209645</strong>) has a species identified and (spec_cd_1) and 89% (<strong>6140967</strong>) remain after initial cleaning.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="comparison-with-vri-r1.html#cb32-1" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb32-2"><a href="comparison-with-vri-r1.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
-<span id="cb32-3"><a href="comparison-with-vri-r1.html#cb32-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb32-4"><a href="comparison-with-vri-r1.html#cb32-4" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
-<span id="cb32-5"><a href="comparison-with-vri-r1.html#cb32-5" tabindex="-1"></a><span class="fu">library</span>(R.utils)</span>
-<span id="cb32-6"><a href="comparison-with-vri-r1.html#cb32-6" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb32-7"><a href="comparison-with-vri-r1.html#cb32-7" tabindex="-1"></a><span class="fu">library</span>(arsenal)</span>
-<span id="cb32-8"><a href="comparison-with-vri-r1.html#cb32-8" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
-<span id="cb32-9"><a href="comparison-with-vri-r1.html#cb32-9" tabindex="-1"></a><span class="fu">library</span>(gdalUtilities)</span>
-<span id="cb32-10"><a href="comparison-with-vri-r1.html#cb32-10" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb32-11"><a href="comparison-with-vri-r1.html#cb32-11" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb32-12"><a href="comparison-with-vri-r1.html#cb32-12" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb32-13"><a href="comparison-with-vri-r1.html#cb32-13" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
-<span id="cb32-14"><a href="comparison-with-vri-r1.html#cb32-14" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb32-15"><a href="comparison-with-vri-r1.html#cb32-15" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb32-16"><a href="comparison-with-vri-r1.html#cb32-16" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb32-17"><a href="comparison-with-vri-r1.html#cb32-17" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb32-18"><a href="comparison-with-vri-r1.html#cb32-18" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb32-19"><a href="comparison-with-vri-r1.html#cb32-19" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb32-20"><a href="comparison-with-vri-r1.html#cb32-20" tabindex="-1"></a></span>
-<span id="cb32-21"><a href="comparison-with-vri-r1.html#cb32-21" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb32-22"><a href="comparison-with-vri-r1.html#cb32-22" tabindex="-1"></a></span>
-<span id="cb32-23"><a href="comparison-with-vri-r1.html#cb32-23" tabindex="-1"></a></span>
-<span id="cb32-24"><a href="comparison-with-vri-r1.html#cb32-24" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
-<span id="cb32-25"><a href="comparison-with-vri-r1.html#cb32-25" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb32-26"><a href="comparison-with-vri-r1.html#cb32-26" tabindex="-1"></a><span class="co"># source(&quot;log_files.R&quot;)</span></span>
-<span id="cb32-27"><a href="comparison-with-vri-r1.html#cb32-27" tabindex="-1"></a></span>
-<span id="cb32-28"><a href="comparison-with-vri-r1.html#cb32-28" tabindex="-1"></a></span>
-<span id="cb32-29"><a href="comparison-with-vri-r1.html#cb32-29" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb32-30"><a href="comparison-with-vri-r1.html#cb32-30" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span>,              <span class="co"># Show code in the output</span></span>
-<span id="cb32-31"><a href="comparison-with-vri-r1.html#cb32-31" tabindex="-1"></a>  <span class="at">fig.width =</span> <span class="dv">4</span>,            <span class="co"># Set the width of the figures (in inches)</span></span>
-<span id="cb32-32"><a href="comparison-with-vri-r1.html#cb32-32" tabindex="-1"></a>  <span class="at">fig.height =</span> <span class="dv">4</span>,           <span class="co"># Set the height of the figures (in inches)</span></span>
-<span id="cb32-33"><a href="comparison-with-vri-r1.html#cb32-33" tabindex="-1"></a>  <span class="at">collapse =</span> <span class="cn">TRUE</span>,          <span class="co"># Collapsing code and output</span></span>
-<span id="cb32-34"><a href="comparison-with-vri-r1.html#cb32-34" tabindex="-1"></a>  <span class="co"># out.width = &#39;250px&#39;,      # Standardize output image width</span></span>
-<span id="cb32-35"><a href="comparison-with-vri-r1.html#cb32-35" tabindex="-1"></a>  <span class="co"># out.height = &#39;250px&#39;,     # Standardize output image height</span></span>
-<span id="cb32-36"><a href="comparison-with-vri-r1.html#cb32-36" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,          <span class="co"># Hide messages</span></span>
-<span id="cb32-37"><a href="comparison-with-vri-r1.html#cb32-37" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>           <span class="co"># Hide warnings</span></span>
-<span id="cb32-38"><a href="comparison-with-vri-r1.html#cb32-38" tabindex="-1"></a>)</span></code></pre></div>
+<p>The comparison process was designed to assess the consistency between the Beta version of the 2026 Provincial NSYT dataset and the currently published VRI R1. The workflow begins by loading the provincial NSYT yield table and joining it to the R1 inventory database using a common feature_id. Species, age, and volume information from both sources are combined to create a common analytical framework. To facilitate a direct comparison, stand ages are standardized, volume estimates are derived from the R1 inventory, and VDYP yield projections are interpolated to match the specific ages represented in the inventory. This allows both datasets to be evaluated using comparable volume estimates for the same forest features.</p>
+<p>A difference metric is calculated to quantify the variation between the inventory-derived volume (volume from VRI R1 layer) and the NSYT volume estimate (interpolated NSYT volume). The resulting dataset provides a feature-by-feature comparison of the two yield systems and supports statistical evaluation of differences across the provincial land base. This process serves as a validation and quality assurance exercise, helping identify areas where modelling assumptions, age treatments, interpolation methods, or source inventory data may contribute to differences between the existing R1 inventory volumes and the proposed provincial NSYT yield dataset.</p>
+<p>The following contrasts the Beta version of the 2026 NSYT dataset with the currently published production year 2025 (projection year Dec 2024) veg_comp_lyr_r1_poly_2024 (R1). The R1 contains <strong>6872386</strong> features, 90% of which (<strong>6209645</strong>) has a species identified and (spec_cd_1) and 89% (<strong>6140967</strong>) remain after initial cleaning.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="comparison-with-vri-r1.html#cb35-1" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb35-2"><a href="comparison-with-vri-r1.html#cb35-2" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
+<span id="cb35-3"><a href="comparison-with-vri-r1.html#cb35-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-4"><a href="comparison-with-vri-r1.html#cb35-4" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb35-5"><a href="comparison-with-vri-r1.html#cb35-5" tabindex="-1"></a><span class="fu">library</span>(R.utils)</span>
+<span id="cb35-6"><a href="comparison-with-vri-r1.html#cb35-6" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb35-7"><a href="comparison-with-vri-r1.html#cb35-7" tabindex="-1"></a><span class="fu">library</span>(arsenal)</span>
+<span id="cb35-8"><a href="comparison-with-vri-r1.html#cb35-8" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span>
+<span id="cb35-9"><a href="comparison-with-vri-r1.html#cb35-9" tabindex="-1"></a><span class="fu">library</span>(gdalUtilities)</span>
+<span id="cb35-10"><a href="comparison-with-vri-r1.html#cb35-10" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb35-11"><a href="comparison-with-vri-r1.html#cb35-11" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb35-12"><a href="comparison-with-vri-r1.html#cb35-12" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb35-13"><a href="comparison-with-vri-r1.html#cb35-13" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb35-14"><a href="comparison-with-vri-r1.html#cb35-14" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb35-15"><a href="comparison-with-vri-r1.html#cb35-15" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb35-16"><a href="comparison-with-vri-r1.html#cb35-16" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb35-17"><a href="comparison-with-vri-r1.html#cb35-17" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb35-18"><a href="comparison-with-vri-r1.html#cb35-18" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb35-19"><a href="comparison-with-vri-r1.html#cb35-19" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb35-20"><a href="comparison-with-vri-r1.html#cb35-20" tabindex="-1"></a></span>
+<span id="cb35-21"><a href="comparison-with-vri-r1.html#cb35-21" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb35-22"><a href="comparison-with-vri-r1.html#cb35-22" tabindex="-1"></a></span>
+<span id="cb35-23"><a href="comparison-with-vri-r1.html#cb35-23" tabindex="-1"></a></span>
+<span id="cb35-24"><a href="comparison-with-vri-r1.html#cb35-24" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb35-25"><a href="comparison-with-vri-r1.html#cb35-25" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb35-26"><a href="comparison-with-vri-r1.html#cb35-26" tabindex="-1"></a><span class="co"># source(&quot;log_files.R&quot;)</span></span>
+<span id="cb35-27"><a href="comparison-with-vri-r1.html#cb35-27" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="comparison-with-vri-r1.html#cb35-28" tabindex="-1"></a></span>
+<span id="cb35-29"><a href="comparison-with-vri-r1.html#cb35-29" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb35-30"><a href="comparison-with-vri-r1.html#cb35-30" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span>,              <span class="co"># Show code in the output</span></span>
+<span id="cb35-31"><a href="comparison-with-vri-r1.html#cb35-31" tabindex="-1"></a>  <span class="at">fig.width =</span> <span class="dv">4</span>,            <span class="co"># Set the width of the figures (in inches)</span></span>
+<span id="cb35-32"><a href="comparison-with-vri-r1.html#cb35-32" tabindex="-1"></a>  <span class="at">fig.height =</span> <span class="dv">4</span>,           <span class="co"># Set the height of the figures (in inches)</span></span>
+<span id="cb35-33"><a href="comparison-with-vri-r1.html#cb35-33" tabindex="-1"></a>  <span class="at">collapse =</span> <span class="cn">TRUE</span>,          <span class="co"># Collapsing code and output</span></span>
+<span id="cb35-34"><a href="comparison-with-vri-r1.html#cb35-34" tabindex="-1"></a>  <span class="co"># out.width = &#39;250px&#39;,      # Standardize output image width</span></span>
+<span id="cb35-35"><a href="comparison-with-vri-r1.html#cb35-35" tabindex="-1"></a>  <span class="co"># out.height = &#39;250px&#39;,     # Standardize output image height</span></span>
+<span id="cb35-36"><a href="comparison-with-vri-r1.html#cb35-36" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,          <span class="co"># Hide messages</span></span>
+<span id="cb35-37"><a href="comparison-with-vri-r1.html#cb35-37" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>           <span class="co"># Hide warnings</span></span>
+<span id="cb35-38"><a href="comparison-with-vri-r1.html#cb35-38" tabindex="-1"></a>)</span></code></pre></div>
 <div id="get-data" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Get data<a href="comparison-with-vri-r1.html#get-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The following snippet loads an existing VDYP from an RDS file containing <strong>6140967</strong> features, and joins it with the data pulled from the MSYT postgres database based on feature_id. Various new columns are created, including estimated volumes (vri_vol), capped age (vri_age250), and interpolated volumes (vdyp_vol) based on age ranges. The dataset is cleaned and transformed using dplyr functions.</p>
-<p>Finally, the script calculates the closest volume match for each feature by comparing two volume estimates (vdyp_vol and prj_vol_dwb), selecting the record with the smallest difference between the two. The result is a refined dataset (nsyt_closest) where each feature has a matched volume estimate, and a new column (vol_dif) is added to represent the difference between the two volume estimates. This processing likely aids in vegetation analysis, volume estimation, or model calibration based on multiple data sources.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="comparison-with-vri-r1.html#cb33-1" tabindex="-1"></a></span>
-<span id="cb33-2"><a href="comparison-with-vri-r1.html#cb33-2" tabindex="-1"></a>schema <span class="ot">&lt;-</span> <span class="st">&#39;msyt_2025&#39;</span></span>
-<span id="cb33-3"><a href="comparison-with-vri-r1.html#cb33-3" tabindex="-1"></a>opt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;-c search_path=&quot;</span>,schema)</span>
-<span id="cb33-4"><a href="comparison-with-vri-r1.html#cb33-4" tabindex="-1"></a>user_name <span class="ot">&lt;-</span> <span class="st">&#39;results&#39;</span></span>
-<span id="cb33-5"><a href="comparison-with-vri-r1.html#cb33-5" tabindex="-1"></a>database <span class="ot">&lt;-</span> <span class="st">&#39;msyt&#39;</span></span>
-<span id="cb33-6"><a href="comparison-with-vri-r1.html#cb33-6" tabindex="-1"></a>db<span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="st">&#39;PostgreSQL&#39;</span>,<span class="at">dbname=</span>database,<span class="at">user=</span>user_name,<span class="at">options =</span> opt)</span>
-<span id="cb33-7"><a href="comparison-with-vri-r1.html#cb33-7" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="comparison-with-vri-r1.html#cb33-8" tabindex="-1"></a>prov<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/rds/prov_nsyt2026.rds&quot;</span>)</span>
-<span id="cb33-9"><a href="comparison-with-vri-r1.html#cb33-9" tabindex="-1"></a></span>
-<span id="cb33-10"><a href="comparison-with-vri-r1.html#cb33-10" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="comparison-with-vri-r1.html#cb33-11" tabindex="-1"></a>sql<span class="ot">&lt;-</span><span class="fu">glue_sql</span>(<span class="st">&quot;select</span></span>
-<span id="cb33-12"><a href="comparison-with-vri-r1.html#cb33-12" tabindex="-1"></a><span class="st">              feature_id,</span></span>
-<span id="cb33-13"><a href="comparison-with-vri-r1.html#cb33-13" tabindex="-1"></a><span class="st">              proj_age_1 as age,</span></span>
-<span id="cb33-14"><a href="comparison-with-vri-r1.html#cb33-14" tabindex="-1"></a><span class="st">              species_cd_1 as leading_species,</span></span>
-<span id="cb33-15"><a href="comparison-with-vri-r1.html#cb33-15" tabindex="-1"></a><span class="st">              species_cd_2 as second_species,</span></span>
-<span id="cb33-16"><a href="comparison-with-vri-r1.html#cb33-16" tabindex="-1"></a><span class="st">              live_stand_volume_125 as r1_vol125,</span></span>
-<span id="cb33-17"><a href="comparison-with-vri-r1.html#cb33-17" tabindex="-1"></a><span class="st">              live_stand_volume_175 as r1_vol175,</span></span>
-<span id="cb33-18"><a href="comparison-with-vri-r1.html#cb33-18" tabindex="-1"></a><span class="st">              dead_stand_volume_125 as r1_dvol125</span></span>
-<span id="cb33-19"><a href="comparison-with-vri-r1.html#cb33-19" tabindex="-1"></a><span class="st">              from veg_comp_fdw_full&quot;</span>,<span class="at">.con =</span> db)</span>
-<span id="cb33-20"><a href="comparison-with-vri-r1.html#cb33-20" tabindex="-1"></a></span>
-<span id="cb33-21"><a href="comparison-with-vri-r1.html#cb33-21" tabindex="-1"></a>r1<span class="ot">&lt;-</span><span class="fu">dbGetQuery</span>(db,sql)</span>
-<span id="cb33-22"><a href="comparison-with-vri-r1.html#cb33-22" tabindex="-1"></a></span>
-<span id="cb33-23"><a href="comparison-with-vri-r1.html#cb33-23" tabindex="-1"></a><span class="do">##############################################################################</span></span>
-<span id="cb33-24"><a href="comparison-with-vri-r1.html#cb33-24" tabindex="-1"></a><span class="co"># # </span></span>
-<span id="cb33-25"><a href="comparison-with-vri-r1.html#cb33-25" tabindex="-1"></a>prov_df<span class="ot">&lt;-</span><span class="fu">inner_join</span>(prov_df,r1,<span class="fu">join_by</span>(<span class="st">&quot;feature_id&quot;</span>))</span>
-<span id="cb33-26"><a href="comparison-with-vri-r1.html#cb33-26" tabindex="-1"></a></span>
-<span id="cb33-27"><a href="comparison-with-vri-r1.html#cb33-27" tabindex="-1"></a>prov_df2 <span class="ot">&lt;-</span> prov_df <span class="sc">%&gt;%</span></span>
-<span id="cb33-28"><a href="comparison-with-vri-r1.html#cb33-28" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb33-29"><a href="comparison-with-vri-r1.html#cb33-29" tabindex="-1"></a>    <span class="at">vri_vol =</span> <span class="fu">case_when</span>(</span>
-<span id="cb33-30"><a href="comparison-with-vri-r1.html#cb33-30" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^P&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-31"><a href="comparison-with-vri-r1.html#cb33-31" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^A&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-32"><a href="comparison-with-vri-r1.html#cb33-32" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^E&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-33"><a href="comparison-with-vri-r1.html#cb33-33" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^D&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-34"><a href="comparison-with-vri-r1.html#cb33-34" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^M&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-35"><a href="comparison-with-vri-r1.html#cb33-35" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^W&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
-<span id="cb33-36"><a href="comparison-with-vri-r1.html#cb33-36" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> r1_vol175  <span class="co"># Otherwise, assign r1_vol175</span></span>
-<span id="cb33-37"><a href="comparison-with-vri-r1.html#cb33-37" tabindex="-1"></a>    ),</span>
-<span id="cb33-38"><a href="comparison-with-vri-r1.html#cb33-38" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)),</span>
-<span id="cb33-39"><a href="comparison-with-vri-r1.html#cb33-39" tabindex="-1"></a>    <span class="at">vri_age250 =</span> <span class="fu">pmin</span>(age, <span class="dv">250</span>),</span>
-<span id="cb33-40"><a href="comparison-with-vri-r1.html#cb33-40" tabindex="-1"></a>    <span class="at">age_low  =</span> <span class="fu">floor</span>(vri_age250<span class="sc">/</span><span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>,</span>
-<span id="cb33-41"><a href="comparison-with-vri-r1.html#cb33-41" tabindex="-1"></a>    <span class="at">age_high =</span> <span class="fu">ceiling</span>(vri_age250<span class="sc">/</span><span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>,</span>
-<span id="cb33-42"><a href="comparison-with-vri-r1.html#cb33-42" tabindex="-1"></a>    <span class="at">p_low    =</span> (age_high <span class="sc">-</span> vri_age250) <span class="sc">/</span> <span class="dv">10</span></span>
-<span id="cb33-43"><a href="comparison-with-vri-r1.html#cb33-43" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb33-44"><a href="comparison-with-vri-r1.html#cb33-44" tabindex="-1"></a>  <span class="fu">group_by</span>(feature_id) <span class="sc">%&gt;%</span></span>
-<span id="cb33-45"><a href="comparison-with-vri-r1.html#cb33-45" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb33-46"><a href="comparison-with-vri-r1.html#cb33-46" tabindex="-1"></a>    <span class="at">l_vol =</span> prj_vol_dwb[<span class="fu">match</span>(age_low,  prj_total_age)],</span>
-<span id="cb33-47"><a href="comparison-with-vri-r1.html#cb33-47" tabindex="-1"></a>    <span class="at">u_vol =</span> prj_vol_dwb[<span class="fu">match</span>(age_high, prj_total_age)],</span>
-<span id="cb33-48"><a href="comparison-with-vri-r1.html#cb33-48" tabindex="-1"></a>    <span class="at">vdyp_vol =</span> (p_low <span class="sc">*</span> l_vol) <span class="sc">+</span> ((<span class="dv">1</span> <span class="sc">-</span> p_low) <span class="sc">*</span> u_vol)</span>
-<span id="cb33-49"><a href="comparison-with-vri-r1.html#cb33-49" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb33-50"><a href="comparison-with-vri-r1.html#cb33-50" tabindex="-1"></a>  <span class="fu">select</span>(feature_id, vri_vol,l_vol, u_vol, vdyp_vol)<span class="sc">%&gt;%</span></span>
-<span id="cb33-51"><a href="comparison-with-vri-r1.html#cb33-51" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb33-52"><a href="comparison-with-vri-r1.html#cb33-52" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb33-53"><a href="comparison-with-vri-r1.html#cb33-53" tabindex="-1"></a></span>
-<span id="cb33-54"><a href="comparison-with-vri-r1.html#cb33-54" tabindex="-1"></a>nsyt<span class="ot">&lt;-</span><span class="fu">inner_join</span>(prov_df,prov_df2,<span class="fu">join_by</span>(<span class="st">&quot;feature_id&quot;</span>))</span>
-<span id="cb33-55"><a href="comparison-with-vri-r1.html#cb33-55" tabindex="-1"></a></span>
-<span id="cb33-56"><a href="comparison-with-vri-r1.html#cb33-56" tabindex="-1"></a></span>
-<span id="cb33-57"><a href="comparison-with-vri-r1.html#cb33-57" tabindex="-1"></a>nsyt_closest <span class="ot">&lt;-</span> nsyt <span class="sc">%&gt;%</span></span>
-<span id="cb33-58"><a href="comparison-with-vri-r1.html#cb33-58" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vdyp_vol), <span class="sc">!</span><span class="fu">is.na</span>(prj_vol_dwb)) <span class="sc">%&gt;%</span></span>
-<span id="cb33-59"><a href="comparison-with-vri-r1.html#cb33-59" tabindex="-1"></a>  <span class="fu">group_by</span>(feature_id) <span class="sc">%&gt;%</span></span>
-<span id="cb33-60"><a href="comparison-with-vri-r1.html#cb33-60" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="fu">abs</span>(prj_vol_dwb <span class="sc">-</span> vdyp_vol),</span>
-<span id="cb33-61"><a href="comparison-with-vri-r1.html#cb33-61" tabindex="-1"></a>            <span class="at">n =</span> <span class="dv">1</span>,</span>
-<span id="cb33-62"><a href="comparison-with-vri-r1.html#cb33-62" tabindex="-1"></a>            <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb33-63"><a href="comparison-with-vri-r1.html#cb33-63" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb33-64"><a href="comparison-with-vri-r1.html#cb33-64" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vol_dif =</span> vri_vol <span class="sc">-</span> vdyp_vol</span></code></pre></div>
+<p>The following snippet loads 2026 provincial NSYT from an RDS file containing <strong>6140967</strong> features, and joins it with the data pulled from the VRI vegetation composition R1 layer based on feature_id. Various new columns are created, including volumes from VRI R1 layer(vri_vol), capped age (vri_age250), and interpolated volumes (vdyp_vol) based on age ranges.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="comparison-with-vri-r1.html#cb36-1" tabindex="-1"></a>schema <span class="ot">&lt;-</span> <span class="st">&#39;msyt_2025&#39;</span></span>
+<span id="cb36-2"><a href="comparison-with-vri-r1.html#cb36-2" tabindex="-1"></a>opt <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;-c search_path=&quot;</span>,schema)</span>
+<span id="cb36-3"><a href="comparison-with-vri-r1.html#cb36-3" tabindex="-1"></a>user_name <span class="ot">&lt;-</span> <span class="st">&#39;results&#39;</span></span>
+<span id="cb36-4"><a href="comparison-with-vri-r1.html#cb36-4" tabindex="-1"></a>database <span class="ot">&lt;-</span> <span class="st">&#39;msyt&#39;</span></span>
+<span id="cb36-5"><a href="comparison-with-vri-r1.html#cb36-5" tabindex="-1"></a>db<span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="st">&#39;PostgreSQL&#39;</span>,<span class="at">dbname=</span>database,<span class="at">user=</span>user_name,<span class="at">options =</span> opt)</span>
+<span id="cb36-6"><a href="comparison-with-vri-r1.html#cb36-6" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="comparison-with-vri-r1.html#cb36-7" tabindex="-1"></a>prov<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/rds/prov_nsyt2026.rds&quot;</span>)</span>
+<span id="cb36-8"><a href="comparison-with-vri-r1.html#cb36-8" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="comparison-with-vri-r1.html#cb36-9" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="comparison-with-vri-r1.html#cb36-10" tabindex="-1"></a>sql<span class="ot">&lt;-</span><span class="fu">glue_sql</span>(<span class="st">&quot;select</span></span>
+<span id="cb36-11"><a href="comparison-with-vri-r1.html#cb36-11" tabindex="-1"></a><span class="st">              feature_id,</span></span>
+<span id="cb36-12"><a href="comparison-with-vri-r1.html#cb36-12" tabindex="-1"></a><span class="st">              proj_age_1 as age,</span></span>
+<span id="cb36-13"><a href="comparison-with-vri-r1.html#cb36-13" tabindex="-1"></a><span class="st">              species_cd_1 as leading_species,</span></span>
+<span id="cb36-14"><a href="comparison-with-vri-r1.html#cb36-14" tabindex="-1"></a><span class="st">              species_cd_2 as second_species,</span></span>
+<span id="cb36-15"><a href="comparison-with-vri-r1.html#cb36-15" tabindex="-1"></a><span class="st">              live_stand_volume_125 as r1_vol125,</span></span>
+<span id="cb36-16"><a href="comparison-with-vri-r1.html#cb36-16" tabindex="-1"></a><span class="st">              live_stand_volume_175 as r1_vol175,</span></span>
+<span id="cb36-17"><a href="comparison-with-vri-r1.html#cb36-17" tabindex="-1"></a><span class="st">              dead_stand_volume_125 as r1_dvol125</span></span>
+<span id="cb36-18"><a href="comparison-with-vri-r1.html#cb36-18" tabindex="-1"></a><span class="st">              from veg_comp_fdw_full&quot;</span>,<span class="at">.con =</span> db)</span>
+<span id="cb36-19"><a href="comparison-with-vri-r1.html#cb36-19" tabindex="-1"></a></span>
+<span id="cb36-20"><a href="comparison-with-vri-r1.html#cb36-20" tabindex="-1"></a>r1<span class="ot">&lt;-</span><span class="fu">dbGetQuery</span>(db,sql)</span>
+<span id="cb36-21"><a href="comparison-with-vri-r1.html#cb36-21" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="comparison-with-vri-r1.html#cb36-22" tabindex="-1"></a><span class="do">##############################################################################</span></span>
+<span id="cb36-23"><a href="comparison-with-vri-r1.html#cb36-23" tabindex="-1"></a><span class="co"># # </span></span>
+<span id="cb36-24"><a href="comparison-with-vri-r1.html#cb36-24" tabindex="-1"></a>prov_df<span class="ot">&lt;-</span><span class="fu">inner_join</span>(prov_df,r1,<span class="fu">join_by</span>(<span class="st">&quot;feature_id&quot;</span>))</span>
+<span id="cb36-25"><a href="comparison-with-vri-r1.html#cb36-25" tabindex="-1"></a></span>
+<span id="cb36-26"><a href="comparison-with-vri-r1.html#cb36-26" tabindex="-1"></a>prov_df2 <span class="ot">&lt;-</span> prov_df <span class="sc">%&gt;%</span></span>
+<span id="cb36-27"><a href="comparison-with-vri-r1.html#cb36-27" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-28"><a href="comparison-with-vri-r1.html#cb36-28" tabindex="-1"></a>    <span class="at">vri_vol =</span> <span class="fu">case_when</span>(</span>
+<span id="cb36-29"><a href="comparison-with-vri-r1.html#cb36-29" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^P&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-30"><a href="comparison-with-vri-r1.html#cb36-30" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^A&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-31"><a href="comparison-with-vri-r1.html#cb36-31" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^E&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-32"><a href="comparison-with-vri-r1.html#cb36-32" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^D&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-33"><a href="comparison-with-vri-r1.html#cb36-33" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^M&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-34"><a href="comparison-with-vri-r1.html#cb36-34" tabindex="-1"></a>      <span class="fu">grepl</span>(<span class="st">&quot;^W&quot;</span>, leading_species) <span class="sc">~</span> r1_vol125,</span>
+<span id="cb36-35"><a href="comparison-with-vri-r1.html#cb36-35" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> r1_vol175  <span class="co"># Otherwise, assign r1_vol175</span></span>
+<span id="cb36-36"><a href="comparison-with-vri-r1.html#cb36-36" tabindex="-1"></a>    ),</span>
+<span id="cb36-37"><a href="comparison-with-vri-r1.html#cb36-37" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)),</span>
+<span id="cb36-38"><a href="comparison-with-vri-r1.html#cb36-38" tabindex="-1"></a>    <span class="at">vri_age250 =</span> <span class="fu">pmin</span>(age, <span class="dv">250</span>),</span>
+<span id="cb36-39"><a href="comparison-with-vri-r1.html#cb36-39" tabindex="-1"></a>    <span class="at">age_low  =</span> <span class="fu">floor</span>(vri_age250<span class="sc">/</span><span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>,</span>
+<span id="cb36-40"><a href="comparison-with-vri-r1.html#cb36-40" tabindex="-1"></a>    <span class="at">age_high =</span> <span class="fu">ceiling</span>(vri_age250<span class="sc">/</span><span class="dv">10</span>) <span class="sc">*</span> <span class="dv">10</span>,</span>
+<span id="cb36-41"><a href="comparison-with-vri-r1.html#cb36-41" tabindex="-1"></a>    <span class="at">p_low    =</span> (age_high <span class="sc">-</span> vri_age250) <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb36-42"><a href="comparison-with-vri-r1.html#cb36-42" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb36-43"><a href="comparison-with-vri-r1.html#cb36-43" tabindex="-1"></a>  <span class="fu">group_by</span>(feature_id) <span class="sc">%&gt;%</span></span>
+<span id="cb36-44"><a href="comparison-with-vri-r1.html#cb36-44" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-45"><a href="comparison-with-vri-r1.html#cb36-45" tabindex="-1"></a>    <span class="at">l_vol =</span> prj_vol_dwb[<span class="fu">match</span>(age_low,  prj_total_age)],</span>
+<span id="cb36-46"><a href="comparison-with-vri-r1.html#cb36-46" tabindex="-1"></a>    <span class="at">u_vol =</span> prj_vol_dwb[<span class="fu">match</span>(age_high, prj_total_age)],</span>
+<span id="cb36-47"><a href="comparison-with-vri-r1.html#cb36-47" tabindex="-1"></a>    <span class="at">vdyp_vol =</span> (p_low <span class="sc">*</span> l_vol) <span class="sc">+</span> ((<span class="dv">1</span> <span class="sc">-</span> p_low) <span class="sc">*</span> u_vol)</span>
+<span id="cb36-48"><a href="comparison-with-vri-r1.html#cb36-48" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb36-49"><a href="comparison-with-vri-r1.html#cb36-49" tabindex="-1"></a>  <span class="fu">select</span>(feature_id, vri_vol,l_vol, u_vol, vdyp_vol)<span class="sc">%&gt;%</span></span>
+<span id="cb36-50"><a href="comparison-with-vri-r1.html#cb36-50" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb36-51"><a href="comparison-with-vri-r1.html#cb36-51" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb36-52"><a href="comparison-with-vri-r1.html#cb36-52" tabindex="-1"></a></span>
+<span id="cb36-53"><a href="comparison-with-vri-r1.html#cb36-53" tabindex="-1"></a>nsyt<span class="ot">&lt;-</span><span class="fu">inner_join</span>(prov_df,prov_df2,<span class="fu">join_by</span>(<span class="st">&quot;feature_id&quot;</span>))</span></code></pre></div>
 </div>
 <div id="closest-match" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Closest Match<a href="comparison-with-vri-r1.html#closest-match" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The closest match volume calculation works by identifying the record with the smallest absolute difference between two volume estimates for each feature. Specifically, the script compares two columns: vdyp_vol (a volume estimate derived from a linear interpolation of two decadal volumes based on age [proj_age_1]) and prj_vol_dwb (the decadal VDYP volume).</p>
+<p>The closest match volume calculation works by identifying the record with the smallest absolute difference between two volume estimates for each feature.</p>
 <ul>
-<li><p>Filtering for Valid Volumes: The script first filters out any rows where either vdyp_vol or prj_vol_dwb is NA, ensuring that only valid rows with both volume estimates are considered for comparison.</p></li>
+<li><p>Filtering for Valid Volumes: The script first filters out any rows where either vdyp_vol or prj_vol_dwb (the decadal VDYP volume) is NA, ensuring that only valid rows with both volume estimates are considered for comparison.</p></li>
 <li><p>Grouping by feature_id: The data is grouped by feature_id, meaning the script performs the closest match calculation separately for each feature (or record).</p></li>
 <li><p>Identifying the Closest Match: For each group (feature_id), the script calculates the absolute difference between vdyp_vol and prj_vol_dwb using the expression abs(prj_vol_dwb - vdyp_vol). The row with the smallest difference is considered the “closest match” for that feature. This is achieved using the slice_min function, which selects the row where the absolute difference is the smallest (n = 1), ensuring that ties (rows with the same smallest difference) are excluded (with_ties = FALSE).</p></li>
 <li><p>Calculating the Volume Difference: Once the closest match is found, a new column vol_dif is created, which represents the difference between the VDYP derived lineral interpolation and the R1 volume: vol_dif = vri_vol - vdyp_vol.The output is then saved as a RDS file.</p></li>
 </ul>
 <p>The resulting NSYT closest data frame is loaded to disk and its vol_dif field is then assessed statistically using the dlookr::describe function.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="comparison-with-vri-r1.html#cb34-1" tabindex="-1"></a>prov<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;../nsyt_closest.rds&quot;</span>)</span>
-<span id="cb34-2"><a href="comparison-with-vri-r1.html#cb34-2" tabindex="-1"></a><span class="co"># pretty_table(describe(prov))</span></span>
-<span id="cb34-3"><a href="comparison-with-vri-r1.html#cb34-3" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">describe</span>(prov),</span>
-<span id="cb34-4"><a href="comparison-with-vri-r1.html#cb34-4" tabindex="-1"></a>      <span class="at">caption =</span>  <span class="st">&quot;Volume Comparison Table&quot;</span>,</span>
-<span id="cb34-5"><a href="comparison-with-vri-r1.html#cb34-5" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb34-6"><a href="comparison-with-vri-r1.html#cb34-6" tabindex="-1"></a>      <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-7"><a href="comparison-with-vri-r1.html#cb34-7" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb34-8"><a href="comparison-with-vri-r1.html#cb34-8" tabindex="-1"></a>               <span class="at">font_size =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb34-9"><a href="comparison-with-vri-r1.html#cb34-9" tabindex="-1"></a>  <span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="comparison-with-vri-r1.html#cb37-1" tabindex="-1"></a>nsyt_closest <span class="ot">&lt;-</span> nsyt <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="comparison-with-vri-r1.html#cb37-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(vdyp_vol), <span class="sc">!</span><span class="fu">is.na</span>(prj_vol_dwb)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="comparison-with-vri-r1.html#cb37-3" tabindex="-1"></a>  <span class="fu">group_by</span>(feature_id) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="comparison-with-vri-r1.html#cb37-4" tabindex="-1"></a>  <span class="fu">slice_min</span>(<span class="fu">abs</span>(prj_vol_dwb <span class="sc">-</span> vdyp_vol),</span>
+<span id="cb37-5"><a href="comparison-with-vri-r1.html#cb37-5" tabindex="-1"></a>            <span class="at">n =</span> <span class="dv">1</span>,</span>
+<span id="cb37-6"><a href="comparison-with-vri-r1.html#cb37-6" tabindex="-1"></a>            <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb37-7"><a href="comparison-with-vri-r1.html#cb37-7" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb37-8"><a href="comparison-with-vri-r1.html#cb37-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vol_dif =</span> vri_vol <span class="sc">-</span> vdyp_vol)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -448,16 +447,16 @@ feature_id
 0
 </td>
 <td style="text-align:right;">
-15106013.470513
+1.510601e+07
 </td>
 <td style="text-align:right;">
-6035564.71637
+6.035565e+06
 </td>
 <td style="text-align:right;">
 2435.5639051
 </td>
 <td style="text-align:right;">
-9645347.000000
+9.645347e+06
 </td>
 <td style="text-align:right;">
 -0.6649178
@@ -478,40 +477,40 @@ feature_id
 4735795.20000
 </td>
 <td style="text-align:right;">
-8471362.200000
+8.471362e+06
 </td>
 <td style="text-align:right;">
-10236571.500000
+1.023657e+07
 </td>
 <td style="text-align:right;">
-12785612.80000
+1.278561e+07
 </td>
 <td style="text-align:right;">
-15386848.40000
+1.538685e+07
 </td>
 <td style="text-align:right;">
-17001892.00000
+1.700189e+07
 </td>
 <td style="text-align:right;">
-18215979.6000
+1.821598e+07
 </td>
 <td style="text-align:right;">
-19328690.20000
+1.932869e+07
 </td>
 <td style="text-align:right;">
-19881918.50000
+1.988192e+07
 </td>
 <td style="text-align:right;">
-20656786.60000
+2.065679e+07
 </td>
 <td style="text-align:right;">
-21909568.400000
+2.190957e+07
 </td>
 <td style="text-align:right;">
-22344586.700000
+2.234459e+07
 </td>
 <td style="text-align:right;">
-22740261.3400
+2.274026e+07
 </td>
 <td style="text-align:right;">
 22820741.000
@@ -528,16 +527,16 @@ prj_total_age
 0
 </td>
 <td style="text-align:right;">
-124.124717
+1.241247e+02
 </td>
 <td style="text-align:right;">
-78.20986
+7.820986e+01
 </td>
 <td style="text-align:right;">
 0.0315604
 </td>
 <td style="text-align:right;">
-110.000000
+1.100000e+02
 </td>
 <td style="text-align:right;">
 0.0324789
@@ -558,40 +557,40 @@ prj_total_age
 0.00000
 </td>
 <td style="text-align:right;">
-50.000000
+5.000000e+01
 </td>
 <td style="text-align:right;">
-70.000000
+7.000000e+01
 </td>
 <td style="text-align:right;">
-80.00000
+8.000000e+01
 </td>
 <td style="text-align:right;">
-100.00000
+1.000000e+02
 </td>
 <td style="text-align:right;">
-120.00000
+1.200000e+02
 </td>
 <td style="text-align:right;">
-140.0000
+1.400000e+02
 </td>
 <td style="text-align:right;">
-170.00000
+1.700000e+02
 </td>
 <td style="text-align:right;">
-180.00000
+1.800000e+02
 </td>
 <td style="text-align:right;">
-200.00000
+2.000000e+02
 </td>
 <td style="text-align:right;">
-250.000000
+2.500000e+02
 </td>
 <td style="text-align:right;">
-250.000000
+2.500000e+02
 </td>
 <td style="text-align:right;">
-250.0000
+2.500000e+02
 </td>
 <td style="text-align:right;">
 250.000
@@ -608,16 +607,16 @@ prj_vol_ws
 0
 </td>
 <td style="text-align:right;">
-168.767394
+1.687674e+02
 </td>
 <td style="text-align:right;">
-215.07338
+2.150734e+02
 </td>
 <td style="text-align:right;">
 0.0867897
 </td>
 <td style="text-align:right;">
-238.414700
+2.384147e+02
 </td>
 <td style="text-align:right;">
 2.1388038
@@ -638,40 +637,40 @@ prj_vol_ws
 0.00000
 </td>
 <td style="text-align:right;">
-5.987400
+5.987400e+00
 </td>
 <td style="text-align:right;">
-11.309700
+1.130970e+01
 </td>
 <td style="text-align:right;">
-20.10800
+2.010800e+01
 </td>
 <td style="text-align:right;">
-48.19278
+4.819278e+01
 </td>
 <td style="text-align:right;">
-89.44349
+8.944349e+01
 </td>
 <td style="text-align:right;">
-141.9539
+1.419539e+02
 </td>
 <td style="text-align:right;">
-208.75000
+2.087500e+02
 </td>
 <td style="text-align:right;">
-249.72440
+2.497244e+02
 </td>
 <td style="text-align:right;">
-297.38882
+2.973888e+02
 </td>
 <td style="text-align:right;">
-442.158690
+4.421587e+02
 </td>
 <td style="text-align:right;">
-599.128291
+5.991283e+02
 </td>
 <td style="text-align:right;">
-987.4395
+9.874395e+02
 </td>
 <td style="text-align:right;">
 3493.322
@@ -688,16 +687,16 @@ prj_vol_dwb
 0
 </td>
 <td style="text-align:right;">
-134.037047
+1.340370e+02
 </td>
 <td style="text-align:right;">
-171.19913
+1.711991e+02
 </td>
 <td style="text-align:right;">
 0.0690849
 </td>
 <td style="text-align:right;">
-190.549355
+1.905494e+02
 </td>
 <td style="text-align:right;">
 2.2234091
@@ -718,40 +717,40 @@ prj_vol_dwb
 0.00000
 </td>
 <td style="text-align:right;">
-4.695600
+4.695600e+00
 </td>
 <td style="text-align:right;">
-8.861100
+8.861100e+00
 </td>
 <td style="text-align:right;">
-15.83188
+1.583188e+01
 </td>
 <td style="text-align:right;">
-38.44164
+3.844164e+01
 </td>
 <td style="text-align:right;">
-72.08459
+7.208459e+01
 </td>
 <td style="text-align:right;">
-114.4539
+1.144539e+02
 </td>
 <td style="text-align:right;">
-167.47310
+1.674731e+02
 </td>
 <td style="text-align:right;">
-199.41046
+1.994105e+02
 </td>
 <td style="text-align:right;">
-236.44571
+2.364457e+02
 </td>
 <td style="text-align:right;">
-344.663676
+3.446637e+02
 </td>
 <td style="text-align:right;">
-466.912423
+4.669124e+02
 </td>
 <td style="text-align:right;">
-799.5618
+7.995618e+02
 </td>
 <td style="text-align:right;">
 2700.065
@@ -768,16 +767,16 @@ age
 2874
 </td>
 <td style="text-align:right;">
-134.297011
+1.342970e+02
 </td>
 <td style="text-align:right;">
-80.30166
+8.030166e+01
 </td>
 <td style="text-align:right;">
 0.0324121
 </td>
 <td style="text-align:right;">
-88.000000
+8.800000e+01
 </td>
 <td style="text-align:right;">
 0.9759502
@@ -798,40 +797,40 @@ age
 38.00000
 </td>
 <td style="text-align:right;">
-73.000000
+7.300000e+01
 </td>
 <td style="text-align:right;">
-82.000000
+8.200000e+01
 </td>
 <td style="text-align:right;">
-89.00000
+8.900000e+01
 </td>
 <td style="text-align:right;">
-103.00000
+1.030000e+02
 </td>
 <td style="text-align:right;">
-122.00000
+1.220000e+02
 </td>
 <td style="text-align:right;">
-139.0000
+1.390000e+02
 </td>
 <td style="text-align:right;">
-158.00000
+1.580000e+02
 </td>
 <td style="text-align:right;">
-170.00000
+1.700000e+02
 </td>
 <td style="text-align:right;">
-188.00000
+1.880000e+02
 </td>
 <td style="text-align:right;">
-249.000000
+2.490000e+02
 </td>
 <td style="text-align:right;">
-304.000000
+3.040000e+02
 </td>
 <td style="text-align:right;">
-367.0000
+3.670000e+02
 </td>
 <td style="text-align:right;">
 947.000
@@ -848,16 +847,16 @@ r1_vol125
 756195
 </td>
 <td style="text-align:right;">
-154.868948
+1.548689e+02
 </td>
 <td style="text-align:right;">
-172.03552
+1.720355e+02
 </td>
 <td style="text-align:right;">
 0.0741369
 </td>
 <td style="text-align:right;">
-197.744000
+1.977440e+02
 </td>
 <td style="text-align:right;">
 2.0329641
@@ -878,40 +877,40 @@ r1_vol125
 5.32200
 </td>
 <td style="text-align:right;">
-18.000000
+1.800000e+01
 </td>
 <td style="text-align:right;">
-27.210000
+2.721000e+01
 </td>
 <td style="text-align:right;">
-38.29600
+3.829600e+01
 </td>
 <td style="text-align:right;">
-66.48500
+6.648500e+01
 </td>
 <td style="text-align:right;">
-101.46200
+1.014620e+02
 </td>
 <td style="text-align:right;">
-143.1586
+1.431586e+02
 </td>
 <td style="text-align:right;">
-194.36270
+1.943627e+02
 </td>
 <td style="text-align:right;">
-224.95400
+2.249540e+02
 </td>
 <td style="text-align:right;">
-260.07500
+2.600750e+02
 </td>
 <td style="text-align:right;">
-367.272000
+3.672720e+02
 </td>
 <td style="text-align:right;">
-491.371000
+4.913710e+02
 </td>
 <td style="text-align:right;">
-804.1160
+8.041160e+02
 </td>
 <td style="text-align:right;">
 2348.624
@@ -928,16 +927,16 @@ r1_vol175
 756195
 </td>
 <td style="text-align:right;">
-148.141353
+1.481414e+02
 </td>
 <td style="text-align:right;">
-172.69935
+1.726994e+02
 </td>
 <td style="text-align:right;">
 0.0744230
 </td>
 <td style="text-align:right;">
-196.327000
+1.963270e+02
 </td>
 <td style="text-align:right;">
 2.0741281
@@ -958,40 +957,40 @@ r1_vol175
 3.15900
 </td>
 <td style="text-align:right;">
-12.908000
+1.290800e+01
 </td>
 <td style="text-align:right;">
-20.749000
+2.074900e+01
 </td>
 <td style="text-align:right;">
-30.54000
+3.054000e+01
 </td>
 <td style="text-align:right;">
-56.55500
+5.655500e+01
 </td>
 <td style="text-align:right;">
-90.75300
+9.075300e+01
 </td>
 <td style="text-align:right;">
-132.7650
+1.327650e+02
 </td>
 <td style="text-align:right;">
-185.45500
+1.854550e+02
 </td>
 <td style="text-align:right;">
-217.07600
+2.170760e+02
 </td>
 <td style="text-align:right;">
-253.26200
+2.532620e+02
 </td>
 <td style="text-align:right;">
-362.780000
+3.627800e+02
 </td>
 <td style="text-align:right;">
-488.474900
+4.884749e+02
 </td>
 <td style="text-align:right;">
-803.1732
+8.031732e+02
 </td>
 <td style="text-align:right;">
 2348.624
@@ -1008,16 +1007,16 @@ r1_dvol125
 5341091
 </td>
 <td style="text-align:right;">
-55.790116
+5.579012e+01
 </td>
 <td style="text-align:right;">
-61.52678
+6.152678e+01
 </td>
 <td style="text-align:right;">
 0.0687944
 </td>
 <td style="text-align:right;">
-67.634000
+6.763400e+01
 </td>
 <td style="text-align:right;">
 2.3527729
@@ -1038,40 +1037,40 @@ r1_dvol125
 2.71550
 </td>
 <td style="text-align:right;">
-7.990000
+7.990000e+00
 </td>
 <td style="text-align:right;">
-11.423000
+1.142300e+01
 </td>
 <td style="text-align:right;">
-15.43200
+1.543200e+01
 </td>
 <td style="text-align:right;">
-25.03700
+2.503700e+01
 </td>
 <td style="text-align:right;">
-37.18700
+3.718700e+01
 </td>
 <td style="text-align:right;">
-51.3860
+5.138600e+01
 </td>
 <td style="text-align:right;">
-68.57250
+6.857250e+01
 </td>
 <td style="text-align:right;">
-79.05700
+7.905700e+01
 </td>
 <td style="text-align:right;">
-92.19700
+9.219700e+01
 </td>
 <td style="text-align:right;">
-132.212000
+1.322120e+02
 </td>
 <td style="text-align:right;">
-174.080250
+1.740803e+02
 </td>
 <td style="text-align:right;">
-279.7410
+2.797410e+02
 </td>
 <td style="text-align:right;">
 1501.163
@@ -1088,16 +1087,16 @@ vri_vol
 0
 </td>
 <td style="text-align:right;">
-132.484077
+1.324841e+02
 </td>
 <td style="text-align:right;">
-168.69477
+1.686948e+02
 </td>
 <td style="text-align:right;">
 0.0680743
 </td>
 <td style="text-align:right;">
-190.294500
+1.902945e+02
 </td>
 <td style="text-align:right;">
 2.1616206
@@ -1118,40 +1117,40 @@ vri_vol
 0.00000
 </td>
 <td style="text-align:right;">
-3.280000
+3.280000e+00
 </td>
 <td style="text-align:right;">
-8.121000
+8.121000e+00
 </td>
 <td style="text-align:right;">
-15.44700
+1.544700e+01
 </td>
 <td style="text-align:right;">
-37.60400
+3.760400e+01
 </td>
 <td style="text-align:right;">
-70.66900
+7.066900e+01
 </td>
 <td style="text-align:right;">
-113.1896
+1.131896e+02
 </td>
 <td style="text-align:right;">
-166.33400
+1.663340e+02
 </td>
 <td style="text-align:right;">
-198.41550
+1.984155e+02
 </td>
 <td style="text-align:right;">
-235.42100
+2.354210e+02
 </td>
 <td style="text-align:right;">
-342.956000
+3.429560e+02
 </td>
 <td style="text-align:right;">
-462.697700
+4.626977e+02
 </td>
 <td style="text-align:right;">
-780.4077
+7.804077e+02
 </td>
 <td style="text-align:right;">
 2348.624
@@ -1168,16 +1167,16 @@ l_vol
 0
 </td>
 <td style="text-align:right;">
-128.559141
+1.285591e+02
 </td>
 <td style="text-align:right;">
-169.05902
+1.690590e+02
 </td>
 <td style="text-align:right;">
 0.0682213
 </td>
 <td style="text-align:right;">
-184.453240
+1.844532e+02
 </td>
 <td style="text-align:right;">
 2.2653540
@@ -1198,40 +1197,40 @@ l_vol
 0.00000
 </td>
 <td style="text-align:right;">
-2.905000
+2.905000e+00
 </td>
 <td style="text-align:right;">
-6.644750
+6.644750e+00
 </td>
 <td style="text-align:right;">
-12.20200
+1.220200e+01
 </td>
 <td style="text-align:right;">
-32.83150
+3.283150e+01
 </td>
 <td style="text-align:right;">
-64.96000
+6.496000e+01
 </td>
 <td style="text-align:right;">
-106.7398
+1.067398e+02
 </td>
 <td style="text-align:right;">
-159.10582
+1.591058e+02
 </td>
 <td style="text-align:right;">
-191.09799
+1.910980e+02
 </td>
 <td style="text-align:right;">
-228.29393
+2.282939e+02
 </td>
 <td style="text-align:right;">
-337.278552
+3.372786e+02
 </td>
 <td style="text-align:right;">
-458.912720
+4.589127e+02
 </td>
 <td style="text-align:right;">
-789.0890
+7.890890e+02
 </td>
 <td style="text-align:right;">
 2700.065
@@ -1248,16 +1247,16 @@ u_vol
 0
 </td>
 <td style="text-align:right;">
-139.414857
+1.394149e+02
 </td>
 <td style="text-align:right;">
-173.13016
+1.731302e+02
 </td>
 <td style="text-align:right;">
 0.0698641
 </td>
 <td style="text-align:right;">
-194.662000
+1.946620e+02
 </td>
 <td style="text-align:right;">
 2.1938564
@@ -1278,40 +1277,40 @@ u_vol
 0.00000
 </td>
 <td style="text-align:right;">
-6.711320
+6.711320e+00
 </td>
 <td style="text-align:right;">
-12.165700
+1.216570e+01
 </td>
 <td style="text-align:right;">
-20.23240
+2.023240e+01
 </td>
 <td style="text-align:right;">
-44.39888
+4.439888e+01
 </td>
 <td style="text-align:right;">
-79.14460
+7.914460e+01
 </td>
 <td style="text-align:right;">
-121.7635
+1.217635e+02
 </td>
 <td style="text-align:right;">
-174.90530
+1.749053e+02
 </td>
 <td style="text-align:right;">
-206.82770
+2.068277e+02
 </td>
 <td style="text-align:right;">
-243.44101
+2.434410e+02
 </td>
 <td style="text-align:right;">
-351.251926
+3.512519e+02
 </td>
 <td style="text-align:right;">
-475.058236
+4.750582e+02
 </td>
 <td style="text-align:right;">
-811.3452
+8.113452e+02
 </td>
 <td style="text-align:right;">
 2700.065
@@ -1328,16 +1327,16 @@ vdyp_vol
 0
 </td>
 <td style="text-align:right;">
-134.294735
+1.342947e+02
 </td>
 <td style="text-align:right;">
-171.03250
+1.710325e+02
 </td>
 <td style="text-align:right;">
 0.0690177
 </td>
 <td style="text-align:right;">
-190.132920
+1.901329e+02
 </td>
 <td style="text-align:right;">
 2.2236383
@@ -1358,40 +1357,40 @@ vdyp_vol
 0.00000
 </td>
 <td style="text-align:right;">
-5.200614
+5.200614e+00
 </td>
 <td style="text-align:right;">
-9.328480
+9.328480e+00
 </td>
 <td style="text-align:right;">
-16.38052
+1.638052e+01
 </td>
 <td style="text-align:right;">
-39.00250
+3.900250e+01
 </td>
 <td style="text-align:right;">
-72.39774
+7.239774e+01
 </td>
 <td style="text-align:right;">
-114.7343
+1.147343e+02
 </td>
 <td style="text-align:right;">
-167.57652
+1.675765e+02
 </td>
 <td style="text-align:right;">
-199.46140
+1.994614e+02
 </td>
 <td style="text-align:right;">
-236.42096
+2.364210e+02
 </td>
 <td style="text-align:right;">
-344.663366
+3.446634e+02
 </td>
 <td style="text-align:right;">
-467.128664
+4.671287e+02
 </td>
 <td style="text-align:right;">
-799.4867
+7.994867e+02
 </td>
 <td style="text-align:right;">
 2700.065
@@ -1408,16 +1407,16 @@ vol_dif
 0
 </td>
 <td style="text-align:right;">
--1.810658
+-1.810658e+00
 </td>
 <td style="text-align:right;">
-11.13058
+1.113058e+01
 </td>
 <td style="text-align:right;">
 0.0044916
 </td>
 <td style="text-align:right;">
-1.670945
+1.670945e+00
 </td>
 <td style="text-align:right;">
 -21.2578431
@@ -1438,40 +1437,40 @@ vol_dif
 -6.50886
 </td>
 <td style="text-align:right;">
--2.589600
+-2.589600e+00
 </td>
 <td style="text-align:right;">
--1.540905
+-1.540905e+00
 </td>
 <td style="text-align:right;">
--0.87380
+-8.738000e-01
 </td>
 <td style="text-align:right;">
--0.17848
+-1.784800e-01
 </td>
 <td style="text-align:right;">
--0.01466
+-1.466000e-02
 </td>
 <td style="text-align:right;">
-0.0000
+0.000000e+00
 </td>
 <td style="text-align:right;">
-0.04615
+4.615000e-02
 </td>
 <td style="text-align:right;">
-0.13004
+1.300400e-01
 </td>
 <td style="text-align:right;">
-0.26338
+2.633800e-01
 </td>
 <td style="text-align:right;">
-1.145801
+1.145801e+00
 </td>
 <td style="text-align:right;">
-3.128867
+3.128867e+00
 </td>
 <td style="text-align:right;">
-11.7303
+1.173030e+01
 </td>
 <td style="text-align:right;">
 1771.781
@@ -1492,7 +1491,7 @@ vol_dif
           </div>
         </div>
       </div>
-<a href="provincial-yield-table---nsyt-and-msyt-combined-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="comparison-with-combined-mulitple-layers-projection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -1535,7 +1534,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["provincial NSYT production process and assessment.pdf", "provincial NSYT production process and assessment.epub"],
+  "download": ["The Consolidated Provincial Yield Table.pdf", "The Consolidated Provincial Yield Table.epub"],
   "search": {
     "engine": "fuse",
     "options": null

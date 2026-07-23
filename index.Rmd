@@ -1,5 +1,5 @@
 --- 
-title: "provincial NSYT production process and assessment"
+title: "The Consolidated Provincial Yield Table"
 author: "Shuyan Jiang, Kelly Izzard, Yingbing Chen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,9 +7,19 @@ output: bookdown::gitbook
 documentclass: book
 ---
 
-# Prerequisites
+# Background
 
-This is the documentation of how provincial natural stand yield table (NSYT) was generated and the assessments of the product.
+Forest Analysis and Inventory Branch (FAIB) is in the process of developing and publicizing a single provincial yield dataset that would assign a yield curve to every feature_id in the corporate forest inventory. The approach combines FAIB’s Managed Stand Yield Tables (MSYTs) derived from RESULTS information for harvested and regenerated stands with VDYP-generated natural stand yield curves for unmanaged stands represented in the Vegetation Resources Inventory (VRI). The objective is to establish a comprehensive, wall-to-wall provincial yield framework that can support timber supply analysis, Forest Landscape Planning (FLP), strategic assessments, and other forest management initiatives.
+
+One of the primary advantages of a provincial yield dataset is that it would provide complete and consistent coverage across British Columbia. Every forested polygon would have an associated yield projection, eliminating the need for individual projects to assemble yield information independently. This would significantly reduce the effort required to develop inputs for TSRs, FLPs, and provincial strategic analyses while ensuring that all analyses begin from a common and transparent data foundation.
+
+A second benefit is improved consistency and comparability across planning units. Currently, yield assumptions often vary between TSAs due to differences in processing methodologies and yield-generation approaches. A standardized provincial dataset promotes a consistent analytical framework across the province, making it easier to compare results among TSAs, evaluate regional trends, and support provincial reporting and decision-making. Such consistency would increase transparency and reduce variability associated with differing technical approaches.
+
+The initiative would also maximize the value of existing provincial investments in inventory and growth-and-yield. By integrating RESULTS-based managed stand information, VRI data, VDYP modelling, and existing growth and yield research into a single corporate product, FAIB could leverage datasets that are already maintained and routinely updated. Rather than repeatedly recreating yield packages for individual projects, planners and analysts would be able to access and utilize a common provincial resource that reflects current inventory and management information.
+
+Finally, a provincial yield layer would substantially improve analytical efficiency and responsiveness. Having a ready-to-use yield framework would enable rapid evaluation of policy options, disturbance impacts, fibre supply scenarios, and Forest Landscape Planning alternatives. The dataset could become a foundational corporate information asset, much like the VRI itself, supporting a wide range of applications including TSRs, carbon assessments, biodiversity planning, stewardship initiatives, and long-term strategic forest management. By providing a single, authoritative source of yield information, FAIB would strengthen the consistency, scalability, and repeatability of forest analysis across British Columbia.
+
+The following details how provincial natural stand yield table (NSYT) component was generated, the amalgamation with the provincial managed stand yield curves into a single provincial current yield table, and the QA assessments of the product.
 
 ```{r eval=FALSE, echo=FALSE}
 install.packages("bookdown")

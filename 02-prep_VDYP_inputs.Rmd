@@ -1,6 +1,17 @@
-# VDYP inputs preparation
-## load input data
-### postgres database connection
+# VDYP Inputs Preparation
+
+The following code prepares, validates, and standardizes the provincial 2024 VDYP (Variable Density Yield Prediction) input database prior to yield generation. The workflow begins by establishing a PostgreSQL database connection and loading the core provincial datasets, including the VDYP input layer table, VDYP input polygon table, rank 1 species layer assignments, and the TSA-feature lookup table. These datasets are imported into PostgreSQL where all subsequent processing and quality assurance activities are performed. The overall objective is to create a complete, standardized, and defensible provincial input dataset suitable for generating yield curves for every forested feature in the corporate inventory.
+
+The first stage of processing focuses on identifying and resolving structural data issues. The script evaluates features that exist in the VRI-derived rank 1 dataset but are missing from the VDYP polygon table and reviews polygons that do not have a rank 1 forest layer assigned. A standardized hierarchy is then applied to assign rank 1 layers where they are missing. The process prioritizes non-dead layers, crown closure, and layer order to ensure every eligible forested polygon has a representative primary layer for yield modelling. This step establishes consistent layer selection across the province and resolves thousands of missing rank assignments that would otherwise prevent yield generation.
+
+The second major component performs a comprehensive cleanup of species composition information for all rank 1 layers. Species records are converted into a standardized format, outdated species and site index codes are corrected, duplicate species entries are aggregated, dominance rankings are rebuilt, and species percentages are normalized to sum to 100 percent. Features containing invalid or missing species information are identified and flagged. All modifications are recorded in a change log to provide full transparency and quality assurance. The resulting output table, prov_updated_spp_2024, provides a province-wide, quality-controlled species composition dataset suitable for VDYP processing.
+
+The script then validates and updates basal area, age, and height information used in yield estimation. Missing secondary species ages and heights are populated from the leading species where appropriate, biologically unrealistic values are corrected, and anomalous records such as negative heights or secondary species older than leading species are adjusted. Additional quality assurance checks identify missing layer identifiers, low or missing basal area, missing age or height values, low stem densities, low crown closure values, and excessively old stand ages that may create yield generation problems. All identified issues are recorded and summarized in review tables to support subsequent data correction and verification efforts.
+
+Finally, the workflow standardizes other vegetation and land cover attributes contained in the polygon dataset. Missing numeric values are replaced with zeros, missing BEC zone codes are flagged, and vegetation, non-vegetation, and land cover percentages are checked to ensure totals do not exceed 100 percent. Where totals exceed valid limits, proportional scaling factors are applied and documented. The resulting table, prov_updated_other_veg_2024, contains corrected cover attributes, scaling ratios, and a complete audit trail of all adjustments. Collectively, these processing steps create a robust provincial VDYP input database that supports consistent yield generation and forms the foundation for developing a single provincial yield curve dataset for every feature_id in the corporate forest inventory.
+
+## Load input data
+### Postgres database connection
 ```{r init, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 library(RPostgreSQL)
 library(data.table)
@@ -35,7 +46,13 @@ SQLQuery <- function(query){
   
 } 
 ```
+
 ### Load 2024 VDYP input layer table to postgres
+
+The Provincial VDYP Input Layer is the foundational stand-level dataset used by the Variable Density Yield Projection system version 7 (VDYP7) to generate natural stand yield projections for the Provincial Natural Stand Yield Table (NSYT). Each record represents an individual forest layer within a VRI polygon and contains the inventory attributes required to construct a VDYP7 stand description, including species composition, species percentages, age, height, basal area, stems per hectare, crown closure, site index, layer classification, and biogeoclimatic information. The dataset is derived from the Provincial Vegetation Resources Inventory (VRI) and is structured to support the VDYP7 startup processes, particularly VRISTART, which transforms photo-interpreted inventory attributes into the stand descriptions used for growth and yield projection. The input layer therefore provides the critical biological and structural information needed to estimate current stand conditions and future yield development.
+
+For the Provincial NSYT initiative, the input layer was used to identify and prepare the Rank 1 (R1) forest layer for each feature, representing the leading canopy layer within a polygon. Extensive quality assurance procedures were applied to ensure that species composition, age, height, density, basal area, crown closure, and site index information were internally consistent and suitable for modelling. Because VDYP7 relies heavily on attributes such as basal area, stems per hectare, species mixtures, site productivity, and stand age to construct and project stand descriptions, input data quality directly influences projected yields. The resulting Provincial VDYP Input Layer provides a standardized, province-wide inventory foundation that enables consistent yield generation across millions of forested features and supports the development of a comprehensive provincial natural stand yield framework.
+
 ```{r load_layer, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 
 file_path <- "D:/data/projects/VDYP/VDYP/2024/vdyp_input_layer_2024.csv"
@@ -48,6 +65,11 @@ rm(file)
 ```
 
 ### Load 2024 VDYP input polygon table to postgres
+
+The VDYP Polygon Table is the polygon-level companion dataset to the VDYP Input Layer table and provides the non-tree and site-level attributes required by VDYP7 to characterize each VRI feature. While the VDYP Input Layer table contains detailed forest layer information such as species composition, age, height, basal area, stems per hectare, and crown closure, the Polygon Table contains attributes that describe the overall polygon, including its area, ecological classification, vegetation cover, non-vegetated cover, land cover composition, disturbance history, and inventory metadata. Together, the layer and polygon tables provide a complete description of each forest feature required for VDYP processing.
+
+Within the Provincial NSYT workflow, the Polygon Table is used primarily to provide the ecological and land-cover context for each feature. BEC zone information is particularly important because VDYP7 applies different growth, yield, taper, decay, waste, breakage, and volume relationships depending on ecological region. Vegetation and land-cover percentages are also reviewed and standardized to ensure the combined cover values are logically consistent and do not exceed 100 percent. As part of the provincial preprocessing workflow, missing BEC codes are flagged, missing vegetation values are replaced with zeros, and vegetation, non-vegetation, and land-cover percentages are proportionally scaled when totals exceed valid limits. These quality-control procedures produce the prov_updated_other_veg_2024 table used during provincial yield generation.
+
 ```{r load_poly, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 
 file_path <- "D:/data/projects/VDYP/VDYP/2024/vdyp_input_poly_2024.csv"
@@ -60,6 +82,11 @@ rm(file)
 ```
 
 ### Load rank1 2024
+
+The Rank 1 (R1) layer represents the primary forest canopy layer within a VRI polygon and serves as the principal stand description used for most provincial forest inventory analyses. A VRI polygon may contain multiple layers, such as a primary (P) layer, residual (R) layer, veteran (V) layer, or dead (D) layer; however, the R1 layer identifies the dominant live forest layer that best characterizes the stand. The R1 record contains the key stand attributes required for growth and yield modelling, including leading and secondary species composition, species percentages, estimated age, dominant height, site index, basal area, stems per hectare, crown closure, and adjusted volume estimates. These attributes are derived through the VRI interpretation process and subsequent VDYP adjustment procedures and provide a standardized representation of the forest stand across the provincial land base.
+
+For the Provincial Natural Stand Yield Table (NSYT) project, the R1 layer was selected as the sole input layer for yield generation because it represents the dominant forest condition within each feature and provides a consistent province-wide basis for modelling. Using the R1 layer simplifies the yield generation process while retaining the stand attributes that have the greatest influence on forest productivity and timber volume.
+
 ```{r load_rank1, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 
 file_path <- "D:/data/projects/VDYP/VDYP/2024/rank1_2024.csv"
@@ -102,7 +129,9 @@ kable(missing_poly,format='markdown')
 ```
 
 ### Polygons without R1 layer assigned
-- 4394 features missing from rank1 
+
+4394 features missing from rank1 
+
 ```{r update_rank1, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
 
 query <- "select count(distinct feature_id) from vdyp7_input_layer_2024 
@@ -133,7 +162,8 @@ group by 1')
 
 kablep(r1)
 ```
-### check & fix species comp for rank1
+
+### Check & fix species comp for rank1
 
 #### Issues Addressed
 1. Species percentage > 0 but species code is missing → removed
@@ -462,6 +492,7 @@ dbWriteTable(
 ```
 
 ### Update  Age & Height
+
 1. Missing age/height for species 2:
    - If species_pct_2 > 0 and age/height is missing
    → copy from species 1
@@ -549,7 +580,7 @@ dbWriteTable(con, "prov_updated_ba_age_ht_2024", layer_attri, overwrite = TRUE, 
 ```
 
 
-### review Basal Area, Age & Height
+### Review Basal Area, Age & Height
 
 #### Checks Performed
 1. Missing layer identifiers:

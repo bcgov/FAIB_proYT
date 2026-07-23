@@ -1,4 +1,4 @@
-# VDYP projection parameters and final yield table development
+# Run VDYP7 Projection
 
 **VDYP7 console version:** 7.17d
 
@@ -11,9 +11,139 @@
 | reported utilization level | 12.5cm pine and deciduous, 17.5cm for all other species     |
 
 
-**calculated attributes in the final NSYT**
+## VDYPinR
 
-- conifer only live volume: conifer only live volume is calculated by adding up the projected volume of the conifer portion of each FEATURE_ID.
-- deciduous only live volume: deciduous only live volume is calculated by adding up the projected volume of the deciduous portion of each FEATURE_ID.
-- conifer height and deciduous height: VDYP7 doesn't project conifer height and deciduous height. A height ratio between conifer height and deciduous height is developed using managed stand yield table by BEC_ZONE and BEC variants, and the ratio was applied to the PRJ_DOM_HT to estimate conifer height and deciduous height.
+VDYP7 projections were performed using VDYPinR package in the R environment. VDYPinR is an R package developed to provide a direct interface between the R statistical environment and VDYP7console interface from VDYP7 system. The package executes VDYP7 simulations, and imports the resulting yield tables directly back into R for further analysis. It was designed to simplify large-scale forest modelling workflows by eliminating the need to manually create VDYP7 command files, manage intermediate files, or process outputs outside of R. The package includes functions to validate input datasets, generate utilization tables, run VDYP7 simulations, extract volume and biomass outputs, and save results in multiple formats.
+
+Within the Provincial NSYT process, VDYPinR serves as the primary processing framework used to generate yield projections for the provincial inventory. After the VDYP polygon and layer inputs are prepared and validated, VDYPinR partitions the provincial dataset into manageable batches, submits these records to the VDYP7Console engine, and assembles the resulting yield tables for further analysis. The package therefore provides the operational bridge between provincial inventory data and the underlying VDYP7 growth model, allowing large-scale, reproducible, and automated yield generation entirely within an R workflow. This capability was essential for producing a province-wide NSYT dataset covering millions of forest features while maintaining consistency with the standard VDYP7 modelling framework used throughout British Columbia.
+
+## Load and finalize VDYP input layer data
+
+This step extracts, standardizes, and prepares the final VDYP7 layer input dataset that is used to generate provincial NSYT projections. The script begins by establishing a connection to the PostgreSQL VDYP database and then retrieves all records associated with the validated Rank 1 (R1) forest layers. During extraction, the script joins the original VDYP input layer table with the updated species composition table (prov_updated_spp_2024) and the updated age and height table (prov_updated_ba_age_ht_2024) to incorporate all corrections and quality assurance updates completed during pre-processing. The resulting dataset contains the complete set of VDYP7 stand attributes required by the VRISTART process, including species composition, site index, age, height, basal area, crown closure, stems per hectare, volume attributes, and layer descriptors. The non_forest_descriptor_code field is intentionally populated as blank, and only records where the updated rank code equals one are retained, ensuring that yield projections are generated exclusively for the leading forest layer within each feature.
+
+Following extraction, the dataset is standardized by converting field names to uppercase, sorting records by FEATURE_ID, and storing the complete provincial layer dataset as an RDS file for subsequent processing. To support efficient large-scale yield generation using VDYP7 Console, the provincial dataset is then divided into fifty approximately equal-sized groups based on FEATURE_ID. These partitions enable parallel processing across multiple VDYP7 runs, substantially reducing execution time when generating yield curves for millions of forest features. The resulting collection of partitioned input files forms the final R1-only provincial VDYP input layer dataset used to create the Provincial NSYT yield tables.
+
+```{r load-layer, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
+library(RPostgreSQL)
+library(VDYPinR)
+library(dplyr)
+# simple connection
+# SCHEMA are referenced explicitly in the table names
+
+user_name <- 'postgres'
+data_base <- 'vdyp'
+ 
+con <- dbConnect('PostgreSQL',dbname=data_base,user=user_name)
+
+query <- "SELECT l.feature_id, tree_cover_layer_estimated_id, map_id, polygon_number, layer_level_code_update as layer_level_code,  vdyp7_layer_cd, layer_stockability, rank_cd_update as forest_cover_rank_code, '' as non_forest_descriptor_code, est_site_index_species_cd, estimated_site_index, crown_closure, basal_area_75, stems_per_ha_75, 
+n.species_cd_1, n.species_pct_1, n.species_cd_2, n.species_pct_2, n.species_cd_3, n.species_pct_3, n.species_cd_4, n.species_pct_4, n.species_cd_5, n.species_pct_5, n.species_cd_6, n.species_pct_6, 
+k.est_age_spp1, k.est_height_spp1, k.est_age_spp2, k.est_height_spp2, adj_ind, lorey_height_75, basal_area_125, ws_vol_per_ha_75, ws_vol_per_ha_125, cu_vol_per_ha_125, d_vol_per_ha_125, dw_vol_per_ha_125
+FROM public.vdyp7_input_layer_2024 l
+LEFT JOIN prov_updated_spp_2024 n
+ON l.feature_id = n.feature_id
+LEFT JOIN prov_updated_ba_age_ht_2024 k
+ON l.feature_id = k.feature_id
+where rank_cd_update = 1"
+
+layer <- dbGetQuery(con, query)
+colnames(layer) <- toupper(colnames(layer))
+layer <- layer %>%
+  mutate(FEATURE_ID = as.integer(FEATURE_ID))
+layer <- layer %>% arrange(FEATURE_ID)
+
+saveRDS(layer, file = "D:/data/projects/VDYP/VDYP/2024/prov/VDYP7RunParallel/layer.rds")
+
+layer <- layer %>%
+  mutate(group = ntile(FEATURE_ID, 50)) 
+table(layer$group)
+layer_parts <- split(layer, layer$group)
+head(layer_parts[[1]])
+```
+
+## Load and finalize VDYP input polygon data
+
+The Provincial VDYP Polygon Input dataset was prepared by extracting all polygon-level records associated with features that contained a valid Rank 1 (R1) forest layer and joining them with the quality-controlled vegetation cover updates developed during the preprocessing phase. The workflow combined the original vdyp7_input_poly_2024 table with the corrected prov_updated_other_veg_2024 table, ensuring that all adjustments applied to shrub cover, herb cover, bryoid cover, non-vegetated cover, and land-cover percentages were incorporated into the final VDYP input file. The resulting dataset retained the full set of VDYP7 polygon attributes required for projection, including polygon identifiers, inventory standard codes, ecological classifications, BEC zone information, stockability, yield factors, disturbance information, BCLCS land-cover classifications, vegetation cover estimates, non-vegetated cover components, and land-cover composition attributes. Only polygons with an associated R1 layer selected for projection were included, ensuring that the final polygon input dataset corresponded directly to the provincial NSYT feature set.
+
+Following extraction and assembly, the polygon records were standardized by converting field names to uppercase, converting FEATURE_ID to an integer format, and sorting all records by FEATURE_ID to satisfy VDYP7 input requirements. The completed provincial polygon table was then saved as an RDS file and linked to the same processing groups previously created for the VDYP layer input dataset. By inheriting the grouping structure used for the layer table, each polygon record was assigned to one of fifty approximately equal-sized processing partitions. The provincial polygon dataset was subsequently split into these individual subsets, allowing the polygon and layer inputs to be processed together in parallel using the VDYP7inR framework and VDYP7 Console. This partitioning strategy enabled efficient large-scale yield generation across millions of provincial forest features while maintaining the one-to-one relationship between VDYP polygon and layer input records required by the model.
+
+```{r load-poly, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
+query <- "SELECT l.feature_id, map_id, polygon_number, org_unit, tsa_name, tfl_name, inventory_standard_code, tsa_number, shrub_height, n.shrub_crown_closure, shrub_cover_pattern, herb_cover_type_code, n.herb_cover_pct, herb_cover_pattern_code, n.bryoid_cover_pct, l.bec_zone_code, cfs_ecozone, pre_disturbance_stockability, yield_factor, non_productive_descriptor_cd, bclcs_level1_code, bclcs_level2_code, bclcs_level3_code, bclcs_level4_code, bclcs_level5_code, photo_estimation_base_year, reference_year, pct_dead, non_veg_cover_type_1, n.non_veg_cover_pct_1, non_veg_cover_pattern_1, non_veg_cover_type_2, n.non_veg_cover_pct_2, non_veg_cover_pattern_2, non_veg_cover_type_3, n.non_veg_cover_pct_3, non_veg_cover_pattern_3, land_cover_class_cd_1, n.land_cover_pct_1, land_cover_class_cd_2, n.land_cover_pct_2, land_cover_class_cd_3, n.land_cover_pct_3
+FROM public.vdyp7_input_poly_2024 l
+LEFT JOIN prov_updated_other_veg_2024 n
+ON l.feature_id = n.feature_id
+where l.feature_id in (select distinct feature_id from vdyp7_input_layer_2024 where rank_cd_update = 1)"
+
+polygon <- dbGetQuery(con, query)
+colnames(polygon) <- toupper(colnames(polygon))
+
+polygon <- polygon %>%
+  mutate(FEATURE_ID = as.integer(FEATURE_ID))
+
+polygon <- polygon %>% arrange(FEATURE_ID)
+saveRDS(polygon, file = "D:/data/projects/VDYP/VDYP/2024/prov/VDYP7RunParallel/polygon.rds")
+polygon_groups <- layer %>% select(FEATURE_ID, group)  
+polygon <- polygon %>%
+  left_join(polygon_groups, by = "FEATURE_ID")
+table(polygon$group)
+polygon_parts <- split(polygon, polygon$group)
+head(polygon_parts[[1]])
+```
+
+## Set utilization
+
+Before running the provincial VDYP7 projections, all polygon and layer input files were validated using the validInput() function from the VDYPinR package to ensure that the polygon and layer datasets were structurally correct, internally consistent, and suitable for processing by VDYP7. Validation was performed independently on each of the fifty processing partitions created during data preparation, allowing any mismatches between polygon and layer records, missing required attributes, or formatting issues to be identified before yield generation commenced. Following successful validation, a provincial utilization table was created using utilTableGenerator() to define the minimum merchantable diameter thresholds applied during volume calculations. Under this configuration, all deciduous species groups and all pine species groups (lodgepole pine, ponderosa pine, whitebark pine, and western white pine), were assigned a utilization limit of 12.5 cm DBH, while all remaining conifer species groups were assigned a utilization limit of 17.5 cm DBH. This utilization table was subsequently supplied to the VDYP7 modelling process and controlled the merchantability standards used when generating provincial yield projections and summary volume estimates.
+
+```{r set-util, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
+library(VDYPinR)
+for (i in 1:50) {
+validInput(polyFile = polygon_parts[[i]],
+           layerFile = layer_parts[[i]])
+  }
+
+utiltbl <- utilTableGenerator(all=17.5,exception = c("PW,12.5","PA,12.5","PL,12.5","PY,12.5","MB,12.5","D, 12.5", "AC,12.5","AT,12.5","E,12.5"))
+
+print(utiltbl)
+```
+
+
+## Run VDYP7 in parallel
+
+Following preparation and validation of the provincial VDYP polygon and layer input datasets, yield projections were generated using the VDYPinR parallel-processing framework to improve computational efficiency and manage the large volume of records being processed. For each group, the VDYP7RunParallel() function automatically prepared VDYP7 input files, executed the VDYP7 Console model, and imported the resulting yield tables back into R. Projections were generated on an age basis from age 0 to age 250 in 10-year intervals, producing a complete yield curve for each feature. The previously defined utilization standards were applied during projection, and reference-year records were not explicitly forced into the output, resulting in a consistent set of age-based natural stand yield tables across the provincial inventory.
+
+As each processing group completed, the resulting yield tables, processing outputs, and associated metadata were saved to a provincial output directory using the VDYP7Save() function. Metadata files were retained to provide a complete record of the VDYP7 command settings and processing specifications used for each run, supporting transparency, reproducibility, and troubleshooting if required. The workflow also recorded the start time, completion time, and total execution time in a log file, allowing overall processing performance to be monitored throughout the provincial run. Once all fifty processing groups were completed, the collection of yield tables formed the provincial NSYT output dataset.
+
+```{r run-vdyp, warning=FALSE,echo = TRUE,message=FALSE,eval = FALSE}
+# Store results in a list
+results <- vector("list", length = 50)
+targetfolder <- "D:\\data\\projects\\VDYP\\VDYP\\2024\\prov\\VDYP7RunParallel"
+log_file <- "D:\\data\\projects\\VDYP\\VDYP\\2024\\prov\\VDYP7RunParallel\\run_times.log"
+
+# Loop through all groups
+start_time <- Sys.time()
+write(paste("Run started at:", start_time), file = log_file, append = TRUE)
+for (i in 1:50) {
+  proj_vol <- VDYP7RunParallel(polyFile = polygon_parts[[i]],
+                     layerFile = layer_parts[[i]],
+                     utiltbl,
+                     VDYP7consolePath = "C:/Program Files/VDYP7", # depends on where you install your VDYP7
+                     timeSeries = "age",
+                     startTime = 0,
+                     endTime = 250,
+                     timeIncrement = 10,
+                     forceRefYear = FALSE)
+  
+  VDYP7Save(proj_vol,
+            savePath = targetfolder,
+            saveName = paste("prov_lesschanges",i),
+            overWrite = TRUE,
+            metadata = TRUE)
+  
+  dir(targetfolder)  
+}
+end_time <- Sys.time()
+total_time <- round(difftime(end_time, start_time, units = "secs"), 2)
+write(paste("Total execution time:", total_time, "seconds"), file = log_file, append = TRUE)
+write(paste("Run ended at:", end_time), file = log_file, append = TRUE)
+```
+
 

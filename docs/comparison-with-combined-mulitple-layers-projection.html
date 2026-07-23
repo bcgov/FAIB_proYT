@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 comparison with combined mulitple layers’ projection | provincial NSYT production process and assessment</title>
-  <meta name="description" content="Chapter 7 comparison with combined mulitple layers’ projection | provincial NSYT production process and assessment" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <title>Chapter 7 comparison with combined mulitple layers’ projection | The Consolidated Provincial Yield Table</title>
+  <meta name="description" content="Chapter 7 comparison with combined mulitple layers’ projection | The Consolidated Provincial Yield Table" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 comparison with combined mulitple layers’ projection | provincial NSYT production process and assessment" />
+  <meta property="og:title" content="Chapter 7 comparison with combined mulitple layers’ projection | The Consolidated Provincial Yield Table" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 comparison with combined mulitple layers’ projection | provincial NSYT production process and assessment" />
+  <meta name="twitter:title" content="Chapter 7 comparison with combined mulitple layers’ projection | The Consolidated Provincial Yield Table" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Shuyan Jiang, Kelly Izzard, Yingbing Chen" />
 
 
-<meta name="date" content="2026-06-15" />
+<meta name="date" content="2026-07-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,16 +142,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">provincial NSYT production process and assessment</a></li>
+<li><a href="./">The Consolidated Provincial Yield Table</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP inputs preparation</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-provincial-nsyt-production-process.html"><a href="introduction-to-the-provincial-nsyt-production-process.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Provincial NSYT Production Process</a></li>
+<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP Inputs Preparation</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> load input data</a>
+<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> Load input data</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> postgres database connection</a></li>
+<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> Postgres database connection</a></li>
 <li class="chapter" data-level="3.1.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-layer-table-to-postgres"><i class="fa fa-check"></i><b>3.1.2</b> Load 2024 VDYP input layer table to postgres</a></li>
 <li class="chapter" data-level="3.1.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-polygon-table-to-postgres"><i class="fa fa-check"></i><b>3.1.3</b> Load 2024 VDYP input polygon table to postgres</a></li>
 <li class="chapter" data-level="3.1.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-rank1-2024"><i class="fa fa-check"></i><b>3.1.4</b> Load rank1 2024</a></li>
@@ -161,33 +161,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#vri-project-count-for-feature-in-list-but-not-in-polygon"><i class="fa fa-check"></i><b>3.2.1</b> VRI Project count for feature in list but not in polygon</a></li>
 <li class="chapter" data-level="3.2.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#polygons-without-r1-layer-assigned"><i class="fa fa-check"></i><b>3.2.2</b> Polygons without R1 layer assigned</a></li>
-<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> check &amp; fix species comp for rank1</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> Check &amp; fix species comp for rank1</a></li>
 <li class="chapter" data-level="3.2.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-age-height"><i class="fa fa-check"></i><b>3.2.4</b> Update Age &amp; Height</a></li>
-<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> review Basal Area, Age &amp; Height</a></li>
+<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> Review Basal Area, Age &amp; Height</a></li>
 <li class="chapter" data-level="3.2.6" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-other-veg-comp"><i class="fa fa-check"></i><b>3.2.6</b> Update Other-Veg comp</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="vdyp-projection-parameters-and-final-yield-table-development.html"><a href="vdyp-projection-parameters-and-final-yield-table-development.html"><i class="fa fa-check"></i><b>4</b> VDYP projection parameters and final yield table development</a></li>
-<li class="chapter" data-level="5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Provincial Yield table - NSYT and MSYT combined table</a>
+<li class="chapter" data-level="4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html"><i class="fa fa-check"></i><b>4</b> Run VDYP7 Projection</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#define-deciduous-species"><i class="fa fa-check"></i><b>5.2</b> Define Deciduous Species</a></li>
-<li class="chapter" data-level="5.3" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3</b> Load VDYP Yield Table</a></li>
-<li class="chapter" data-level="5.4" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-species-codes"><i class="fa fa-check"></i><b>5.4</b> Extract Species Codes</a></li>
-<li class="chapter" data-level="5.5" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extract-projected-volumes"><i class="fa fa-check"></i><b>5.5</b> Extract Projected Volumes</a></li>
-<li class="chapter" data-level="5.6" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-conifer-and-deciduous-volume"><i class="fa fa-check"></i><b>5.6</b> Calculate Conifer and Deciduous Volume</a></li>
-<li class="chapter" data-level="5.7" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#convert-volume-table-to-wide-format"><i class="fa fa-check"></i><b>5.7</b> Convert Volume Table to Wide Format</a></li>
-<li class="chapter" data-level="5.8" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.8</b> Load MSYT Tables</a></li>
-<li class="chapter" data-level="5.9" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.9</b> Extend MSYT Curves to Age 250</a></li>
-<li class="chapter" data-level="5.10" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.10</b> Reorder MSYT Columns</a></li>
-<li class="chapter" data-level="5.11" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-output"><i class="fa fa-check"></i><b>5.11</b> Build MSYT Output</a></li>
-<li class="chapter" data-level="5.12" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#load-height-ratios"><i class="fa fa-check"></i><b>5.12</b> Load Height Ratios</a></li>
-<li class="chapter" data-level="5.13" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#calculate-vdyp-heights"><i class="fa fa-check"></i><b>5.13</b> Calculate VDYP Heights</a></li>
-<li class="chapter" data-level="5.14" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#build-vdyp-output"><i class="fa fa-check"></i><b>5.14</b> Build VDYP Output</a></li>
-<li class="chapter" data-level="5.15" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#export-final-yield-table"><i class="fa fa-check"></i><b>5.15</b> Export Final Yield Table</a></li>
-<li class="chapter" data-level="5.16" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.16</b> QA/QC Checks</a></li>
-<li class="chapter" data-level="5.17" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.17</b> Review NSYT Zero-Volume Records</a></li>
-<li class="chapter" data-level="5.18" data-path="provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.18</b> Review MSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="4.1" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#vdypinr"><i class="fa fa-check"></i><b>4.1</b> VDYPinR</a></li>
+<li class="chapter" data-level="4.2" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-layer-data"><i class="fa fa-check"></i><b>4.2</b> Load and finalize VDYP input layer data</a></li>
+<li class="chapter" data-level="4.3" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-polygon-data"><i class="fa fa-check"></i><b>4.3</b> Load and finalize VDYP input polygon data</a></li>
+<li class="chapter" data-level="4.4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#set-utilization"><i class="fa fa-check"></i><b>4.4</b> Set utilization</a></li>
+<li class="chapter" data-level="4.5" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#run-vdyp7-in-parallel"><i class="fa fa-check"></i><b>4.5</b> Run VDYP7 in parallel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Consolidated Provincial Yield Table - NSYT and MSYT Combined Table</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-component"><i class="fa fa-check"></i><b>5.2</b> Build MSYT component</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.2.1</b> Load MSYT tables</a></li>
+<li class="chapter" data-level="5.2.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.2.2</b> Extend MSYT curves to age 250</a></li>
+<li class="chapter" data-level="5.2.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.2.3</b> Reorder MSYT columns</a></li>
+<li class="chapter" data-level="5.2.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-msyt-output"><i class="fa fa-check"></i><b>5.2.4</b> Finalize MSYT output</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-nsyt-component"><i class="fa fa-check"></i><b>5.3</b> Build NSYT component</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3.1</b> Load VDYP yield table</a></li>
+<li class="chapter" data-level="5.3.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-volume-and-deciduous-volume"><i class="fa fa-check"></i><b>5.3.2</b> Separate conifer volume and deciduous volume</a></li>
+<li class="chapter" data-level="5.3.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-height-and-deciduous-height"><i class="fa fa-check"></i><b>5.3.3</b> Separate conifer height and deciduous height</a></li>
+<li class="chapter" data-level="5.3.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-nsyt-tables"><i class="fa fa-check"></i><b>5.3.4</b> Finalize NSYT tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#combine-nsyt-tables-and-msyt-tables-and-export"><i class="fa fa-check"></i><b>5.4</b> Combine NSYT tables and MSYT tables and export</a></li>
+<li class="chapter" data-level="5.5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.5</b> QA/QC checks</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.1</b> Review NSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="5.5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.2</b> Review MSYT Zero-Volume Records</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html"><i class="fa fa-check"></i><b>6</b> Comparison with VRI R1</a>
 <ul>
@@ -212,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">provincial NSYT production process and assessment</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Consolidated Provincial Yield Table</a>
           </h1>
         </div>
 
@@ -222,7 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="comparison-with-combined-mulitple-layers-projection" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> comparison with combined mulitple layers’ projection<a href="comparison-with-combined-mulitple-layers-projection.html#comparison-with-combined-mulitple-layers-projection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Some of the VRI polygons contain multiple layers, for example, a polygon might have a primary layer (also labeled as R1 layer) and a residual layer. VDYP7 can projected these polygons by each of the layer and return yield projection for each layer within each polygon. The final yield of each polygon is the summarized projection of each layer to the polygon level. For the process of provincial NSYT, only R1 layer was input into VDYP and being projected. The projected yield from “R1-only” input would be different from the aggregated yield from each layer. This chapter is to compare the summarized yields of each layer with the R1 layer only projection.</p>
+<p>As noted the provincial 2026 NSYT process generates yield projections using only the Rank 1 (R1) forest layer from each VRI polygon. This approach was adopted to support efficient province-wide yield generation while maintaining consistency with the leading stand layer that typically represents the majority of forest volume and site productivity within a polygon. However, many VRI polygons contain multiple forest layers, such as a primary overstory layer combined with residual, secondary, or understory layers. In a standard VDYP7 workflow, each eligible layer can be projected independently, and the resulting layer-level yields are subsequently aggregated to produce a polygon-level yield projection. As a result, differences may arise between projections generated using only the R1 layer and projections generated by combining all forested layers within a polygon.</p>
+<p>This chapter evaluates the magnitude and significance of those differences by comparing the provincial NSYT “R1-only” projections against yield projections derived from the full multi-layer representation of VRI polygons. The analysis examines two distinct polygon types: (1) polygons containing a primary (P) layer and one or more additional live forest layers, and (2) polygons containing only a primary layer with one dead (D) layer. By comparing projected merchantable volume through time for both approaches, the assessment quantifies the effects of simplifying polygon representation to a single layer and evaluates whether the resulting provincial yield estimates remain representative of the yields that would be obtained using the complete multi-layer inventory structure. The results provide an important validation of the NSYT methodology and help identify circumstances where multi-layer stand dynamics may contribute meaningfully to differences in projected yield.</p>
 <p><strong>Table 1. numbers multi-layer polygons across the province (from vdyp_input_layer_and_polygon_2024)</strong></p>
 <table>
 <thead>
@@ -255,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="set1.-r1-only-vs-multilayer-set1-containing-p-layer-and-at-least-one-other-layer-that-is-not-d-layer" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> set1. r1 only vs multilayer set1 (containing P layer and at least one other layer that is not D layer)<a href="comparison-with-combined-mulitple-layers-projection.html#set1.-r1-only-vs-multilayer-set1-containing-p-layer-and-at-least-one-other-layer-that-is-not-d-layer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Number of multi-layer polygons that were included in this comparison: <strong>239198</strong></p>
-<p>Mean projected volume net dead, waste and breakage (PRJ_VOL_DWB) across projected stand age were calculated and compared between multiple-layer projection and R1-only projection. The mean PRJ_VOL_DWB was very similar between the two projections, with the multiple-layer projection generally producing slightly higher mean values at younger ages and converging with the R1-only projection at older ages (Figure 1 and Figure 2). Even though mean PRJ_VOL_DWB was close, the individual differences can vary widely in both positive and negative directions and the variation increases over projected age (Figure 3).</p>
+<p>Mean live projected volume net dead, waste and breakage (PRJ_VOL_DWB) across projected stand age were calculated from the live layers that were projected in the multiple-layer projection, and the results were compared with R1-only projection. The mean PRJ_VOL_DWB was very similar between the two projections, with the multiple-layer projection generally producing slightly higher mean values at younger ages and converging with the R1-only projection at older ages (Figure 1 and Figure 2). Even though mean PRJ_VOL_DWB was close, the individual differences can vary widely in both positive and negative directions and the variation increases over projected age (Figure 3).</p>
 <p>Figure 1. Mean PRJ_VOL_DWB by projected age</p>
 <p><img src="data/figures/fig-set1_meanvol.png" alt="" width="70%" /></p>
 <p>Figure 2. Mean differences of PRJ_VOL_DWB by projected age</p>
@@ -276,9 +287,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="overall---one-layer-polygons-multiple-layer-polygons-set1set2" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Overall - one-layer polygons + multiple-layer polygons (set1+set2)<a href="comparison-with-combined-mulitple-layers-projection.html#overall---one-layer-polygons-multiple-layer-polygons-set1set2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Mean PRJ_VOL_DWB were calculated by averaging the PRJ_VOL_DWB from all polygons provincially. At the provincial scale, “R1-only” projection produced higher mean PRJ_VOL_DWB (Figure 7), which is mainly driven by the 13% “P_and_D” polygons (from Table 1). Differences increase with projected age and the largest differences from this test is around 3m3/ha at age 200 (Table 2).</p>
-<p>Figure 7. Mean PRJ_VOL_DWB after combining all polygons</p>
-<p><img src="data/figures/fig-set2_meanvol.png" alt="" width="70%" /></p>
+<p>Mean live PRJ_VOL_DWB were calculated by averaging the PRJ_VOL_DWB from all polygons provincially, including single layer polygons and multiple layers polygons, and compared with R1-only projection. At the provincial scale, The differences is not significant with the largest differences from this test is around 3m3/ha at age 200 (Figure 8 &amp; Table 2).</p>
+<p>Figure 7. Mean PRJ_VOL_DWB after combining provincial polygons</p>
+<p><img src="data/figures/fig-prov_fig.png" alt="" width="70%" /></p>
+<p>Figure 8. Mean differences(R1 only projection - multilayer projection) after combining all polygons</p>
+<p><img src="data/figures/fig-prov_diff.png" alt="" width="70%" /></p>
 <p>Table 2. statistic summary table of all polygons</p>
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
@@ -843,7 +856,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["provincial NSYT production process and assessment.pdf", "provincial NSYT production process and assessment.epub"],
+  "download": ["The Consolidated Provincial Yield Table.pdf", "The Consolidated Provincial Yield Table.epub"],
   "search": {
     "engine": "fuse",
     "options": null

@@ -1,8 +1,12 @@
 # Comparison with VRI R1
 
-The following contrasts the Beta version of the 2026 Provincial Natural Stand Yield Table (NSYT) dataset with the currently published production year 2025 (projection year Dec 2024) veg_comp_lyr_r1_poly_2024 (R1). The R1 contains **6872386** features, 90% of which (**6209645**) has a species identified and  (spec_cd_1) and 89% (**6140967**) remain after initial cleaning.
+The comparison process was designed to assess the consistency between the Beta version of the 2026 Provincial NSYT dataset and the currently published VRI R1. The workflow begins by loading the provincial NSYT yield table and joining it to the R1 inventory database using a common feature_id. Species, age, and volume information from both sources are combined to create a common analytical framework. To facilitate a direct comparison, stand ages are standardized, volume estimates are derived from the R1 inventory, and VDYP yield projections are interpolated to match the specific ages represented in the inventory. This allows both datasets to be evaluated using comparable volume estimates for the same forest features.
 
-```{r set-up, message=FALSE,warning=FALSE,eval=TRUE}
+A difference metric is calculated to quantify the variation between the inventory-derived volume (volume from VRI R1 layer) and the NSYT volume estimate (interpolated NSYT volume). The resulting dataset provides a feature-by-feature comparison of the two yield systems and supports statistical evaluation of differences across the provincial land base. This process serves as a validation and quality assurance exercise, helping identify areas where modelling assumptions, age treatments, interpolation methods, or source inventory data may contribute to differences between the existing R1 inventory volumes and the proposed provincial NSYT yield dataset.
+
+The following contrasts the Beta version of the 2026 NSYT dataset with the currently published production year 2025 (projection year Dec 2024) veg_comp_lyr_r1_poly_2024 (R1). The R1 contains **6872386** features, 90% of which (**6209645**) has a species identified and  (spec_cd_1) and 89% (**6140967**) remain after initial cleaning.
+
+```{r set-up, message=FALSE,warning=FALSE,eval=FALSE}
 library(DBI)
 library(RPostgreSQL)
 library(tidyverse)
@@ -46,9 +50,7 @@ knitr::opts_chunk$set(
 ```
 ##  Get data
 
-The following snippet loads an existing VDYP from an RDS file containing **6140967** features, and joins it with the data pulled from the MSYT postgres database based on feature_id. Various new columns are created, including estimated volumes (vri_vol), capped age (vri_age250), and interpolated volumes (vdyp_vol) based on age ranges. The dataset is cleaned and transformed using dplyr functions.
-
-Finally, the script calculates the closest volume match for each feature by comparing two volume estimates (vdyp_vol and prj_vol_dwb), selecting the record with the smallest difference between the two. The result is a refined dataset (nsyt_closest) where each feature has a matched volume estimate, and a new column (vol_dif) is added to represent the difference between the two volume estimates. This processing likely aids in vegetation analysis, volume estimation, or model calibration based on multiple data sources.
+The following snippet loads 2026 provincial NSYT from an RDS file containing **6140967** features, and joins it with the data pulled from the VRI vegetation composition R1 layer based on feature_id. Various new columns are created, including volumes from VRI R1 layer(vri_vol), capped age (vri_age250), and interpolated volumes (vdyp_vol) based on age ranges. 
 
 ```{r get_data, message=FALSE,warning=FALSE,eval=FALSE}
 
@@ -106,21 +108,13 @@ prov_df2 <- prov_df %>%
 
 nsyt<-inner_join(prov_df,prov_df2,join_by("feature_id"))
 
-
-nsyt_closest <- nsyt %>%
-  filter(!is.na(vdyp_vol), !is.na(prj_vol_dwb)) %>%
-  group_by(feature_id) %>%
-  slice_min(abs(prj_vol_dwb - vdyp_vol),
-            n = 1,
-            with_ties = FALSE) %>%
-  ungroup()%>%
-  mutate(vol_dif = vri_vol - vdyp_vol
 ```
+
 ##  Closest Match
 
-The closest match volume calculation works by identifying the record with the smallest absolute difference between two volume estimates for each feature. Specifically, the script compares two columns: vdyp_vol (a volume estimate derived from a linear interpolation of two decadal volumes based on age [proj_age_1]) and prj_vol_dwb (the decadal VDYP volume). 
+The closest match volume calculation works by identifying the record with the smallest absolute difference between two volume estimates for each feature.  
 
-- Filtering for Valid Volumes: The script first filters out any rows where either vdyp_vol or prj_vol_dwb is NA, ensuring that only valid rows with both volume estimates are considered for comparison.
+- Filtering for Valid Volumes: The script first filters out any rows where either vdyp_vol or prj_vol_dwb (the decadal VDYP volume) is NA, ensuring that only valid rows with both volume estimates are considered for comparison.
 
 - Grouping by feature_id: The data is grouped by feature_id, meaning the script performs the closest match calculation separately for each feature (or record).
 
@@ -130,7 +124,23 @@ The closest match volume calculation works by identifying the record with the sm
 
 The resulting NSYT closest data frame is loaded to disk and its vol_dif field is then assessed statistically using the dlookr::describe function. 
 
-```{r tab-closest_match,message=FALSE,warning=FALSE,eval=TRUE}
+```{r closest, eval=FALSE}
+nsyt_closest <- nsyt %>%
+  filter(!is.na(vdyp_vol), !is.na(prj_vol_dwb)) %>%
+  group_by(feature_id) %>%
+  slice_min(abs(prj_vol_dwb - vdyp_vol),
+            n = 1,
+            with_ties = FALSE) %>%
+  ungroup()%>%
+  mutate(vol_dif = vri_vol - vdyp_vol)
+```
+
+```{r tab-closest_match,message=FALSE,warning=FALSE,eval=TRUE,echo=FALSE}
+library(dlookr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
 prov<-readRDS("../nsyt_closest.rds")
 # pretty_table(describe(prov))
 kable(describe(prov),

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Run VDYP7 Projection | The Consolidated Provincial Yield Table</title>
+  <meta name="description" content="Chapter 4 Run VDYP7 Projection | The Consolidated Provincial Yield Table" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Run VDYP7 Projection | The Consolidated Provincial Yield Table" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Run VDYP7 Projection | The Consolidated Provincial Yield Table" />
+  
+  
+  
+
+<meta name="author" content="Shuyan Jiang, Kelly Izzard, Yingbing Chen" />
+
+
+<meta name="date" content="2026-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vdyp-inputs-preparation.html"/>
+<link rel="next" href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The Consolidated Provincial Yield Table</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Background</a></li>
+<li class="chapter" data-level="2" data-path="introduction-to-the-provincial-nsyt-production-process.html"><a href="introduction-to-the-provincial-nsyt-production-process.html"><i class="fa fa-check"></i><b>2</b> Introduction to the Provincial NSYT Production Process</a></li>
+<li class="chapter" data-level="3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html"><i class="fa fa-check"></i><b>3</b> VDYP Inputs Preparation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-input-data"><i class="fa fa-check"></i><b>3.1</b> Load input data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#postgres-database-connection"><i class="fa fa-check"></i><b>3.1.1</b> Postgres database connection</a></li>
+<li class="chapter" data-level="3.1.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-layer-table-to-postgres"><i class="fa fa-check"></i><b>3.1.2</b> Load 2024 VDYP input layer table to postgres</a></li>
+<li class="chapter" data-level="3.1.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-2024-vdyp-input-polygon-table-to-postgres"><i class="fa fa-check"></i><b>3.1.3</b> Load 2024 VDYP input polygon table to postgres</a></li>
+<li class="chapter" data-level="3.1.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-rank1-2024"><i class="fa fa-check"></i><b>3.1.4</b> Load rank1 2024</a></li>
+<li class="chapter" data-level="3.1.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#load-tsa-list"><i class="fa fa-check"></i><b>3.1.5</b> Load TSA LIST</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#process-input-data"><i class="fa fa-check"></i><b>3.2</b> Process input data</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#vri-project-count-for-feature-in-list-but-not-in-polygon"><i class="fa fa-check"></i><b>3.2.1</b> VRI Project count for feature in list but not in polygon</a></li>
+<li class="chapter" data-level="3.2.2" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#polygons-without-r1-layer-assigned"><i class="fa fa-check"></i><b>3.2.2</b> Polygons without R1 layer assigned</a></li>
+<li class="chapter" data-level="3.2.3" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#check-fix-species-comp-for-rank1"><i class="fa fa-check"></i><b>3.2.3</b> Check &amp; fix species comp for rank1</a></li>
+<li class="chapter" data-level="3.2.4" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-age-height"><i class="fa fa-check"></i><b>3.2.4</b> Update Age &amp; Height</a></li>
+<li class="chapter" data-level="3.2.5" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#review-basal-area-age-height"><i class="fa fa-check"></i><b>3.2.5</b> Review Basal Area, Age &amp; Height</a></li>
+<li class="chapter" data-level="3.2.6" data-path="vdyp-inputs-preparation.html"><a href="vdyp-inputs-preparation.html#update-other-veg-comp"><i class="fa fa-check"></i><b>3.2.6</b> Update Other-Veg comp</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html"><i class="fa fa-check"></i><b>4</b> Run VDYP7 Projection</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#vdypinr"><i class="fa fa-check"></i><b>4.1</b> VDYPinR</a></li>
+<li class="chapter" data-level="4.2" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-layer-data"><i class="fa fa-check"></i><b>4.2</b> Load and finalize VDYP input layer data</a></li>
+<li class="chapter" data-level="4.3" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-polygon-data"><i class="fa fa-check"></i><b>4.3</b> Load and finalize VDYP input polygon data</a></li>
+<li class="chapter" data-level="4.4" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#set-utilization"><i class="fa fa-check"></i><b>4.4</b> Set utilization</a></li>
+<li class="chapter" data-level="4.5" data-path="run-vdyp7-projection.html"><a href="run-vdyp7-projection.html#run-vdyp7-in-parallel"><i class="fa fa-check"></i><b>4.5</b> Run VDYP7 in parallel</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><i class="fa fa-check"></i><b>5</b> Consolidated Provincial Yield Table - NSYT and MSYT Combined Table</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#overview"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
+<li class="chapter" data-level="5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-msyt-component"><i class="fa fa-check"></i><b>5.2</b> Build MSYT component</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-msyt-tables"><i class="fa fa-check"></i><b>5.2.1</b> Load MSYT tables</a></li>
+<li class="chapter" data-level="5.2.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#extend-msyt-curves-to-age-250"><i class="fa fa-check"></i><b>5.2.2</b> Extend MSYT curves to age 250</a></li>
+<li class="chapter" data-level="5.2.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#reorder-msyt-columns"><i class="fa fa-check"></i><b>5.2.3</b> Reorder MSYT columns</a></li>
+<li class="chapter" data-level="5.2.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-msyt-output"><i class="fa fa-check"></i><b>5.2.4</b> Finalize MSYT output</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#build-nsyt-component"><i class="fa fa-check"></i><b>5.3</b> Build NSYT component</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#load-vdyp-yield-table"><i class="fa fa-check"></i><b>5.3.1</b> Load VDYP yield table</a></li>
+<li class="chapter" data-level="5.3.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-volume-and-deciduous-volume"><i class="fa fa-check"></i><b>5.3.2</b> Separate conifer volume and deciduous volume</a></li>
+<li class="chapter" data-level="5.3.3" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#separate-conifer-height-and-deciduous-height"><i class="fa fa-check"></i><b>5.3.3</b> Separate conifer height and deciduous height</a></li>
+<li class="chapter" data-level="5.3.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#finalize-nsyt-tables"><i class="fa fa-check"></i><b>5.3.4</b> Finalize NSYT tables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#combine-nsyt-tables-and-msyt-tables-and-export"><i class="fa fa-check"></i><b>5.4</b> Combine NSYT tables and MSYT tables and export</a></li>
+<li class="chapter" data-level="5.5" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#qaqc-checks"><i class="fa fa-check"></i><b>5.5</b> QA/QC checks</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-nsyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.1</b> Review NSYT Zero-Volume Records</a></li>
+<li class="chapter" data-level="5.5.2" data-path="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html"><a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html#review-msyt-zero-volume-records"><i class="fa fa-check"></i><b>5.5.2</b> Review MSYT Zero-Volume Records</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html"><i class="fa fa-check"></i><b>6</b> Comparison with VRI R1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html#get-data"><i class="fa fa-check"></i><b>6.1</b> Get data</a></li>
+<li class="chapter" data-level="6.2" data-path="comparison-with-vri-r1.html"><a href="comparison-with-vri-r1.html#closest-match"><i class="fa fa-check"></i><b>6.2</b> Closest Match</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="comparison-with-combined-mulitple-layers-projection.html"><a href="comparison-with-combined-mulitple-layers-projection.html"><i class="fa fa-check"></i><b>7</b> comparison with combined mulitple layers’ projection</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="comparison-with-combined-mulitple-layers-projection.html"><a href="comparison-with-combined-mulitple-layers-projection.html#set1.-r1-only-vs-multilayer-set1-containing-p-layer-and-at-least-one-other-layer-that-is-not-d-layer"><i class="fa fa-check"></i><b>7.1</b> set1. r1 only vs multilayer set1 (containing P layer and at least one other layer that is not D layer)</a></li>
+<li class="chapter" data-level="7.2" data-path="comparison-with-combined-mulitple-layers-projection.html"><a href="comparison-with-combined-mulitple-layers-projection.html#set2.-r1-only-vs-multilayer-set2-only-containing-p-layer-and-d-layer"><i class="fa fa-check"></i><b>7.2</b> set2. r1 only vs multilayer set2 (only containing P layer and D layer)</a></li>
+<li class="chapter" data-level="7.3" data-path="comparison-with-combined-mulitple-layers-projection.html"><a href="comparison-with-combined-mulitple-layers-projection.html#overall---one-layer-polygons-multiple-layer-polygons-set1set2"><i class="fa fa-check"></i><b>7.3</b> Overall - one-layer polygons + multiple-layer polygons (set1+set2)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The Consolidated Provincial Yield Table</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="run-vdyp7-projection" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Run VDYP7 Projection<a href="run-vdyp7-projection.html#run-vdyp7-projection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>VDYP7 console version:</strong> 7.17d</p>
+<p><strong>projection parameters:</strong></p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>parameters</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>time series</td>
+<td>age 0-250 years old</td>
+</tr>
+<tr class="even">
+<td>time increments</td>
+<td>10 years</td>
+</tr>
+<tr class="odd">
+<td>reported utilization level</td>
+<td>12.5cm pine and deciduous, 17.5cm for all other species</td>
+</tr>
+</tbody>
+</table>
+<div id="vdypinr" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> VDYPinR<a href="run-vdyp7-projection.html#vdypinr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>VDYP7 projections were performed using VDYPinR package in the R environment. VDYPinR is an R package developed to provide a direct interface between the R statistical environment and VDYP7console interface from VDYP7 system. The package executes VDYP7 simulations, and imports the resulting yield tables directly back into R for further analysis. It was designed to simplify large-scale forest modelling workflows by eliminating the need to manually create VDYP7 command files, manage intermediate files, or process outputs outside of R. The package includes functions to validate input datasets, generate utilization tables, run VDYP7 simulations, extract volume and biomass outputs, and save results in multiple formats.</p>
+<p>Within the Provincial NSYT process, VDYPinR serves as the primary processing framework used to generate yield projections for the provincial inventory. After the VDYP polygon and layer inputs are prepared and validated, VDYPinR partitions the provincial dataset into manageable batches, submits these records to the VDYP7Console engine, and assembles the resulting yield tables for further analysis. The package therefore provides the operational bridge between provincial inventory data and the underlying VDYP7 growth model, allowing large-scale, reproducible, and automated yield generation entirely within an R workflow. This capability was essential for producing a province-wide NSYT dataset covering millions of forest features while maintaining consistency with the standard VDYP7 modelling framework used throughout British Columbia.</p>
+</div>
+<div id="load-and-finalize-vdyp-input-layer-data" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Load and finalize VDYP input layer data<a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-layer-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This step extracts, standardizes, and prepares the final VDYP7 layer input dataset that is used to generate provincial NSYT projections. The script begins by establishing a connection to the PostgreSQL VDYP database and then retrieves all records associated with the validated Rank 1 (R1) forest layers. During extraction, the script joins the original VDYP input layer table with the updated species composition table (prov_updated_spp_2024) and the updated age and height table (prov_updated_ba_age_ht_2024) to incorporate all corrections and quality assurance updates completed during pre-processing. The resulting dataset contains the complete set of VDYP7 stand attributes required by the VRISTART process, including species composition, site index, age, height, basal area, crown closure, stems per hectare, volume attributes, and layer descriptors. The non_forest_descriptor_code field is intentionally populated as blank, and only records where the updated rank code equals one are retained, ensuring that yield projections are generated exclusively for the leading forest layer within each feature.</p>
+<p>Following extraction, the dataset is standardized by converting field names to uppercase, sorting records by FEATURE_ID, and storing the complete provincial layer dataset as an RDS file for subsequent processing. To support efficient large-scale yield generation using VDYP7 Console, the provincial dataset is then divided into fifty approximately equal-sized groups based on FEATURE_ID. These partitions enable parallel processing across multiple VDYP7 runs, substantially reducing execution time when generating yield curves for millions of forest features. The resulting collection of partitioned input files forms the final R1-only provincial VDYP input layer dataset used to create the Provincial NSYT yield tables.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="run-vdyp7-projection.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
+<span id="cb13-2"><a href="run-vdyp7-projection.html#cb13-2" tabindex="-1"></a><span class="fu">library</span>(VDYPinR)</span>
+<span id="cb13-3"><a href="run-vdyp7-projection.html#cb13-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-4"><a href="run-vdyp7-projection.html#cb13-4" tabindex="-1"></a><span class="co"># simple connection</span></span>
+<span id="cb13-5"><a href="run-vdyp7-projection.html#cb13-5" tabindex="-1"></a><span class="co"># SCHEMA are referenced explicitly in the table names</span></span>
+<span id="cb13-6"><a href="run-vdyp7-projection.html#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="run-vdyp7-projection.html#cb13-7" tabindex="-1"></a>user_name <span class="ot">&lt;-</span> <span class="st">&#39;postgres&#39;</span></span>
+<span id="cb13-8"><a href="run-vdyp7-projection.html#cb13-8" tabindex="-1"></a>data_base <span class="ot">&lt;-</span> <span class="st">&#39;vdyp&#39;</span></span>
+<span id="cb13-9"><a href="run-vdyp7-projection.html#cb13-9" tabindex="-1"></a> </span>
+<span id="cb13-10"><a href="run-vdyp7-projection.html#cb13-10" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="st">&#39;PostgreSQL&#39;</span>,<span class="at">dbname=</span>data_base,<span class="at">user=</span>user_name)</span>
+<span id="cb13-11"><a href="run-vdyp7-projection.html#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="run-vdyp7-projection.html#cb13-12" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;SELECT l.feature_id, tree_cover_layer_estimated_id, map_id, polygon_number, layer_level_code_update as layer_level_code,  vdyp7_layer_cd, layer_stockability, rank_cd_update as forest_cover_rank_code, &#39;&#39; as non_forest_descriptor_code, est_site_index_species_cd, estimated_site_index, crown_closure, basal_area_75, stems_per_ha_75, </span></span>
+<span id="cb13-13"><a href="run-vdyp7-projection.html#cb13-13" tabindex="-1"></a><span class="st">n.species_cd_1, n.species_pct_1, n.species_cd_2, n.species_pct_2, n.species_cd_3, n.species_pct_3, n.species_cd_4, n.species_pct_4, n.species_cd_5, n.species_pct_5, n.species_cd_6, n.species_pct_6, </span></span>
+<span id="cb13-14"><a href="run-vdyp7-projection.html#cb13-14" tabindex="-1"></a><span class="st">k.est_age_spp1, k.est_height_spp1, k.est_age_spp2, k.est_height_spp2, adj_ind, lorey_height_75, basal_area_125, ws_vol_per_ha_75, ws_vol_per_ha_125, cu_vol_per_ha_125, d_vol_per_ha_125, dw_vol_per_ha_125</span></span>
+<span id="cb13-15"><a href="run-vdyp7-projection.html#cb13-15" tabindex="-1"></a><span class="st">FROM public.vdyp7_input_layer_2024 l</span></span>
+<span id="cb13-16"><a href="run-vdyp7-projection.html#cb13-16" tabindex="-1"></a><span class="st">LEFT JOIN prov_updated_spp_2024 n</span></span>
+<span id="cb13-17"><a href="run-vdyp7-projection.html#cb13-17" tabindex="-1"></a><span class="st">ON l.feature_id = n.feature_id</span></span>
+<span id="cb13-18"><a href="run-vdyp7-projection.html#cb13-18" tabindex="-1"></a><span class="st">LEFT JOIN prov_updated_ba_age_ht_2024 k</span></span>
+<span id="cb13-19"><a href="run-vdyp7-projection.html#cb13-19" tabindex="-1"></a><span class="st">ON l.feature_id = k.feature_id</span></span>
+<span id="cb13-20"><a href="run-vdyp7-projection.html#cb13-20" tabindex="-1"></a><span class="st">where rank_cd_update = 1&quot;</span></span>
+<span id="cb13-21"><a href="run-vdyp7-projection.html#cb13-21" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="run-vdyp7-projection.html#cb13-22" tabindex="-1"></a>layer <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
+<span id="cb13-23"><a href="run-vdyp7-projection.html#cb13-23" tabindex="-1"></a><span class="fu">colnames</span>(layer) <span class="ot">&lt;-</span> <span class="fu">toupper</span>(<span class="fu">colnames</span>(layer))</span>
+<span id="cb13-24"><a href="run-vdyp7-projection.html#cb13-24" tabindex="-1"></a>layer <span class="ot">&lt;-</span> layer <span class="sc">%&gt;%</span></span>
+<span id="cb13-25"><a href="run-vdyp7-projection.html#cb13-25" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">FEATURE_ID =</span> <span class="fu">as.integer</span>(FEATURE_ID))</span>
+<span id="cb13-26"><a href="run-vdyp7-projection.html#cb13-26" tabindex="-1"></a>layer <span class="ot">&lt;-</span> layer <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(FEATURE_ID)</span>
+<span id="cb13-27"><a href="run-vdyp7-projection.html#cb13-27" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="run-vdyp7-projection.html#cb13-28" tabindex="-1"></a><span class="fu">saveRDS</span>(layer, <span class="at">file =</span> <span class="st">&quot;D:/data/projects/VDYP/VDYP/2024/prov/VDYP7RunParallel/layer.rds&quot;</span>)</span>
+<span id="cb13-29"><a href="run-vdyp7-projection.html#cb13-29" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="run-vdyp7-projection.html#cb13-30" tabindex="-1"></a>layer <span class="ot">&lt;-</span> layer <span class="sc">%&gt;%</span></span>
+<span id="cb13-31"><a href="run-vdyp7-projection.html#cb13-31" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">ntile</span>(FEATURE_ID, <span class="dv">50</span>)) </span>
+<span id="cb13-32"><a href="run-vdyp7-projection.html#cb13-32" tabindex="-1"></a><span class="fu">table</span>(layer<span class="sc">$</span>group)</span>
+<span id="cb13-33"><a href="run-vdyp7-projection.html#cb13-33" tabindex="-1"></a>layer_parts <span class="ot">&lt;-</span> <span class="fu">split</span>(layer, layer<span class="sc">$</span>group)</span>
+<span id="cb13-34"><a href="run-vdyp7-projection.html#cb13-34" tabindex="-1"></a><span class="fu">head</span>(layer_parts[[<span class="dv">1</span>]])</span></code></pre></div>
+</div>
+<div id="load-and-finalize-vdyp-input-polygon-data" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Load and finalize VDYP input polygon data<a href="run-vdyp7-projection.html#load-and-finalize-vdyp-input-polygon-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Provincial VDYP Polygon Input dataset was prepared by extracting all polygon-level records associated with features that contained a valid Rank 1 (R1) forest layer and joining them with the quality-controlled vegetation cover updates developed during the preprocessing phase. The workflow combined the original vdyp7_input_poly_2024 table with the corrected prov_updated_other_veg_2024 table, ensuring that all adjustments applied to shrub cover, herb cover, bryoid cover, non-vegetated cover, and land-cover percentages were incorporated into the final VDYP input file. The resulting dataset retained the full set of VDYP7 polygon attributes required for projection, including polygon identifiers, inventory standard codes, ecological classifications, BEC zone information, stockability, yield factors, disturbance information, BCLCS land-cover classifications, vegetation cover estimates, non-vegetated cover components, and land-cover composition attributes. Only polygons with an associated R1 layer selected for projection were included, ensuring that the final polygon input dataset corresponded directly to the provincial NSYT feature set.</p>
+<p>Following extraction and assembly, the polygon records were standardized by converting field names to uppercase, converting FEATURE_ID to an integer format, and sorting all records by FEATURE_ID to satisfy VDYP7 input requirements. The completed provincial polygon table was then saved as an RDS file and linked to the same processing groups previously created for the VDYP layer input dataset. By inheriting the grouping structure used for the layer table, each polygon record was assigned to one of fifty approximately equal-sized processing partitions. The provincial polygon dataset was subsequently split into these individual subsets, allowing the polygon and layer inputs to be processed together in parallel using the VDYP7inR framework and VDYP7 Console. This partitioning strategy enabled efficient large-scale yield generation across millions of provincial forest features while maintaining the one-to-one relationship between VDYP polygon and layer input records required by the model.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="run-vdyp7-projection.html#cb14-1" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">&quot;SELECT l.feature_id, map_id, polygon_number, org_unit, tsa_name, tfl_name, inventory_standard_code, tsa_number, shrub_height, n.shrub_crown_closure, shrub_cover_pattern, herb_cover_type_code, n.herb_cover_pct, herb_cover_pattern_code, n.bryoid_cover_pct, l.bec_zone_code, cfs_ecozone, pre_disturbance_stockability, yield_factor, non_productive_descriptor_cd, bclcs_level1_code, bclcs_level2_code, bclcs_level3_code, bclcs_level4_code, bclcs_level5_code, photo_estimation_base_year, reference_year, pct_dead, non_veg_cover_type_1, n.non_veg_cover_pct_1, non_veg_cover_pattern_1, non_veg_cover_type_2, n.non_veg_cover_pct_2, non_veg_cover_pattern_2, non_veg_cover_type_3, n.non_veg_cover_pct_3, non_veg_cover_pattern_3, land_cover_class_cd_1, n.land_cover_pct_1, land_cover_class_cd_2, n.land_cover_pct_2, land_cover_class_cd_3, n.land_cover_pct_3</span></span>
+<span id="cb14-2"><a href="run-vdyp7-projection.html#cb14-2" tabindex="-1"></a><span class="st">FROM public.vdyp7_input_poly_2024 l</span></span>
+<span id="cb14-3"><a href="run-vdyp7-projection.html#cb14-3" tabindex="-1"></a><span class="st">LEFT JOIN prov_updated_other_veg_2024 n</span></span>
+<span id="cb14-4"><a href="run-vdyp7-projection.html#cb14-4" tabindex="-1"></a><span class="st">ON l.feature_id = n.feature_id</span></span>
+<span id="cb14-5"><a href="run-vdyp7-projection.html#cb14-5" tabindex="-1"></a><span class="st">where l.feature_id in (select distinct feature_id from vdyp7_input_layer_2024 where rank_cd_update = 1)&quot;</span></span>
+<span id="cb14-6"><a href="run-vdyp7-projection.html#cb14-6" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="run-vdyp7-projection.html#cb14-7" tabindex="-1"></a>polygon <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
+<span id="cb14-8"><a href="run-vdyp7-projection.html#cb14-8" tabindex="-1"></a><span class="fu">colnames</span>(polygon) <span class="ot">&lt;-</span> <span class="fu">toupper</span>(<span class="fu">colnames</span>(polygon))</span>
+<span id="cb14-9"><a href="run-vdyp7-projection.html#cb14-9" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="run-vdyp7-projection.html#cb14-10" tabindex="-1"></a>polygon <span class="ot">&lt;-</span> polygon <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="run-vdyp7-projection.html#cb14-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">FEATURE_ID =</span> <span class="fu">as.integer</span>(FEATURE_ID))</span>
+<span id="cb14-12"><a href="run-vdyp7-projection.html#cb14-12" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="run-vdyp7-projection.html#cb14-13" tabindex="-1"></a>polygon <span class="ot">&lt;-</span> polygon <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(FEATURE_ID)</span>
+<span id="cb14-14"><a href="run-vdyp7-projection.html#cb14-14" tabindex="-1"></a><span class="fu">saveRDS</span>(polygon, <span class="at">file =</span> <span class="st">&quot;D:/data/projects/VDYP/VDYP/2024/prov/VDYP7RunParallel/polygon.rds&quot;</span>)</span>
+<span id="cb14-15"><a href="run-vdyp7-projection.html#cb14-15" tabindex="-1"></a>polygon_groups <span class="ot">&lt;-</span> layer <span class="sc">%&gt;%</span> <span class="fu">select</span>(FEATURE_ID, group)  </span>
+<span id="cb14-16"><a href="run-vdyp7-projection.html#cb14-16" tabindex="-1"></a>polygon <span class="ot">&lt;-</span> polygon <span class="sc">%&gt;%</span></span>
+<span id="cb14-17"><a href="run-vdyp7-projection.html#cb14-17" tabindex="-1"></a>  <span class="fu">left_join</span>(polygon_groups, <span class="at">by =</span> <span class="st">&quot;FEATURE_ID&quot;</span>)</span>
+<span id="cb14-18"><a href="run-vdyp7-projection.html#cb14-18" tabindex="-1"></a><span class="fu">table</span>(polygon<span class="sc">$</span>group)</span>
+<span id="cb14-19"><a href="run-vdyp7-projection.html#cb14-19" tabindex="-1"></a>polygon_parts <span class="ot">&lt;-</span> <span class="fu">split</span>(polygon, polygon<span class="sc">$</span>group)</span>
+<span id="cb14-20"><a href="run-vdyp7-projection.html#cb14-20" tabindex="-1"></a><span class="fu">head</span>(polygon_parts[[<span class="dv">1</span>]])</span></code></pre></div>
+</div>
+<div id="set-utilization" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Set utilization<a href="run-vdyp7-projection.html#set-utilization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Before running the provincial VDYP7 projections, all polygon and layer input files were validated using the validInput() function from the VDYPinR package to ensure that the polygon and layer datasets were structurally correct, internally consistent, and suitable for processing by VDYP7. Validation was performed independently on each of the fifty processing partitions created during data preparation, allowing any mismatches between polygon and layer records, missing required attributes, or formatting issues to be identified before yield generation commenced. Following successful validation, a provincial utilization table was created using utilTableGenerator() to define the minimum merchantable diameter thresholds applied during volume calculations. Under this configuration, all deciduous species groups and all pine species groups (lodgepole pine, ponderosa pine, whitebark pine, and western white pine), were assigned a utilization limit of 12.5 cm DBH, while all remaining conifer species groups were assigned a utilization limit of 17.5 cm DBH. This utilization table was subsequently supplied to the VDYP7 modelling process and controlled the merchantability standards used when generating provincial yield projections and summary volume estimates.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="run-vdyp7-projection.html#cb15-1" tabindex="-1"></a><span class="fu">library</span>(VDYPinR)</span>
+<span id="cb15-2"><a href="run-vdyp7-projection.html#cb15-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
+<span id="cb15-3"><a href="run-vdyp7-projection.html#cb15-3" tabindex="-1"></a><span class="fu">validInput</span>(<span class="at">polyFile =</span> polygon_parts[[i]],</span>
+<span id="cb15-4"><a href="run-vdyp7-projection.html#cb15-4" tabindex="-1"></a>           <span class="at">layerFile =</span> layer_parts[[i]])</span>
+<span id="cb15-5"><a href="run-vdyp7-projection.html#cb15-5" tabindex="-1"></a>  }</span>
+<span id="cb15-6"><a href="run-vdyp7-projection.html#cb15-6" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="run-vdyp7-projection.html#cb15-7" tabindex="-1"></a>utiltbl <span class="ot">&lt;-</span> <span class="fu">utilTableGenerator</span>(<span class="at">all=</span><span class="fl">17.5</span>,<span class="at">exception =</span> <span class="fu">c</span>(<span class="st">&quot;PW,12.5&quot;</span>,<span class="st">&quot;PA,12.5&quot;</span>,<span class="st">&quot;PL,12.5&quot;</span>,<span class="st">&quot;PY,12.5&quot;</span>,<span class="st">&quot;MB,12.5&quot;</span>,<span class="st">&quot;D, 12.5&quot;</span>, <span class="st">&quot;AC,12.5&quot;</span>,<span class="st">&quot;AT,12.5&quot;</span>,<span class="st">&quot;E,12.5&quot;</span>))</span>
+<span id="cb15-8"><a href="run-vdyp7-projection.html#cb15-8" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="run-vdyp7-projection.html#cb15-9" tabindex="-1"></a><span class="fu">print</span>(utiltbl)</span></code></pre></div>
+</div>
+<div id="run-vdyp7-in-parallel" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Run VDYP7 in parallel<a href="run-vdyp7-projection.html#run-vdyp7-in-parallel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Following preparation and validation of the provincial VDYP polygon and layer input datasets, yield projections were generated using the VDYPinR parallel-processing framework to improve computational efficiency and manage the large volume of records being processed. For each group, the VDYP7RunParallel() function automatically prepared VDYP7 input files, executed the VDYP7 Console model, and imported the resulting yield tables back into R. Projections were generated on an age basis from age 0 to age 250 in 10-year intervals, producing a complete yield curve for each feature. The previously defined utilization standards were applied during projection, and reference-year records were not explicitly forced into the output, resulting in a consistent set of age-based natural stand yield tables across the provincial inventory.</p>
+<p>As each processing group completed, the resulting yield tables, processing outputs, and associated metadata were saved to a provincial output directory using the VDYP7Save() function. Metadata files were retained to provide a complete record of the VDYP7 command settings and processing specifications used for each run, supporting transparency, reproducibility, and troubleshooting if required. The workflow also recorded the start time, completion time, and total execution time in a log file, allowing overall processing performance to be monitored throughout the provincial run. Once all fifty processing groups were completed, the collection of yield tables formed the provincial NSYT output dataset.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="run-vdyp7-projection.html#cb16-1" tabindex="-1"></a><span class="co"># Store results in a list</span></span>
+<span id="cb16-2"><a href="run-vdyp7-projection.html#cb16-2" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb16-3"><a href="run-vdyp7-projection.html#cb16-3" tabindex="-1"></a>targetfolder <span class="ot">&lt;-</span> <span class="st">&quot;D:</span><span class="sc">\\</span><span class="st">data</span><span class="sc">\\</span><span class="st">projects</span><span class="sc">\\</span><span class="st">VDYP</span><span class="sc">\\</span><span class="st">VDYP</span><span class="sc">\\</span><span class="st">2024</span><span class="sc">\\</span><span class="st">prov</span><span class="sc">\\</span><span class="st">VDYP7RunParallel&quot;</span></span>
+<span id="cb16-4"><a href="run-vdyp7-projection.html#cb16-4" tabindex="-1"></a>log_file <span class="ot">&lt;-</span> <span class="st">&quot;D:</span><span class="sc">\\</span><span class="st">data</span><span class="sc">\\</span><span class="st">projects</span><span class="sc">\\</span><span class="st">VDYP</span><span class="sc">\\</span><span class="st">VDYP</span><span class="sc">\\</span><span class="st">2024</span><span class="sc">\\</span><span class="st">prov</span><span class="sc">\\</span><span class="st">VDYP7RunParallel</span><span class="sc">\\</span><span class="st">run_times.log&quot;</span></span>
+<span id="cb16-5"><a href="run-vdyp7-projection.html#cb16-5" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="run-vdyp7-projection.html#cb16-6" tabindex="-1"></a><span class="co"># Loop through all groups</span></span>
+<span id="cb16-7"><a href="run-vdyp7-projection.html#cb16-7" tabindex="-1"></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb16-8"><a href="run-vdyp7-projection.html#cb16-8" tabindex="-1"></a><span class="fu">write</span>(<span class="fu">paste</span>(<span class="st">&quot;Run started at:&quot;</span>, start_time), <span class="at">file =</span> log_file, <span class="at">append =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-9"><a href="run-vdyp7-projection.html#cb16-9" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
+<span id="cb16-10"><a href="run-vdyp7-projection.html#cb16-10" tabindex="-1"></a>  proj_vol <span class="ot">&lt;-</span> <span class="fu">VDYP7RunParallel</span>(<span class="at">polyFile =</span> polygon_parts[[i]],</span>
+<span id="cb16-11"><a href="run-vdyp7-projection.html#cb16-11" tabindex="-1"></a>                     <span class="at">layerFile =</span> layer_parts[[i]],</span>
+<span id="cb16-12"><a href="run-vdyp7-projection.html#cb16-12" tabindex="-1"></a>                     utiltbl,</span>
+<span id="cb16-13"><a href="run-vdyp7-projection.html#cb16-13" tabindex="-1"></a>                     <span class="at">VDYP7consolePath =</span> <span class="st">&quot;C:/Program Files/VDYP7&quot;</span>, <span class="co"># depends on where you install your VDYP7</span></span>
+<span id="cb16-14"><a href="run-vdyp7-projection.html#cb16-14" tabindex="-1"></a>                     <span class="at">timeSeries =</span> <span class="st">&quot;age&quot;</span>,</span>
+<span id="cb16-15"><a href="run-vdyp7-projection.html#cb16-15" tabindex="-1"></a>                     <span class="at">startTime =</span> <span class="dv">0</span>,</span>
+<span id="cb16-16"><a href="run-vdyp7-projection.html#cb16-16" tabindex="-1"></a>                     <span class="at">endTime =</span> <span class="dv">250</span>,</span>
+<span id="cb16-17"><a href="run-vdyp7-projection.html#cb16-17" tabindex="-1"></a>                     <span class="at">timeIncrement =</span> <span class="dv">10</span>,</span>
+<span id="cb16-18"><a href="run-vdyp7-projection.html#cb16-18" tabindex="-1"></a>                     <span class="at">forceRefYear =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-19"><a href="run-vdyp7-projection.html#cb16-19" tabindex="-1"></a>  </span>
+<span id="cb16-20"><a href="run-vdyp7-projection.html#cb16-20" tabindex="-1"></a>  <span class="fu">VDYP7Save</span>(proj_vol,</span>
+<span id="cb16-21"><a href="run-vdyp7-projection.html#cb16-21" tabindex="-1"></a>            <span class="at">savePath =</span> targetfolder,</span>
+<span id="cb16-22"><a href="run-vdyp7-projection.html#cb16-22" tabindex="-1"></a>            <span class="at">saveName =</span> <span class="fu">paste</span>(<span class="st">&quot;prov_lesschanges&quot;</span>,i),</span>
+<span id="cb16-23"><a href="run-vdyp7-projection.html#cb16-23" tabindex="-1"></a>            <span class="at">overWrite =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-24"><a href="run-vdyp7-projection.html#cb16-24" tabindex="-1"></a>            <span class="at">metadata =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-25"><a href="run-vdyp7-projection.html#cb16-25" tabindex="-1"></a>  </span>
+<span id="cb16-26"><a href="run-vdyp7-projection.html#cb16-26" tabindex="-1"></a>  <span class="fu">dir</span>(targetfolder)  </span>
+<span id="cb16-27"><a href="run-vdyp7-projection.html#cb16-27" tabindex="-1"></a>}</span>
+<span id="cb16-28"><a href="run-vdyp7-projection.html#cb16-28" tabindex="-1"></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb16-29"><a href="run-vdyp7-projection.html#cb16-29" tabindex="-1"></a>total_time <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">difftime</span>(end_time, start_time, <span class="at">units =</span> <span class="st">&quot;secs&quot;</span>), <span class="dv">2</span>)</span>
+<span id="cb16-30"><a href="run-vdyp7-projection.html#cb16-30" tabindex="-1"></a><span class="fu">write</span>(<span class="fu">paste</span>(<span class="st">&quot;Total execution time:&quot;</span>, total_time, <span class="st">&quot;seconds&quot;</span>), <span class="at">file =</span> log_file, <span class="at">append =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-31"><a href="run-vdyp7-projection.html#cb16-31" tabindex="-1"></a><span class="fu">write</span>(<span class="fu">paste</span>(<span class="st">&quot;Run ended at:&quot;</span>, end_time), <span class="at">file =</span> log_file, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vdyp-inputs-preparation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="consolidated-provincial-yield-table---nsyt-and-msyt-combined-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-VDYP_projection_output.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["The Consolidated Provincial Yield Table.pdf", "The Consolidated Provincial Yield Table.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

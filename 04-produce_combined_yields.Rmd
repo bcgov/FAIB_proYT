@@ -1,5 +1,13 @@
-# Provincial Yield table - NSYT and MSYT combined table
+# Consolidated Provincial Yield Table - NSYT and MSYT Combined Table
 ## Overview
+
+The following creates a single provincial yield table by integrating both NSYT generated through the VDYP workflow and MSYT generated through the provincial MSYT process. The objective is to produce a standardized yield dataset for every forested feature_id and opening in the provincial inventory, providing merchantable volume and dominant height projections across a common age range. The final product contains age-based estimates for conifer and deciduous merchantable volume (MVcon and MVdec) as well as conifer and deciduous dominant height (HTcon and HTdec), creating a unified yield layer that can be used in timber supply analysis, forest estate modelling, carbon assessments, and other initiatives.
+
+The first component of the workflow processes the VDYP-generated natural stand yield projections. Species composition information is extracted from the VDYP yield tables and evaluated against a predefined list of deciduous species. A custom function separates projected merchantable volume into conifer and deciduous components by removing deciduous species volumes from the total projected volume. Age-specific projections are then converted from a long format into a wide yield table where each age step becomes a separate volume field. This process creates a complete set of conifer and deciduous merchantable volume projections for all natural stands represented by the VDYP yield system.
+
+The second component processes the provincial MSYT managed stand yield database. Existing MSYT outputs are loaded together with reference tables identifying which features use managed stand yields. Because MSYT curves are typically generated to age 120, the script extends all volume and height projections to age 250 by carrying forward age-120 values for older ages. The resulting managed stand yield curves are standardized into the same structure as the VDYP outputs, ensuring that merchantable volume and dominant height fields are available at identical age intervals and can be combined seamlessly with natural stand projections.
+
+To ensure consistency across both yield systems, the script also develops conifer and deciduous dominant height projections for VDYP stands. Using BEC-specific height ratio tables, dominant heights are separated into conifer and deciduous components based on the leading species and associated ecological region. The processed VDYP yields are then combined with the MSYT yields into a single provincial output table. Finally, quality assurance checks identify any records that contain zero merchantable volume across all age classes, allowing both NSYT and MSYT records to be reviewed for potential data issues before the final combined yield table is exported. The resulting dataset provides a comprehensive provincial yield library that supports a consistent yield curve for every feature_id in the corporate inventory and establishes a common foundation for provincial-scale forest analysis and modelling.
 
 This script generates a combined yield table containing:
 
@@ -30,7 +38,84 @@ library(dplyr)
 library(tidyr)
 ```
 
-## Define Deciduous Species
+## Build MSYT component
+### Load MSYT tables
+
+```{r load-msyt}
+msyt <- read.csv(
+  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_current_input_output.csv"
+)
+
+reference <- read.csv(
+  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_reference.csv"
+)
+
+msyt_fut_in <- read.csv(
+  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_future_input.csv"
+)
+```
+
+### Extend MSYT curves to age 250
+
+Ages greater than 120 are populated using age-120 values.
+
+```{r extend-msyt}
+new_ages <- seq(130, 250, 10)
+
+msyt_expanded <- msyt
+
+for (age in new_ages) {
+
+  msyt_expanded <- msyt_expanded %>%
+    mutate(
+      !!paste0("MVcon_", age) := MVcon_120,
+      !!paste0("MVdec_", age) := MVdec_120,
+      !!paste0("HTcon_", age) := HTcon_120,
+      !!paste0("HTdec_", age) := HTdec_120
+    )
+}
+```
+
+### Reorder MSYT columns
+
+```{r reorder-msyt}
+ages <- seq(0, 250, 10)
+
+ordered_cols <- c(
+  "feature_id",
+  paste0("MVcon_", ages),
+  paste0("MVdec_", ages),
+  paste0("HTcon_", ages),
+  paste0("HTdec_", ages)
+)
+
+msyt_expanded <- msyt_expanded %>%
+  select(all_of(ordered_cols))
+```
+
+### Finalize MSYT output
+
+```{r build-msyt}
+msyt_part <- reference %>%
+  filter(!current_yield %in% c("VDYP", "Excluded")) %>%
+  select("feature_id") %>%
+  left_join(msyt_expanded, by = "feature_id") %>%
+  mutate(source = "MSYT")
+```
+
+## Build NSYT component
+### Load VDYP yield table
+```{r load-vdyp}
+yld <- readRDS(
+  "D:\\data\\projects\\VDYP\\VDYP\\2024\\prov\\VDYP7RunParallel\\prov_lesschanges_nsyt_yieldtable.rds"
+)
+
+setDT(yld)
+```
+
+### Separate conifer volume and deciduous volume
+#### Define deciduous species
+
 Species in this list are treated as deciduous
 ```{r deciduous-species}
 decid <- c(
@@ -114,17 +199,10 @@ NoDecidVol_calculator <- function (sp_list,
 }
 ```
 
-## Load VDYP Yield Table
-```{r load-vdyp}
-yld <- readRDS(
-  "D:\\data\\projects\\VDYP\\VDYP\\2024\\prov\\VDYP7RunParallel\\prov_lesschanges_nsyt_yieldtable.rds"
-)
+#### Extract species codes
 
-setDT(yld)
-```
-
-## Extract Species Codes
 Convert species fields into long format.
+
 ```{r species}
 d <- unique(
   yld[, .(
@@ -154,7 +232,7 @@ d2 <- melt(
 )
 ```
 
-## Extract Projected Volumes
+#### Extract projected volumes
 ```{r projected-volumes}
 e <- unique(
   yld[, .(
@@ -178,7 +256,7 @@ t <- unique(
 )
 ```
 
-## Calculate Conifer and Deciduous Volume
+#### Calculate conifer and deciduous Volume
 ```{r calculate-volumes}
 f <- NoDecidVol_calculator(
   sp_list = d2,
@@ -195,11 +273,8 @@ final <- t %>%
     PRJ_VOL_DWB_decid =
       PRJ_VOL_DWB - coalesce(PRJ_VOL_DWB_conifer, 0)
   )
-```
 
-## Convert Volume Table to Wide Format
-
-```{r wide-volume}
+#convert to wide format
 final_wide <- final %>%
   mutate(
     age_label = paste0("_", PRJ_TOTAL_AGE)
@@ -216,81 +291,68 @@ final_wide <- final %>%
   )
 ```
 
-## Load MSYT Tables
+### Separate conifer height and deciduous height
+#### Height ratios
+The following develops a set of BEC-specific conifer-to-deciduous dominant height ratios that are subsequently used to separate VDYP projected dominant heights into conifer and deciduous components for the provincial yield table. The workflow begins by connecting to the provincial MSYT PostgreSQL database and loading the provincial managed stand yield dataset. From the MSYT outputs, only features containing valid conifer (HTcon_120) and deciduous (HTdec_120) dominant heights at age 120 are retained. These features are then joined to their corresponding Biogeoclimatic Ecosystem Classification (BEC) zone and subzone information, creating a unique BEC label for each feature. For every stand, the script calculates both the deciduous-to-conifer height ratio (HTdec_120 / HTcon_120) and the conifer-to-deciduous height ratio (HTcon_120 / HTdec_120). These ratios are then summarized by BEC zone and subzone, producing average height relationships for each ecological unit based on all available managed stand observations. The resulting table contains the number of contributing samples and mean height ratios for each BEC variant and is exported as bec_height_ratios.csv. These ratios are subsequently used within the provincial NSYT workflow to estimate separate conifer and deciduous dominant height projections from a single VDYP dominant height prediction, ensuring consistency between the provincial managed stand and natural stand yield datasets.
 
-```{r load-msyt}
-msyt <- read.csv(
-  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_current_input_output.csv"
-)
+```{r height-ratio}
+ibrary(DBI)
+library(RPostgreSQL)
+library(tidyverse)
+library(tidytext)
+library(arsenal)
+library(dlookr)
+library(fs)
+library(data.table)
+library(glue)
+library(janitor)
+library(dtplyr)
 
-reference <- read.csv(
-  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_reference.csv"
-)
+# remove all objects
+rm(list = ls())
+options(scipen = 999)
+set.seed(123)
 
-msyt_fut_in <- read.csv(
-  "D://data//projects//MSYTDelivery//msyt_2025//prov//MSYT_prov_future_input.csv"
-)
+schema <- 'msyt_2025'
+opt <- paste0("-c search_path=",schema)
+user_name <- 'results'
+database <- 'msyt'
+db<- dbConnect('PostgreSQL',dbname=database,user=user_name,options = opt)
+
+hts<-read_csv("C:\\Data\\projects\\MSYTDelivery\\msyt_2025\\prov\\MSYT_prov_current_input_output.csv")
+
+#hts<-hts%>%select(feature_id, starts_with("HT"))
+hts<-hts%>%select(feature_id,HTcon_120,HTdec_120)%>%
+  filter(HTdec_120 > 0 & HTcon_120 > 0)
+glimpse(hts)
+
+
+sql<-glue_sql("select * from bec12",.con = db)
+
+bec<-dbGetQuery(db,sql)
+bec<-bec%>%mutate(
+  bec_label = paste0(zone,"_",subzone))%>%
+  select(feature_id,bec_label)
+
+hts<-inner_join(hts,bec,join_by("feature_id"))
+
+ht_ratio<-hts%>%
+  mutate(
+    dec_con_ratio = HTdec_120/HTcon_120,,
+    con_dec_ratio = HTcon_120/HTdec_120)%>%
+    group_by(bec_label)%>%
+  summarise(
+    N = n(),
+    dec_con_ratio = round(mean(dec_con_ratio),2),
+    con_dec_ratio = round(mean(con_dec_ratio),2)
+  )
+
+View(ht_ratio)
+write_csv(ht_ratio,"./data/csv/bec_height_ratios.csv")
 ```
 
-## Extend MSYT Curves to Age 250
-
-Ages greater than 120 are populated using age-120 values.
-
-```{r extend-msyt}
-new_ages <- seq(130, 250, 10)
-
-msyt_expanded <- msyt
-
-for (age in new_ages) {
-
-  msyt_expanded <- msyt_expanded %>%
-    mutate(
-      !!paste0("MVcon_", age) := MVcon_120,
-      !!paste0("MVdec_", age) := MVdec_120,
-      !!paste0("HTcon_", age) := HTcon_120,
-      !!paste0("HTdec_", age) := HTdec_120
-    )
-}
-```
-
-## Reorder MSYT Columns
-
-```{r reorder-msyt}
-ages <- seq(0, 250, 10)
-
-ordered_cols <- c(
-  "feature_id",
-  paste0("MVcon_", ages),
-  paste0("MVdec_", ages),
-  paste0("HTcon_", ages),
-  paste0("HTdec_", ages)
-)
-
-msyt_expanded <- msyt_expanded %>%
-  select(all_of(ordered_cols))
-```
-
-## Build MSYT Output
-
-```{r build-msyt}
-msyt_part <- reference %>%
-  filter(!current_yield %in% c("VDYP", "Excluded")) %>%
-  select("feature_id") %>%
-  left_join(msyt_expanded, by = "feature_id") %>%
-  mutate(source = "MSYT")
-```
-
-## Load Height Ratios
-
-```{r load-height-ratios}
-ht_ratio <- read.csv(
-  "D://data//projects//VDYP//VDYP//2024//prov//bec_height_ratios.csv"
-)
-```
-
-## Calculate VDYP Heights
+#### Calculate conifer and deciduous height
 Calculate Conifer and Deciduous Heights based on the ratio table
-
 ```{r vdyp-heights}
 vdyp_ht <- unique(
   yld[, .(
@@ -340,9 +402,8 @@ vdyp_ht_wide <- vdyp_ht %>%
     names_glue = "{.value}{age_label}"
   )
 ```
-
-## Build VDYP Output
-
+ 
+### Finalize NSYT tables
 ```{r build-vdyp}
 vdyp_part <- reference %>%
   filter(current_yield %in% c("VDYP", "Excluded")) %>%
@@ -356,16 +417,16 @@ vdyp_part <- reference %>%
     by = c("feature_id" = "FEATURE_ID")
   ) %>%
   mutate(source = "NSYT")
+```
 
+## Combine NSYT tables and MSYT tables and export
+
+```{r export}
 final_yld <- bind_rows(
   msyt_part,
   vdyp_part
 )
-```
 
-## Export Final Yield Table
-
-```{r export}
 write.csv(
   final_yld,
   "D:\\data\\projects\\VDYP\\VDYP\\2024\\prov\\yld_combined.csv",
@@ -373,7 +434,7 @@ write.csv(
 )
 ```
 
-## QA/QC Checks
+## QA/QC checks
 
 Identify records where all merchantable volume columns equal 0.
 
@@ -395,7 +456,7 @@ zero_features <- final_yld %>%
   select(feature_id, source)
 ```
 
-## Review NSYT Zero-Volume Records
+### Review NSYT Zero-Volume Records
 
 ```{r nsyt-zero}
 nsyt_all_zero <- zero_features %>%
@@ -406,7 +467,7 @@ nsyt_all_zero <- zero_features %>%
 nsyt_all_zero
 ```
 
-## Review MSYT Zero-Volume Records
+### Review MSYT Zero-Volume Records
 
 ```{r msyt-zero}
 msyt_all_zero <- zero_features %>%
@@ -416,3 +477,4 @@ msyt_all_zero <- zero_features %>%
 
 msyt_all_zero
 ```
+

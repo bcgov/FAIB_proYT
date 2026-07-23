@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The Consolidated Provincial Yield Table</title>
-  <meta name="description" content="The Consolidated Provincial Yield Table" />
+  <title>Chapter 2 Introduction to the Provincial NSYT Production Process | The Consolidated Provincial Yield Table</title>
+  <meta name="description" content="Chapter 2 Introduction to the Provincial NSYT Production Process | The Consolidated Provincial Yield Table" />
   <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="The Consolidated Provincial Yield Table" />
+  <meta property="og:title" content="Chapter 2 Introduction to the Provincial NSYT Production Process | The Consolidated Provincial Yield Table" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Consolidated Provincial Yield Table" />
+  <meta name="twitter:title" content="Chapter 2 Introduction to the Provincial NSYT Production Process | The Consolidated Provincial Yield Table" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction-to-the-provincial-nsyt-production-process.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="vdyp-inputs-preparation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -230,19 +230,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The Consolidated Provincial Yield Table</h1>
-<p class="author"><em>Shuyan Jiang, Kelly Izzard, Yingbing Chen</em></p>
-<p class="date"><em>2026-07-23</em></p>
-</div>
-<div id="background" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Background<a href="index.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Forest Analysis and Inventory Branch (FAIB) is in the process of developing and publicizing a single provincial yield dataset that would assign a yield curve to every feature_id in the corporate forest inventory. The approach combines FAIB’s Managed Stand Yield Tables (MSYTs) derived from RESULTS information for harvested and regenerated stands with VDYP-generated natural stand yield curves for unmanaged stands represented in the Vegetation Resources Inventory (VRI). The objective is to establish a comprehensive, wall-to-wall provincial yield framework that can support timber supply analysis, Forest Landscape Planning (FLP), strategic assessments, and other forest management initiatives.</p>
-<p>One of the primary advantages of a provincial yield dataset is that it would provide complete and consistent coverage across British Columbia. Every forested polygon would have an associated yield projection, eliminating the need for individual projects to assemble yield information independently. This would significantly reduce the effort required to develop inputs for TSRs, FLPs, and provincial strategic analyses while ensuring that all analyses begin from a common and transparent data foundation.</p>
-<p>A second benefit is improved consistency and comparability across planning units. Currently, yield assumptions often vary between TSAs due to differences in processing methodologies and yield-generation approaches. A standardized provincial dataset promotes a consistent analytical framework across the province, making it easier to compare results among TSAs, evaluate regional trends, and support provincial reporting and decision-making. Such consistency would increase transparency and reduce variability associated with differing technical approaches.</p>
-<p>The initiative would also maximize the value of existing provincial investments in inventory and growth-and-yield. By integrating RESULTS-based managed stand information, VRI data, VDYP modelling, and existing growth and yield research into a single corporate product, FAIB could leverage datasets that are already maintained and routinely updated. Rather than repeatedly recreating yield packages for individual projects, planners and analysts would be able to access and utilize a common provincial resource that reflects current inventory and management information.</p>
-<p>Finally, a provincial yield layer would substantially improve analytical efficiency and responsiveness. Having a ready-to-use yield framework would enable rapid evaluation of policy options, disturbance impacts, fibre supply scenarios, and Forest Landscape Planning alternatives. The dataset could become a foundational corporate information asset, much like the VRI itself, supporting a wide range of applications including TSRs, carbon assessments, biodiversity planning, stewardship initiatives, and long-term strategic forest management. By providing a single, authoritative source of yield information, FAIB would strengthen the consistency, scalability, and repeatability of forest analysis across British Columbia.</p>
-<p>The following details how provincial natural stand yield table (NSYT) component was generated, the amalgamation with the provincial managed stand yield curves into a single provincial current yield table, and the QA assessments of the product.</p>
+<div id="introduction-to-the-provincial-nsyt-production-process" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Introduction to the Provincial NSYT Production Process<a href="introduction-to-the-provincial-nsyt-production-process.html#introduction-to-the-provincial-nsyt-production-process" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Provincial NSYT dataset is a comprehensive province-wide yield product generated from the Rank 1 (R1) layer of the VRI. The R1 layer was selected because it represents the leading forest layer within each polygon and provides a consistent provincial basis for yield estimation. Yield projections were developed using the Variable Density Yield Projection version 7 (VDYP7) and are intended to support strategic forest analysis, TSRs, FLP, cumulative effects assessments, forest estate modelling, carbon analysis, and other provincial forest management applications. The resulting dataset provides a standardized natural stand yield curve for each eligible forest feature in the provincial inventory, creating a common analytical foundation for forest planning and decision-making.</p>
+<p>Development of the provincial NSYT required extensive preparation and quality assurance of the underlying inputs before yield generation could occur. Input datasets were assembled from provincial VRI, VDYP input layers, VDYP input polygons, species composition records, and supporting tables. A series of validation and correction procedures were implemented to identify and resolve issues related to missing rank assignments, species composition, age and height estimates, basal area, crown closure, density attributes, vegetation cover information, and other inventory anomalies. These steps ensured that the final VDYP inputs were standardized, internally consistent, and suitable for generating reliable provincial-scale yield projections.</p>
+<p>The following chapters document both the development of the provincial NSYT dataset and the assessments undertaken to evaluate its suitability for operational use. Chapter 3 describes the preparation of the VDYP input database, including data loading, quality assurance procedures, rank layer assignment methodologies, species composition correction, age and height validation, and the updates applied to vegetation and inventory attributes. Chapter 4 summarizes the VDYP projection parameters, assumptions, and model inputs that were ultimately used to generate the final provincial NSYT yield curves. Chapter 5 describes the process used to integrate the Provincial NSYT with the Provincial MSYT dataset, creating a single provincial yield library that includes merchantable volume and dominant height projections for both natural and managed stands.</p>
+<p>The final chapters focus on validation of the provincial product. Chapter 6 presents a comparison between NSYT-derived projected volumes and the existing live stand volume estimates contained within the VRI. This assessment evaluates the consistency between the new NSYT dataset and the currently published provincial inventory information and helps identify differences arising from age treatments, interpolation methods, yield modelling assumptions, and inventory inputs. Chapter 7 evaluates the implications of using an R1-only projection approach by comparing polygon-level yields generated from the provincial NSYT methodology against yields produced using all eligible forest layers within a polygon. This analysis quantifies the differences between simplified R1-based projections and traditional multi-layer VDYP projections and provides an assessment of the extent to which the provincial NSYT approach reproduces polygon-level yields across the provincial land base. Collectively, these assessments provide confidence that the Provincial NSYT dataset is a robust, transparent, and operationally useful yield product suitable for a wide range of provincial planning and modelling applications.</p>
 
 </div>
             </section>
@@ -250,8 +243,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="introduction-to-the-provincial-nsyt-production-process.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vdyp-inputs-preparation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -282,7 +275,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
     "text": "Edit"
   },
   "history": {
